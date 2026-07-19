@@ -1,0 +1,281 @@
+
+.glow-button {
+    cursor: pointer;
+    display: flex;
+    flex-flow: column;
+    place-content: center;
+    align-items: center;
+    gap: 10px;
+    width: min-content;
+    height: min-content;
+    padding: 0;
+    text-decoration: none;
+    position: relative;
+    overflow: visible;
+
+    box-sizing: border-box;
+    -webkit-font-smoothing: inherit;
+    
+}
+
+.glow-button__frame {
+    position: relative;
+    z-index: 2;
+    /* как в оригинале */
+    display: flex;
+    flex-flow: column;
+    place-content: center;
+    align-items: center;
+    align-self: stretch;
+    gap: 10px;
+
+    width: auto;
+    height: min-content;
+    padding: 2.4px;
+
+    overflow: hidden;
+    border-radius: 14px;
+
+    background-color: rgb(59, 59, 59);
+    box-shadow: rgba(255, 255, 255, 0) 0px 1px 9px 0px;
+
+    opacity: 1;
+    will-change: auto;
+}
+
+.glow-button__inner {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-flow: column;
+    place-content: center;
+    align-items: center;
+    gap: 10px;
+    
+    width: 100%;
+    height: min-content;
+    padding: 12px 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+    
+    background-color: rgb(0, 0, 0);
+    opacity: 1;
+    will-change: auto;
+    /* в оригинале override → none */
+}
+
+.glow-button__glow--1 {
+    position: absolute;
+    z-index: 1;
+    flex: none;
+    width: 77px;
+    height: 41px;
+    top: calc(118.182% - 20.5px);
+    left: calc(8.82353% - 38.5px);
+    overflow: hidden;
+
+    background: radial-gradient(50% 50%, rgb(163, 163, 163) 0%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 999px;
+    filter: blur(10px);
+    opacity: 0.41;
+
+    will-change: transform;
+    transform: none;
+    transform-origin: 50% 50% 0px;
+}
+.glow-button__glow--2 {
+    position: absolute;
+    z-index: 1;
+    flex: none;
+    width: 92px;
+    height: 40px;
+    top: calc(2.22045e-14% - 20px);
+    left: calc(74.9035% - 46px);
+    overflow: hidden;
+
+    background: radial-gradient(50% 50%, rgb(115, 115, 115) 0%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 999px;
+    filter: blur(10px);
+    opacity: 1;
+
+    will-change: auto;
+}
+.glow-button__text-container {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-flow: row;
+    place-content: center;
+    align-items: center;
+    gap: 0;
+
+    width: 100%;
+    height: min-content;
+    padding: 0;
+
+    overflow: visible;
+    opacity: 1;
+}
+.glow-button__richtext {
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    white-space: pre;
+
+    z-index: 1;
+    flex: none;
+    width: auto;
+    height: auto;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: flex-start;
+
+    outline: none;
+    opacity: 1;
+    transform: none;
+}
+.glow-button__text {
+    font-family: "Inter Display", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6em;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.glow-button__white-top {
+    position: absolute;
+    z-index: 1;
+    flex: none;
+    width: 95px;
+    height: 36px;
+    top: -19px;
+    right: -17px;
+    overflow: hidden;
+    background-color: #fff;
+    filter: blur(8px);
+    opacity: 1;
+}
+.glow-button__white-blur--1 {
+    position: absolute;
+    z-index: 1;
+    flex: none;
+    width: 54px;
+    height: 46px;
+    bottom: -18px;
+    left: -22px;
+    overflow: hidden;
+    background-color: rgb(230, 230, 230);
+    filter: blur(8px);
+    transform: none;
+    transform-origin: 50% 50% 0px;
+}
+.glow-button__white-blur--2 {
+    position: absolute;
+    z-index: 1;
+    flex: none;
+    width: 40px;
+    height: 34px;
+    bottom: -17px;
+    left: -22px;
+    overflow: hidden;
+    background-color: #fff;
+    filter: blur(8px);
+    transform: none;
+    transform-origin: 50% 50% 0px;
+}
+.glow-button__outer-glow--1 {
+    position: absolute;
+    z-index: 1;
+    flex: none;
+    width: 58px;
+    height: 30px;
+    top: calc(83.9506% - 15px);
+    left: -11px;
+    overflow: hidden;
+    background: radial-gradient(50% 50%, rgb(171, 171, 171) 0%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 999px;
+    filter: blur(10px);
+    opacity: 1;
+    will-change: transform;
+}
+.glow-button__outer-glow--2 {
+    position: absolute;
+    z-index: 1;
+    flex: none;
+    width: 74px;
+    height: 41px;
+    top: -7px;
+    right: -12px;
+    overflow: hidden;
+
+    background: radial-gradient(50% 50%, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0) 100%);
+    border-radius: 21px;
+    filter: blur(10px);
+    opacity: 0.62;
+
+    will-change: transform;
+}
+
+/**************************
+* Animation
+***************************/
+//hover
+.glow-button__frame { transition: box-shadow 1s ease, background-color 1s ease; }/* базовое состояние */
+.glow-button__inner { transition: background-color 1s ease; }
+/* hover */
+.glow-button:hover .glow-button__frame {
+    box-shadow: 0 0 20px var(--btn-glow, #ffffff);
+    background-color: var(--btn-frame, #3b3b3b);
+    transition-duration: 1.6s;
+}
+.glow-button:hover .glow-button__inner {
+    background-color: var(--btn-bg, #000000);
+    transition-duration: 2s;
+}
+// Press
+.glow-button:active .glow-button__frame {
+    transform: scale(0.95);
+    box-shadow: 0 0 8px var(--btn-glow, #ffffff);
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+.glow-button:active .glow-button__inner {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+
+/***********************************
+* No Artefact
+***********************************/
+.glow-button {
+    appearance: none;    
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.glow-button:focus,
+.glow-button:focus-visible,
+.glow-button:active {  outline: none;}
+.glow-button:focus-visible .glow-button__frame {  box-shadow: 0 0 20px var(--btn-glow, #ffffff);}
+.glow-button:focus:not(:focus-visible) {  outline: none;}
+.glow-button:focus-visible .glow-button__frame {
+    box-shadow: 0 0 0 2px var(--btn-glow, #ffffff),
+        0 0 20px var(--btn-glow, #ffffff);
+}
+/***********************************
+* Disabled State
+***********************************/
+
+.glow-button.is-disabled { cursor: not-allowed;  pointer-events: none;   opacity: 0.6;}
+.glow-button.is-disabled, .glow-button.is-disabled * { cursor: not-allowed !important; }
+.glow-button.is-disabled .glow-button__frame { box-shadow: none; background-color: #2a2a2a;}
+.glow-button.is-disabled .glow-button__inner { background-color: #1a1a1a;}
+.glow-button.is-disabled .glow-button__text { color: #888888;}

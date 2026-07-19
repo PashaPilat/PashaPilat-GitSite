@@ -1,0 +1,54 @@
+.toggle {
+    width: 100px;
+    height: 30px;
+    border-radius: 25px;
+    border: 1px solid #333333;
+    background: linear-gradient(145deg, #101010, #252424);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+        inset 2px 2px 6px rgba(0, 0, 0, 0.6);
+
+    .track {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1px;
+        width: 190px; // ширина больше тоггла
+        transform: translateX(10px); // базовое положение
+    }
+
+    .label {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: #019d2b;
+        width: 60px;
+        text-align: center;
+        text-shadow: 0px 0px 2px #060606;
+    }
+
+    .slider {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    // активируем анимацию только после первого клика
+    &.animate .track {
+        transition: transform 0.4s ease;
+    }
+
+    &.web .track {
+        transform: translateX(10px);
+    }
+
+    &.unity .track {
+        transform: translateX(-59px);
+    }
+}

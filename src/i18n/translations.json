@@ -1,0 +1,86 @@
+{
+    "ru": {
+        "nav": {
+            "services": "Услуги",
+            "projects": "Проекты",
+            "testimonials": "Отзывы",
+            "contact": "Контакт"
+        },
+        "toggle": {
+            "web": "Web",
+            "unity": "Unity"
+        },
+        "hero": {
+            "home": {
+                "subtitle": "Создаю уникальные цифровые решения",
+                "title": "Превращаю идеи в работающие цифровые продукты, которые нужны именно тебе",
+                "description": "Более 10 лет коммерческой разработки. Проектирую архитектуру, создаю веб-платформы и сложные сервисы, работаю с производительностью, API и интеграциями. Параллельно разрабатываю собственную игру на Unity, создавая её полностью самостоятельно — от генерации мира до игровых систем.",
+                "btnStart": "Начать сейчас",
+                "btnProjects": "Смотреть проекты"
+            },
+            "unity": {
+                "subtitle": "Создаю интерактивные игровые вселенные",
+                "title": "Превращаю идеи в игровые миры, наполненные жизнью, которые хочется пройти до конца",
+                "description": "Разработка игр для меня — это возможность создавать миры с собственной историей, логикой и законами. Я самостоятельно проектирую архитектуру проекта, разрабатываю технологии генерации мира, игровые механики и инструменты разработки, уделяя особое внимание производительности, масштабируемости и логике игрового мира.",
+                "btnStart": "Играть сейчас",
+                "btnProjects": "Смотреть игровые проекты"
+            }
+        }
+    },
+    "ua": {
+        "nav": {
+            "services": "Послуги",
+            "projects": "Проєкти",
+            "testimonials": "Відгуки",
+            "contact": "Контакт"
+        },
+        "toggle": {
+            "web": "Web",
+            "unity": "Unity"
+        },
+        "hero": {
+            "home": {
+                "subtitle": "Створюю унікальні цифрові рішення",
+                "title": "Перетворюю ідеї на працюючі цифрові продукти, які потрібні саме тобі",
+                "description": "Понад 10 років комерційної розробки. Проектую архітектуру, створюю веб-платформи та складні сервіси, працюю з продуктивністю, API та інтеграціями. Паралельно розробляю власну гру на Unity, створюючи її повністю самостійно — від генерації світу до ігрових систем.",
+                "btnStart": "Почати зараз",
+                "btnProjects": "Дивитися проєкти"
+            },
+            "unity": {
+                "subtitle": "Створюю інтерактивні ігрові всесвіти",
+                "title": "Перетворюю ідеї на ігрові світи, наповнені життям, які хочеться пройти до кінця",
+                "description": "Розробка ігор для мене — це можливість створювати світи з власною історією, логікою та законами. Я самостійно проектую архітектуру проєкту, розробляю технології генерації світу, ігрові механіки та інструменти розробки, приділяючи особливу увагу продуктивності, масштабованості та логіці ігрового світу.",
+                "btnStart": "Грати зараз",
+                "btnProjects": "Дивитися ігрові проєкти"
+            }
+        }
+    },
+    "en": {
+        "nav": {
+            "services": "Services",
+            "projects": "Projects",
+            "testimonials": "Testimonials",
+            "contact": "Contact"
+        },
+        "toggle": {
+            "web": "Web",
+            "unity": "Unity"
+        },
+        "hero": {
+            "home": {
+                "subtitle": "I create unique digital solutions",
+                "title": "I turn ideas into working digital products you need",
+                "description": "Over 10 years of commercial development. I design architecture, build web platforms and complex services, work with performance, APIs and integrations. In parallel, I develop my own Unity game entirely by myself — from world generation to gameplay systems.",
+                "btnStart": "Start now",
+                "btnProjects": "View projects"
+            },
+            "unity": {
+                "subtitle": "I create interactive game universes",
+                "title": "I turn ideas into living game worlds you want to complete",
+                "description": "Game development for me is the opportunity to create worlds with their own history, logic, and laws. I independently design the project architecture, develop world generation technologies, gameplay mechanics, and development tools, paying special attention to performance, scalability, and the logic of the game world.",
+                "btnStart": "Play now",
+                "btnProjects": "View game projects"
+            }
+        }
+    }
+}

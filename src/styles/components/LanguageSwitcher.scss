@@ -1,0 +1,60 @@
+.lang-switcher {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+
+    .current {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        // margin-top: 16px;
+
+        .lang-text {
+            font-weight: bold;
+        }
+
+        .icon {
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 6px;
+        padding: 6px 0;
+        margin-top: 4px;
+        animation: fadeIn 0.3s ease forwards;
+        list-style: none;
+
+        li {
+            padding: 6px 12px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #00ff66; // зелёный при ховере
+            }
+
+            &.active {
+                color: #00ff66; // активный язык
+                font-weight: bold;
+            }
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

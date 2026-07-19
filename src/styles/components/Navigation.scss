@@ -1,0 +1,256 @@
+@use "../variables.scss" as *;
+@use "../animations.scss" as *;
+
+/* ─── Навигация ─── */
+.hero-wrapper {
+    header {
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        z-index: 3;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        font-size: 1rem;
+        height: 90px;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $nav-link-color;
+            font-weight: bold;
+            font-size: 1.2rem;
+
+            .logo-img {
+                height: 35px;
+                width: auto;
+            }
+        }
+        .nav-controls {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            /* ссылки */
+            .nav-links {
+                list-style: none;
+                display: flex;
+                gap: 30px;
+
+                a {
+                    color: $nav-link-color;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: $nav-link-hover-color;
+                    }
+                }
+            }
+            .toggle {  margin-top: 10px; }
+            .lang-switcher {  margin-top: 15px; }
+        }
+
+    }
+
+    /* бургер */
+    .burger {
+        color: $text-color-white;
+        cursor: pointer;
+        z-index: 10;
+        &.hidden { display: none; }
+    }
+}
+
+/* ─── Адаптация ─── */
+       
+@include respond-from(fullhd) {
+  .burger, .logo-burger {
+      display: none;// по умолчанию скрыт
+      i { display: none; }
+    }
+}
+@include respond-to(fullhd) {
+    .navbar {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $nav-link-color;
+            font-weight: bold;
+            font-size: 1.2rem;
+
+            // состояния
+            &.opening { animation: fadeOut 1s forwards; } // исчезает за 1с
+            &.shows,&.open,&.hiden { display: none;  } // скрыт в этих состояниях
+            &.closing { animation: fadeIn 1s forwards; } // появляется за 1с
+            &.close { opacity: 1; } // виден по умолчанию
+            
+            .logo-img { height: 35px; width: auto; }
+        }
+        .nav-controls {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            background: $background-color-burger;
+            flex-direction: column;
+            justify-content: flex-start; // контент сверху
+            align-items: flex-start;     // список слева
+            padding: 80px 40px 40px;     // отступ сверху под бургер/переключатели
+            gap: 20px;
+            z-index: 9;
+
+            // состояния
+            &.opening           { display: flex; animation: slideDown 1.5s ease forwards; }
+            &.shows, &.open     { display: flex; opacity: 1;  transform: translateY(0); } // без повторной анимации
+            &.hiden             { display: flex; } // элементы исчезают
+            &.closing           { display: flex; animation: slideUp 1.5s ease forwards; }// меню уезжает вверх
+            &.close             { display: none; } // полностью скрыто
+
+            .logo-burger {
+                display: none;
+                align-items: center;
+                gap: 10px;
+                color: $nav-link-color;
+                font-weight: bold;
+                font-size: 1.2rem;
+                position: absolute;
+                top: 4%;  left: 4%;
+                &.shows             { display: flex; animation: fadeIn 1s ease forwards; }
+                &.open              {  display: flex; }
+                &.hiden             { animation: fadeOut 1s ease forwards; }
+                &.closing, &.close  { display: none; }
+
+                .logo-img {  height: 28px;  width: auto; }
+            }
+            .nav-links {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                opacity: 0;
+                transform: translateX(-30px);
+                width: 100%;
+                background: #080808b3;
+                padding: 20px 40px;
+
+                &.shows             { animation: slideInLeft 1.3s ease forwards;  }
+                &.open              { opacity: 1; transform: translateX(0); }
+                &.hiden             { animation: slideOutLeft 1s ease forwards; }
+                &.closing, &.close  { opacity: 0; transform: translateX(-30px); }
+                
+                a {
+                    font-size: 1.5rem;
+                    color: $nav-link-color;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: $nav-link-hover-color;
+                    }
+                }
+            }
+
+            .toggle {
+                position: absolute;
+                top: 5%; right: 10%;
+                opacity: 0;
+                &.shows             { animation: fadeIn 1s ease forwards; }
+                &.open              { opacity: 1; }
+                &.hiden             { animation: fadeOut 1s ease forwards; }
+                &.closing,  &.close { opacity: 0;}
+            }
+            .lang-switcher {
+                position: absolute;
+                top: 6.5%; right: 5.5%;
+                opacity: 0;
+
+                &.shows             { animation: fadeIn 1s ease forwards; }
+                &.open              { opacity: 1; }
+                &.hiden             { animation: fadeOut 1s ease forwards; }
+                &.closing,  &.close { opacity: 0;}
+            }
+
+        }
+        .burger {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+
+            &.burger-btn-open {
+                &.close { display: flex; }              // виден в закрытом состоянии
+                &.opening { display: flex; animation: fadeIn 1s ease forwards; }            // скрыт при открытии
+                &.shows { display: none; }              // скрыт при показе меню
+                &.open { display: none; }               // скрыт при открытом меню
+                &.hiden { display: none; }              // скрыт при закрытии
+                &.closing { display: flex; animation: fadeIn 1s ease forwards; } // появляется при закрытии
+            }
+
+            &.burger-btn-close {
+                &.close { display: none; }              // скрыт в закрытом состоянии
+                &.opening { display: none; }            // скрыт при открытии
+                &.shows { display: flex; animation: fadeIn 1s ease forwards; } // появляется при показе меню
+                &.open { display: flex; }               // виден при открытом меню
+                &.hiden { animation: fadeOut 1s ease forwards; } // исчезает при закрытии
+                &.closing { display: none; }            // скрыт при закрытом меню
+            }
+        }
+    }
+}
+
+
+/* Ноутбуки 15-16" → бургер */
+@include respond-to(laptop-large) {
+    
+}
+
+
+/* Ноутбуки 13-14" → уменьшаем шрифты */
+@include respond-to(laptop-medium) {
+    .navbar {
+        padding: 15px 30px;
+        font-size: 0.9rem;
+
+        .logo {
+            font-size: 1rem;
+
+            .logo-img {
+                height: 28px;
+            }
+        }
+    }
+
+    .nav-controls {
+        gap: 15px;
+
+        .nav-links {
+            gap: 20px;
+        }
+    }
+}
+
+/* Планшеты */
+@include respond-to(tablet-large) {
+    .navbar {
+        padding: 10px 20px;
+    }
+}
+
+/* Мобильные */
+@include respond-to(mobile) {
+    .navbar {
+        padding: 8px 15px;
+    }
+
+    .logo {
+        font-size: 0.9rem;
+
+        .logo-img {
+            height: 24px;
+        }
+    }
+}

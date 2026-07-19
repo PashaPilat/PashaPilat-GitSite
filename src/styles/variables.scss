@@ -1,0 +1,81 @@
+// Breakpoints
+$ultrawide: 1920px; // UltraWide / 2K / 4K
+$fullhd: 1600px; // FullHD
+$laptop-large: 1480px; // Ноутбуки 15-16"
+$laptop-medium: 1280px; // Ноутбуки 13-14"
+$tablet-large: 1024px; // Планшеты
+$tablet-small: 768px; // Планшеты (портрет)
+$mobile: 480px; // Телефоны
+
+//Цвета
+$background-color: #000000;
+$background-color-burger: #000000f0;
+$text-color-white: #ffffff;
+$nav-link-color: #ffffffa6;
+$nav-link-hover-color: #ffffff;
+$gradient-color-hero: #ffffff;
+
+
+// Миксин для адаптации
+// Миксин для адаптации вниз (<= breakpoint)
+@mixin respond-to($device) {
+  @if $device == ultrawide {
+    @media (max-width: $ultrawide) { @content; }
+  }
+
+  @if $device == fullhd {
+    @media (max-width: $fullhd) { @content; }
+  }
+
+  @if $device == laptop-large {
+    @media (max-width: $laptop-large) { @content; }
+  }
+
+  @if $device == laptop-medium {
+    @media (max-width: $laptop-medium) { @content; }
+  }
+
+  @if $device == tablet-large {
+    @media (max-width: $tablet-large) { @content; }
+  }
+
+  @if $device == tablet-small {
+    @media (max-width: $tablet-small) { @content; }
+  }
+
+  @if $device == mobile {
+    @media (max-width: $mobile) { @content; }
+  }
+}
+
+// Миксин для адаптации вверх (> breakpoint)
+@mixin respond-from($device) {
+  @if $device == ultrawide {
+    @media (min-width: $ultrawide + 1) { @content; }
+  }
+
+  @if $device == fullhd {
+    @media (min-width: $fullhd + 1) { @content; }
+  }
+
+  @if $device == laptop-large {
+    @media (min-width: $laptop-large + 1) { @content; }
+  }
+
+  @if $device == laptop-medium {
+    @media (min-width: $laptop-medium + 1) { @content; }
+  }
+
+  @if $device == tablet-large {
+    @media (min-width: $tablet-large + 1) { @content; }
+  }
+
+  @if $device == tablet-small {
+    @media (min-width: $tablet-small + 1) { @content; }
+  }
+
+  @if $device == mobile {
+    @media (min-width: $mobile + 1) { @content; }
+  }
+}
+
