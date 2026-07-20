@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,13 +20,12 @@
   "bugs": {
     "url": "https://github.com/PashaPilat/PashaPilat-GitSite/issues"
   },
-  "homepage": "https://github.com/PashaPilat/PashaPilat-GitSite#readme",
+  "homepage": "https://PashaPilat.github.io/PashaPilat-GitSite",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.3.0",
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.4.0",
-    "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "i18next": "^26.3.6",
     "react": "^19.2.7",
@@ -40,6 +40,7 @@
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
     "babel-loader": "^10.1.1",
+    "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^7.1.4",
     "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.7",

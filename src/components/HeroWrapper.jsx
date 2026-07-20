@@ -6,6 +6,7 @@ import { t } from "../i18n";
 import { getLangFromPath } from "../utils/getLangFromPath";
 
 import "../styles/components/HeroWrapper.scss";
+import photo_home from "../assets/images/photo_home.png";
 
 function HeroWrapper({ page = "home" }) {
     const currentLang = getLangFromPath(window.location.pathname);
@@ -17,11 +18,7 @@ function HeroWrapper({ page = "home" }) {
 
             {/* Фото блок */}
             <section className="photo-block">
-                <img
-                    src="/assets/images/photo_home.png"
-                    alt="Photo"
-                    className="background-photo-img"
-                />
+                <img src={photo_home} alt="Photo" className="background-photo-img" />
             </section>
 
             {/* Hero блок */}

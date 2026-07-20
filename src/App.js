@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import UnityPage from "./pages/Unity";
 import { availableLangs } from "./i18n";
+import { BASENAME } from "./config";
 
 import "./styles/main.scss";
 
 function App() {
     return (
-        <Router>
+        <Router basename={BASENAME}>
             <Routes>
                 {/* дефолтный русский */}
                 <Route path="/" element={<Home />} />

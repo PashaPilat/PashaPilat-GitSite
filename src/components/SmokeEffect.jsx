@@ -1,15 +1,10 @@
 // src/components/SmokeEffect.jsx
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import "../styles/components/SmokeEffect.scss";
 
-const vertexShader = `
-  void main() {
-    gl_Position = vec4(position, 1.0);
-  }
-`;
-
+const vertexShader = ` void main() {  gl_Position = vec4(position, 1.0); }`;
 const fragmentShader = `
   uniform float u_time;
   uniform vec2 u_resolution;
@@ -81,24 +76,18 @@ function getCssColor(variableName) {
 function SmokePlane() {
     const materialRef = useRef();
 
-    useFrame(({ clock, size }) => {
-        if (materialRef.current) {
-            materialRef.current.uniforms.u_time.value = clock.elapsedTime;
-            materialRef.current.uniforms.u_resolution.value = [
-                size.width,
-                size.height,
-            ];
+   useEffect(() => {
+        if (!materialRef.current) return;
 
-            // обновляем цвета из SCSS
-            materialRef.current.uniforms.u_color1.value = new THREE.Vector4(
-                ...getCssColor("--color1").toArray(),
-                1
-            );
-            materialRef.current.uniforms.u_color2.value = new THREE.Vector4(
-                ...getCssColor("--color2").toArray(),
-                1
-            );
-        }
+        materialRef.current.uniforms.u_color1.value.set( ...getCssColor("--color1").toArray(),  1 );
+        materialRef.current.uniforms.u_color2.value.set( ...getCssColor("--color2").toArray(),  1 );
+    }, []);
+
+    useFrame(({ clock, size }) => {
+        if (!materialRef.current) return;
+
+        materialRef.current.uniforms.u_time.value = clock.elapsedTime;
+        materialRef.current.uniforms.u_resolution.value.set(  size.width, size.height );
     });
 
     return (
@@ -113,7 +102,7 @@ function SmokePlane() {
                 depthWrite={false}
                 uniforms={{
                     u_time: { value: 0 },
-                    u_resolution: { value: [window.innerWidth, window.innerHeight] },
+                    u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
                     u_color1: { value: new THREE.Vector4(...getCssColor("--color1").toArray(), 1) },
                     u_color2: { value: new THREE.Vector4(...getCssColor("--color2").toArray(), 1) },
                     u_distortion: { value: 0.5 },

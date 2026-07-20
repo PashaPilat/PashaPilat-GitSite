@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { BASENAME } from "./config";
 import App from "./App";
 
 import '@fortawesome/fontawesome-free/css/all.min.css';

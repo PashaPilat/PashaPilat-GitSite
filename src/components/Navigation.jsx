@@ -5,6 +5,7 @@ import { getLangFromPath } from "../utils/getLangFromPath";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import ToggleMode from "../components/ToggleMode";
 import "../styles/components/Navigation.scss";
+import logo from "../assets/images/logo 2.png";
 
 function Navigation() {
     const navigate = useNavigate();
@@ -40,12 +41,12 @@ useEffect(() => {
         <header className="home">
             <nav className="navbar">
                 <div className={`logo ${menuState}`}>
-                    <img src="/assets/images/logo 2.png" alt="Logo" className="logo-img" />
+                    <img src={logo} alt="Logo" className="logo-img" />
                     PashaPilat
                 </div>
                 <div className={`nav-controls ${menuState}`}>
                     <div className={`logo-burger ${menuState}`}>
-                        <img src="/assets/images/logo 2.png" alt="Logo" className="logo-img" />
+                        <img src={logo} alt="Logo" className="logo-img" />
                         PashaPilat
                     </div>
                     <ul className={`nav-links ${menuState}`}>

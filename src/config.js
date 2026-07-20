@@ -1,0 +1,1 @@
+export const BASENAME = window.location.hostname === "pashapilat.github.io" ? "/PashaPilat-GitSite" : "";
