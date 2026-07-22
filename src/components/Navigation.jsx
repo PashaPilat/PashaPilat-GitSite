@@ -50,12 +50,12 @@ useEffect(() => {
                         PashaPilat
                     </div>
                     <ul className={`nav-links ${menuState}`}>
-                        <li><a href="#services">{t(currentLang, "nav", "services")}</a></li>
                         <li><a href="#projects">{t(currentLang, "nav", "projects")}</a></li>
-                        <li><a href="#testimonials">{t(currentLang, "nav", "testimonials")}</a></li>
+                        <li><a href="#services">{t(currentLang, "nav", "services")}</a></li>
+                        <li><a href="#about">{t(currentLang, "nav", "about")}</a></li>
                         <li><a href="#contact">{t(currentLang, "nav", "contact")}</a></li>
                     </ul>
-                
+
                     <ToggleMode burgerOpen={menuState} />
                     <LanguageSwitcher burgerOpen={menuState} />
                     <div className={`burger burger-btn-close ${menuState}`} onClick={handleClose}><i className="fas fa-times"></i></div>

@@ -1,10 +1,10 @@
 {
     "ru": {
         "nav": {
-            "services": "Услуги",
             "projects": "Проекты",
-            "testimonials": "Отзывы",
-            "contact": "Контакт"
+            "services": "Услуги",
+            "about": "Обо мне",
+            "contact": "Контакты"
         },
         "toggle": {
             "web": "Web",
@@ -16,7 +16,24 @@
                 "title": "Превращаю идеи в работающие цифровые продукты, которые нужны именно тебе",
                 "description": "Более 10 лет коммерческой разработки. Проектирую архитектуру, создаю веб-платформы и сложные сервисы, работаю с производительностью, API и интеграциями. Параллельно разрабатываю собственную игру на Unity, создавая её полностью самостоятельно — от генерации мира до игровых систем.",
                 "btnStart": "Начать сейчас",
-                "btnProjects": "Смотреть проекты"
+                "btnProjects": "Смотреть проекты",
+                "bottom": {
+                    "scroll": "Scroll down",
+                    "projects": "to see projects"
+                },
+                "stats": {
+                    "years": "лет коммерческой разработки",
+                    "projects": "реализованных проектов",
+
+                    "backend": "основной Backend стек",
+                    "frontend": "основной Frontend стек",
+
+                    "api": "интеграции и микросервисы",
+                    "performance": "оптимизация и масштабирование",
+
+                    "cms": "CMS",
+                    "cmsList": "OpenCart • ShopScript • MODX"
+                }
             },
             "unity": {
                 "subtitle": "Создаю интерактивные игровые вселенные",
@@ -29,10 +46,10 @@
     },
     "ua": {
         "nav": {
-            "services": "Послуги",
             "projects": "Проєкти",
-            "testimonials": "Відгуки",
-            "contact": "Контакт"
+            "services": "Послуги",
+            "about": "Про мене",
+            "contact": "Контакти"
         },
         "toggle": {
             "web": "Web",
@@ -44,7 +61,24 @@
                 "title": "Перетворюю ідеї на працюючі цифрові продукти, які потрібні саме тобі",
                 "description": "Понад 10 років комерційної розробки. Проектую архітектуру, створюю веб-платформи та складні сервіси, працюю з продуктивністю, API та інтеграціями. Паралельно розробляю власну гру на Unity, створюючи її повністю самостійно — від генерації світу до ігрових систем.",
                 "btnStart": "Почати зараз",
-                "btnProjects": "Дивитися проєкти"
+                "btnProjects": "Дивитися проєкти",
+                "bottom": {
+                    "scroll": "Scroll down",
+                    "projects": "to see projects"
+                },
+                 "stats": {
+                    "years": "років комерційної розробки",
+                    "projects": "реалізованих проєктів",
+
+                    "backend": "основний Backend стек",
+                    "frontend": "основний Frontend стек",
+
+                    "api": "інтеграції та мікросервіси",
+                    "performance": "оптимізація та масштабування",
+
+                    "cms": "CMS",
+                    "cmsList": "OpenCart • ShopScript • MODX"
+                }
             },
             "unity": {
                 "subtitle": "Створюю інтерактивні ігрові всесвіти",
@@ -57,9 +91,9 @@
     },
     "en": {
         "nav": {
-            "services": "Services",
             "projects": "Projects",
-            "testimonials": "Testimonials",
+            "services": "Services",
+            "about": "About",
             "contact": "Contact"
         },
         "toggle": {
@@ -72,7 +106,24 @@
                 "title": "I turn ideas into working digital products you need",
                 "description": "Over 10 years of commercial development. I design architecture, build web platforms and complex services, work with performance, APIs and integrations. In parallel, I develop my own Unity game entirely by myself — from world generation to gameplay systems.",
                 "btnStart": "Start now",
-                "btnProjects": "View projects"
+                "btnProjects": "View projects",
+                "bottom": {
+                    "scroll": "Scroll down",
+                    "projects": "to see projects"
+                },
+                "stats": {
+                    "years": "years of commercial development",
+                    "projects": "completed projects",
+
+                    "backend": "primary backend stack",
+                    "frontend": "primary frontend stack",
+
+                    "api": "integrations & microservices",
+                    "performance": "optimization & scalability",
+
+                    "cms": "CMS",
+                    "cmsList": "OpenCart • ShopScript • MODX"
+                }
             },
             "unity": {
                 "subtitle": "I create interactive game universes",

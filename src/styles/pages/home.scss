@@ -1,4 +1,14 @@
 @use "../variables.scss" as *;
 
+.skew-hero {
+  position: relative;
+  background: #fff; // белый фон, непрозрачный
+  transition: transform 0.2s ease-out;
+  width: 100%;      // чтобы не было отступа справа
+  z-index: 10;
+}
 
+.projects {
+  padding: 60px 40px;
+}
 
