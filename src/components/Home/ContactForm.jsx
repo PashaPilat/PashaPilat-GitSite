@@ -724,15 +724,9 @@ export default function ContactForm({ currentLang = "ru" }) {
       </div>
 
       {/* Капча */}
-      <div
-        data-grid="captcha"
-        className={`cf-field cf-field--captcha ${!captchaToken ? hintOrErrCls(true) : ""}`}
-        data-cf-error={!captchaToken && highlightMode !== "none" ? "true" : "false"}
-      >
-        <ReCAPTCHA
-          sitekey="6LdVLn0tAAAAAIx59kmgSuT3WOvhAL7XkcCpKy7_" theme="dark"
-          onChange={setCaptchaToken}
-        />
+      <div data-grid="captcha" className={`cf-field cf-field--captcha ${!captchaToken ? hintOrErrCls(true) : ""}`}
+        data-cf-error={!captchaToken && highlightMode !== "none" ? "true" : "false"} >
+        <ReCAPTCHA sitekey="6LcjOX0tAAAAAOo-JtLgvhnjTaNAF5Ih088MAZCP" theme="dark" onChange={setCaptchaToken} />
         {highlightMode === "error" && !captchaToken && (
           <FieldError message={t(currentLang, "contact", "errors", "captcha")} />
         )}
