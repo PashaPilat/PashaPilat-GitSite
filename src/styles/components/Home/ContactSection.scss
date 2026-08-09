@@ -1,0 +1,103 @@
+.contact-section {
+  position: relative;
+  isolation: isolate;
+  color: #ecede8;
+  padding-block: clamp(96px, 14vh, 160px) clamp(76px, 10vh, 120px);
+  background:
+    radial-gradient(58% 42% at 12% 0%, rgba(124, 108, 255, 0.14), transparent 62%),
+    radial-gradient(50% 42% at 100% 100%, rgba(201, 243, 29, 0.08), transparent 62%),
+    linear-gradient(180deg, #0a0b0e 0%, #0e0f14 45%, #191a22 100%);
+
+  // скошенная кромка сверху — "продолжение" предыдущей светлой секции
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -8%;
+    right: -8%;
+    top: -1px;
+    height: clamp(90px, 11vw, 170px);
+    background:
+      radial-gradient(circle at 20% 80%, rgba(201, 243, 29, 0.18), transparent 32%),
+      linear-gradient(180deg, #f1f1eb 0%, #ecece5 100%);
+    transform-origin: top left;
+    transform: skewY(calc(var(--skew-angle) * -1));
+    transition: transform 0.08s linear;
+    pointer-events: none;
+    will-change: transform;
+  }
+}
+
+.hr-line {
+  position: relative;
+  z-index: 1;
+  height: 1px;
+  margin: 0 auto clamp(48px, 8vh, 88px);
+  max-width: 1200px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(236, 237, 232, 0.35) 20%,
+    rgba(201, 243, 29, 0.6) 50%,
+    rgba(236, 237, 232, 0.35) 80%,
+    transparent
+  );
+}
+
+.contact-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 80%;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+}
+
+.contact-head {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vh, 64px);
+}
+
+.contact-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+  margin-bottom: 16px;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(28px, 4.5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px;
+}
+
+.contact-title__ghost {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(236, 237, 232, 0.8);
+}
+
+.contact-subtitle {
+  max-width: 620px;
+  margin: 0 auto;
+  color: rgba(236, 237, 232, 0.6);
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.6;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease var(--d, 0s),
+    transform 0.8s cubic-bezier(0.2, 0.65, 0.2, 1) var(--d, 0s);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}

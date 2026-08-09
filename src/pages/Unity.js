@@ -1,5 +1,5 @@
 import React from "react";
-import HeroWrapper from "../components/HeroWrapper";
+import HeroWrapper from "../components/Home/HeroWrapper";
 import CursorFollower from "../components/CursorFollower";
 
 import "../styles/pages/unity.scss";

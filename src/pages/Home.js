@@ -1,74 +1,22 @@
-import React, { useEffect, useState } from "react";
-import HeroWrapper from "../components/HeroWrapper";
+import React from "react";
+import HeroWrapper from "../components/Home/HeroWrapper";
 import CursorFollower from "../components/CursorFollower";
+import MainWrapper from "../components/Home/MainWrapper";
+import SceneManager from "../components/SceneManager";
+import SmoothScroll from "../components/SmoothScroll";
+import ScrollTopButton from "../components/ScrollTopButton";
 
-import "../styles/pages/home.scss";
+import { t } from "../i18n";
+import { getLangFromPath } from "../utils/getLangFromPath";
 
 function Home() {
-    const [skew, setSkew] = useState(0);
-    const [offset, setOffset] = useState(550); // стартовый отступ
-
-    useEffect(() => {
-        const handleScroll = () => {
-        const scrollY = window.scrollY;
-
-        // появление блока: смещаем вверх
-        const newOffset = Math.max(450 - scrollY, 0);
-        setOffset(newOffset);
-
-        // угол скоса: растёт при скролле
-        const angle = Math.min(scrollY / 100, 10); // ограничим до 10°
-        setSkew(angle);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
     return (
         <>
+            <SmoothScroll />
             <HeroWrapper page="home" />
-            
-            <div className="skew-hero1" style={{transform: `translateY(${offset}px) skewY(-${skew}deg)`, }}>
-                {/* Секция проектов */}
-                <section id="projects" className="projects">
-                    <p className="scroll-text">Прокрутите вниз, чтобы увидеть проекты</p>
-                    <div className="project-list">
-                        <div className="project-item">Dune</div>
-                        <div className="project-item">Oasis</div>
-                        <div className="project-item">Asterisk</div>
-                        <div className="project-item">Eooks</div>
-                    </div>
-                </section>
-                <section id="projects2" className="projects">
-                    <p className="scroll-text">Прокрутите вниз, чтобы увидеть проекты</p>
-                    <div className="project-list">
-                        <div className="project-item">Dune</div>
-                        <div className="project-item">Oasis</div>
-                        <div className="project-item">Asterisk</div>
-                        <div className="project-item">Eooks</div>
-                    </div>
-                </section>
-                <section id="projects3" className="projects">
-                    <p className="scroll-text">Прокрутите вниз, чтобы увидеть проекты</p>
-                    <div className="project-list">
-                        <div className="project-item">Dune</div>
-                        <div className="project-item">Oasis</div>
-                        <div className="project-item">Asterisk</div>
-                        <div className="project-item">Eooks</div>
-                    </div>
-                </section>
-                <section id="projects4" className="projects">
-                    <p className="scroll-text">Прокрутите вниз, чтобы увидеть проекты</p>
-                    <div className="project-list">
-                        <div className="project-item">Dune</div>
-                        <div className="project-item">Oasis</div>
-                        <div className="project-item">Asterisk</div>
-                        <div className="project-item">Eooks</div>
-                    </div>
-                </section>
-                {/* Здесь можно добавить ещё секции */}
-            </div>
+            <SceneManager />
+            <MainWrapper />
+            <ScrollTopButton label="Наверх" threshold={1000} />
             <CursorFollower />
         </>
     );

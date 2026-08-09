@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/components/GlowButton.scss";
+import "../../styles/components/Home/GlowButton.scss";
 
 const GlowButton = ({
     children,

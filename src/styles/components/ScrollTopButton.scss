@@ -1,0 +1,268 @@
+@use "../variables.scss" as *;
+
+/* ── ScrollTopButton ──────────────────────────────────── */
+
+.scroll-top {
+  --st-size: 64px; /* размер кнопки */
+  --st-lime: #c9f31d;
+  --st-lime-hi: #e6ff6e; /* более яркий лайм для иконки — читается на светлом */
+  --st-circ: 295.31; /* 2π·r (r = 47 в viewBox 100) */
+  --st-hide-y: 52px; /* на сколько опускается кнопка при скрытии */
+
+  position: fixed;
+  right: clamp(16px, 3vw, 42px);
+  bottom: calc(clamp(16px, 4vh, 42px) + env(safe-area-inset-bottom, 0px));
+  z-index: 1100;
+
+  width: var(--st-size);
+  height: var(--st-size);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(var(--st-hide-y));
+
+  /* появление/скрытие — 1.5s: прозрачность + уход вниз */
+  transition:
+    opacity 1.5s ease,
+    transform 1.5s cubic-bezier(0.2, 0.65, 0.2, 1),
+    visibility 0s linear 1.5s;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition:
+      opacity 1.5s ease,
+      transform 1.5s cubic-bezier(0.2, 0.65, 0.2, 1.02),
+      visibility 0s;
+  }
+
+  /* ── сонар-пульс ────────────────────────────────────── */
+  &__pulse {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(201, 243, 29, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    animation: st-pulse 3.6s ease-out infinite;
+  }
+
+  /* ── ореол: чистое круговое свечение (не квадратит) ─── */
+  &__glow {
+    position: absolute;
+    inset: -16px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(201, 243, 29, 0.42) 0%,
+      rgba(201, 243, 29, 0.16) 44%,
+      rgba(201, 243, 29, 0) 68%
+    );
+    opacity: 0.85;
+    transform: scale(0.96);
+    pointer-events: none;
+    transition:
+      opacity 0.4s ease,
+      transform 0.5s cubic-bezier(0.2, 0.65, 0.2, 1);
+    will-change: transform;
+  }
+
+  /* hover — ореол растёт и становится ярче */
+  &:hover &__glow {
+    opacity: 1;
+    transform: scale(1.28);
+  }
+
+  /* ── кольцо прогресса (без filter — иначе квадратный ореол) ── */
+  &__ring {
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    pointer-events: none;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    circle {
+      fill: none;
+      stroke-width: 2.4;
+    }
+
+    &-track {
+      stroke: rgba(201, 243, 29, 0.18);
+    }
+
+    &-bar {
+      stroke: var(--st-lime);
+      stroke-linecap: round;
+      stroke-dasharray: var(--st-circ);
+      stroke-dashoffset: var(--st-circ);
+      transition: stroke-dashoffset 0.15s linear;
+    }
+  }
+
+  /* ── сама кнопка: объёмная сфера 64×64 ──────────────── */
+  &__btn {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 1px solid rgba(201, 243, 29, 0.5);
+    border-radius: 50%;
+    background: radial-gradient(
+      120% 120% at 32% 14%,
+      #3d4256 0%,
+      #181a24 48%,
+      #0a0b0f 100%
+    );
+    color: var(--st-lime-hi);
+    cursor: pointer;
+    outline: none;
+
+    /* тёмный контур 4px + тени — кнопка хорошо видна и на светлом фоне */
+    box-shadow:
+      0 14px 34px -12px rgba(0, 0, 0, 0.65),
+      0 4px 10px -4px rgba(0, 0, 0, 0.5),
+      0 0 0 4px rgba(10, 11, 14, 0.3),
+      0 0 22px -6px rgba(201, 243, 29, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -6px 12px rgba(0, 0, 0, 0.55);
+
+    transition:
+      border-color 0.3s ease,
+      color 0.3s ease,
+      box-shadow 0.4s ease;
+
+    /* глянцевый блик сверху — объём */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        58% 32% at 50% 2%,
+        rgba(255, 255, 255, 0.32),
+        transparent 68%
+      );
+      pointer-events: none;
+    }
+
+    /* hover — кнопка НЕ поднимается, меняется только свечение */
+    &:hover {
+      transform: none;
+      border-color: rgba(201, 243, 29, 0.85);
+      color: #f2ffae;
+      box-shadow:
+        0 14px 34px -12px rgba(0, 0, 0, 0.65),
+        0 4px 10px -4px rgba(0, 0, 0, 0.5),
+        0 0 0 4px rgba(10, 11, 14, 0.3),
+        0 0 34px -4px rgba(201, 243, 29, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32),
+        inset 0 -6px 12px rgba(0, 0, 0, 0.55);
+    }
+
+    /* нажатие — кнопка «вдавливается» */
+    &:active {
+      transform: translateY(2px) scale(0.96);
+      box-shadow:
+        0 6px 14px -6px rgba(0, 0, 0, 0.6),
+        0 0 0 4px rgba(10, 11, 14, 0.3),
+        inset 0 3px 9px rgba(0, 0, 0, 0.72),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+        0 0 16px -4px rgba(201, 243, 29, 0.4);
+    }
+  }
+
+  /* ── иконка fa-circle-up, по центру ──────────────────── */
+  &__icon {
+    font-size: 26px;
+    color: var(--st-lime-hi);
+    /* тёмная тень под иконку — не теряется на светлых участках */
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 8px rgba(201, 243, 29, 0.35));
+    transition: color 0.3s ease;
+  }
+
+  &__btn:hover .scroll-top__icon {
+    color: #f6ffc4;
+  }
+
+  /* ── тултип: выскакивает сверху вниз ─────────────────── */
+  &__label {
+    position: absolute;
+    bottom: calc(100% + 18px);
+    left: 50%;
+    transform: translate(-50%, 12px);
+    white-space: nowrap;
+    padding: 7px 13px;
+    border: 1px solid rgba(201, 243, 29, 0.3);
+    border-radius: 10px;
+    background: rgba(10, 11, 14, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--st-lime);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    box-shadow:
+      0 12px 26px -10px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(10, 11, 14, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.3s ease,
+      transform 0.35s cubic-bezier(0.2, 0.65, 0.2, 1);
+
+    /* хвостик-указатель к кнопке */
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-top-color: rgba(10, 11, 14, 0.88);
+    }
+  }
+
+  &:hover &__label {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* ── анимации ─────────────────────────────────────────── */
+
+@keyframes st-pulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+}
+
+/* отключаем анимации для пользователей, которым они мешают */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top *,
+  .scroll-top *::before,
+  .scroll-top *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

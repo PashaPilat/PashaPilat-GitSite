@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { t } from "../i18n";
-import { getLangFromPath } from "../utils/getLangFromPath";
-import LanguageSwitcher from "../components/LanguageSwitcher";
-import ToggleMode from "../components/ToggleMode";
-import "../styles/components/Navigation.scss";
-import logo from "../assets/images/logo 2.png";
+import { t } from "../../i18n";
+import Lenis from "lenis";
+
+import { getLangFromPath } from "../../utils/getLangFromPath";
+import LanguageSwitcher from "../../components/LanguageSwitcher";
+import ToggleMode from "../../components/ToggleMode";
+import "../../styles/components/Home/Navigation.scss";
+import logo from "../../assets/images/logo 2.png";
 
 function Navigation() {
     const navigate = useNavigate();
@@ -31,6 +33,39 @@ function Navigation() {
         setTimeout(() => setMenuState("closing"), 1300); // исчезают элементы
         setTimeout(() => setMenuState("close"), 1300 + 1500); // меню уезжает вверх
     };
+    const handleScroll = (e, id) => {
+        e.preventDefault(); // отменяем стандартный переход
+        const el = document.querySelector(id);
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        }
+        handleClose(); // закрываем меню после клика
+    };
+
+    function smoothScrollTo(targetId, duration = 1500, offset = 0) {
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        const start = window.scrollY;
+        const end = target.getBoundingClientRect().top + window.scrollY + offset;
+        const distance = end - start;
+        const startTime = performance.now();
+
+        function step(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = progress < 0.5
+            ? 4 * progress * progress * progress
+            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+            window.scrollTo(0, start + distance * ease);
+            if (elapsed < duration) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+    }
+
+
 
 useEffect(() => {
   window.setMenuState = setMenuState;
@@ -50,11 +85,49 @@ useEffect(() => {
                         PashaPilat
                     </div>
                     <ul className={`nav-links ${menuState}`}>
-                        <li><a href="#projects">{t(currentLang, "nav", "projects")}</a></li>
-                        <li><a href="#services">{t(currentLang, "nav", "services")}</a></li>
-                        <li><a href="#about">{t(currentLang, "nav", "about")}</a></li>
-                        <li><a href="#contact">{t(currentLang, "nav", "contact")}</a></li>
+                        <li>
+                            <a href="#projects" onClick={(e) => {
+                            e.preventDefault();
+                            window.lenis.scrollTo("#projects", 
+                                { duration: 3.0, easing: (t) => t,offset: -1415  }
+                            );
+                            handleClose();
+                            }}>
+                            {t(currentLang, "nav", "projects")}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services" onClick={(e) => {
+                            e.preventDefault();
+                            window.lenis.scrollTo("#services", 
+                                { duration: 4.5, easing: (t) => t,offset: -1515  }
+                            );
+                            handleClose();
+                            }}>
+                            {t(currentLang, "nav", "services")}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" onClick={(e) => {
+                            e.preventDefault();
+                            window.lenis.scrollTo("#about", { duration: 2.5 });
+                            handleClose();
+                            }}>
+                            {t(currentLang, "nav", "about")}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" onClick={(e) => {
+                            e.preventDefault();
+                            window.lenis.scrollTo("#contact", { duration: 3.0 });
+                            handleClose();
+                            }}>
+                            {t(currentLang, "nav", "contact")}
+                            </a>
+                        </li>
                     </ul>
+
+
 
                     <ToggleMode burgerOpen={menuState} />
                     <LanguageSwitcher burgerOpen={menuState} />

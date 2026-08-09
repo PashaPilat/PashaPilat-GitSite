@@ -1,12 +1,24 @@
-@use "../variables.scss" as *;
-@use "../animations.scss" as *;
+@use "../../variables.scss" as *;
+@use "../../animations.scss" as *;
 
+.hero-placeholder{
+    width:100%;
+    pointer-events:none;
+}
+.hero-pinned{
+    position:fixed !important;
+    bottom:0;
+    left: 0;
+    right: 0;
+    width:100%;
+    z-index:10;
+}
 .hero-wrapper {
     position: relative;
-    // height: 100vh;
+    height: 170vh;
     width: 100%;
     max-width: 100vw;
-    // overflow: hidden;
+    overflow: hidden;
     
     /* Photo block */
     .photo-block {
@@ -52,7 +64,7 @@
             align-items: center;
             gap: 60px;
             width: 100%;
-            max-width: 900px;
+            max-width: 90vw;
             height: min-content;
             padding: 40px 0;
             display: flex;
@@ -159,7 +171,7 @@
         }
 
         .hero-text {
-            max-width: 600px;
+            max-width: 60vw;
             margin: 0 auto 30px;
             color: #aaa;
             text-align: center;

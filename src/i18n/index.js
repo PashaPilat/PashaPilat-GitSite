@@ -1,31 +1,58 @@
 import translations from "./translations.json";
 
-// список доступных языков
 export const availableLangs = Object.keys(translations);
 
-// универсальная функция перевода с поддержкой множественной вложенности
-export const t = (lang, section, ...keys) => {
-    if (!translations[lang]) {
-        console.warn(`[i18n] Язык "${lang}" не найден`);
-        return keys[keys.length - 1]; // дефолт — сам ключ
-    }
+export const t = (lang, sectionOrKeys, ...rest) => {
+  // Проверяем, не передали ли объект переменных
+  let vars;
+  if (
+    rest.length > 0 &&
+    typeof rest[rest.length - 1] === "object" &&
+    !Array.isArray(rest[rest.length - 1])
+  ) {
+    vars = rest.pop();
+  }
 
-    let result = translations[lang][section];
-    if (!result) {
-        console.warn(`[i18n] Секция "${section}" не найдена для языка "${lang}"`);
-        return keys[keys.length - 1];
-    }
+  if (!translations[lang]) {
+    console.warn(`[i18n] Язык "${lang}" не найден`);
+    return Array.isArray(sectionOrKeys)
+      ? sectionOrKeys[sectionOrKeys.length - 1]
+      : sectionOrKeys;
+  }
 
-    for (const k of keys) {
-        if (result && typeof result === "object" && k in result) {
-            result = result[k];
-        } else {
-            console.warn(
-                `[i18n] Ключ "${k}" не найден по пути: ${lang}.${section}.${keys.join(".")}`
-            );
-            return k; // дефолт — сам ключ
-        }
-    }
+  // Нормализуем путь
+  let path;
+  if (Array.isArray(sectionOrKeys)) {
+    path = sectionOrKeys;
+  } else if (
+    typeof sectionOrKeys === "string" &&
+    rest.length === 0 &&
+    sectionOrKeys.includes(".")
+  ) {
+    path = sectionOrKeys.split(".");
+  } else {
+    path = [sectionOrKeys, ...rest];
+  }
 
-    return result;
+  // Достаём значение
+  let result = translations[lang];
+  for (const k of path) {
+    if (result && typeof result === "object" && k in result) {
+      result = result[k];
+    } else {
+      console.warn(
+        `[i18n] Ключ "${k}" не найден по пути: ${lang}.${path.join(".")}`
+      );
+      return k;
+    }
+  }
+
+  // Интерполяция {{var}}
+  if (typeof result === "string" && vars) {
+    result = result.replace(/{{\s*(\w+)\s*}}/g, (_, k) =>
+      vars[k] != null ? String(vars[k]) : ""
+    );
+  }
+
+  return result;
 };

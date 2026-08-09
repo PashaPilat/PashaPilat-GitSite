@@ -1,0 +1,38 @@
+@use "../../variables.scss" as *;
+
+.skew-hero {
+    position: relative;
+    background: $background-skew-white; // белый фон, непрозрачный
+    width: 100%; // чтобы не было отступа справа
+    z-index: 20;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: $background-skew-white;
+      transform-origin: bottom left;
+      transform: skewY(calc(var(--skew-angle) * -1));
+      transition: transform .08s linear;
+      z-index: -1;
+    }
+}
+
+.projects {
+    display: flex;
+    width: 100%;
+    min-height: 150vh;
+    padding: 60px 40px;
+}
+
+.hr-line {
+    display: block;
+    position: relative;
+    height: 60px;
+    border-bottom: 2px solid #00000059;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+    padding-bottom: 30px;
+}

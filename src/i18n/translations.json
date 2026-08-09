@@ -42,7 +42,261 @@
                 "btnStart": "Играть сейчас",
                 "btnProjects": "Смотреть игровые проекты"
             }
+        },
+        "projectsFeatured": [
+            {
+                "id": "hmh-expert",
+                "title": "HMH Expert",
+                "tech": ["React", "WebSocket", "Laravel"],
+                "year": "2025",
+                "accent": "#0006b7",
+                "description": "Онлайн-платформа для бизнеса: корпоративный мессенджер, товары и услуги, фильтрация и отслеживание заказов."
+            },
+            {
+                "id": "service-market",
+                "title": "Service Market",
+                "tech": ["Laravel", "React", "REST API"],
+                "year": "2024",
+                "accent": "#d9350a",
+                "description": "Платформа продажи запчастей с каталогом товаров, фильтрацией, обработкой заказов и управлением складом."
+            },
+            {
+                "id": "smartmag",
+                "title": "SmartMag",
+                "tech": ["Laravel", "React", "MySQL"],
+                "year": "2024",
+                "accent": "#2652d7",
+                "description": "Интернет-магазин электроники с каталогом, сравнением товаров, оформлением заказов и личным кабинетом."
+            },
+            {
+                "id": "tcars",
+                "title": "TCars",
+                "tech": ["Laravel", "React", "REST API"],
+                "year": "2025",
+                "accent": "#bd0429",
+                "description": "Площадка продажи автомобилей и автозапчастей с удобной системой поиска, фильтрации и оформления заказов."
+            },
+            {
+                "id": "antosh-co",
+                "title": "Antosh & Co",
+                "tech": ["Laravel", "Custom CMS"],
+                "year": "2022",
+                "accent": "#167904",
+                "description": "Корпоративная система сотрудников с административной частью и публичным лендингом компании."
+            },
+            {
+                "id": "fish-meat",
+                "title": "Fish & Meat",
+                "tech": ["PlatCMS", "tpl", "Custom CMS"],
+                "year": "2018",
+                "accent": "#09b74e",
+                "description": "Сайт ресторана с онлайн-заказом блюд, конструктором ингредиентов и бронированием столиков."
+            }
+        ],
+        "projectButton": "Подробнее",
+        "projectAll": "Смотреть все проекты →",
+        "projectsFeaturedTitle": "выполненные",
+        "projectsFeaturedGhost": "проекты",
+        "projectsCount": "проектов",
+        "projectsScrollHint": "скролльте",
+        "projectsScrollHintExtra": "чтобы листать стопку",
+        "fpOutro": {
+            "eyebrow": "( Это была вся стопка )",
+            "title": "Есть идея?",
+            "subtitle": "Давайте соберём её",
+            "btnAllProjects": "Все проекты",
+            "btnOrder": "Сделать заказ"
+        },
+        "services": {
+            "ariaLabel": "Услуги",
+            "eyebrow": "( Услуги — что мы делаем )",
+            "titleMain": "Полный цикл",
+            "titleGhost": "разработки",
+            "meta": "06 направлений — от лендинга до real-time систем",
+            "cta": "Обсудить задачу",
+            "link": "Обсудить услугу",
+            "stack": "технологий в стеке"
+        },
+        "servicesFeatured": [
+            {
+                "id": "web-development",
+                "num": "01",
+                "title": "Web Development",
+                "description": "Создание современных сайтов, корпоративных порталов и веб-приложений — от лендингов до сложных цифровых платформ.",
+                "tech": [
+                    "HTML5",
+                    "CSS3",
+                    "SCSS",
+                    "JavaScript",
+                    "React",
+                    "Laravel"
+                ],
+                "accent": "#C9F31D"
+            },
+            {
+                "id": "backend-engineering",
+                "num": "02",
+                "title": "Backend Engineering",
+                "description": "Разработка серверной логики, REST API, микросервисов, интеграций и надежных систем обработки данных.",
+                "tech": ["PHP", "Laravel", "REST API", "Redis", "PostgreSQL"],
+                "accent": "#7C6CFF"
+            },
+            {
+                "id": "frontend-development",
+                "num": "03",
+                "title": "Frontend Development",
+                "description": "Разработка быстрых и отзывчивых интерфейсов с современной архитектурой, анимациями и адаптивной версткой.",
+                "tech": [
+                    "React",
+                    "TypeScript",
+                    "Responsive Design",
+                    "Animations"
+                ],
+                "accent": "#FF6B4A"
+            },
+            {
+                "id": "system-architecture",
+                "num": "04",
+                "title": "System Architecture",
+                "description": "Проектирование архитектуры приложений, API и баз данных с учетом производительности и дальнейшего масштабирования.",
+                "tech": [
+                    "Architecture",
+                    "Performance",
+                    "Database Design",
+                    "API Design"
+                ],
+                "accent": "#33D6A6"
+            },
+            {
+                "id": "realtime-systems",
+                "num": "05",
+                "title": "Real-time Systems",
+                "description": "Разработка чатов, систем уведомлений, корпоративных мессенджеров и других сервисов реального времени.",
+                "tech": [
+                    "WebSocket",
+                    "RabbitMQ",
+                    "Matrix Synapse",
+                    "Messaging Systems"
+                ],
+                "accent": "#FFB03A"
+            },
+            {
+                "id": "project-support",
+                "num": "06",
+                "title": "Project Support",
+                "description": "Развитие существующих проектов, оптимизация производительности, исправление ошибок и внедрение нового функционала.",
+                "tech": [
+                    "Refactoring",
+                    "Optimization",
+                    "Bug Fixing",
+                    "Feature Development"
+                ],
+                "accent": "#4AA8FF"
+            }
+        ],
+        "about": {
+            "ariaLabel": "Обо мне",
+            "eyebrow": "( обо мне — опыт, архитектура, ответственность )",
+            "titleMain": "Путь длиною",
+            "titleGhost": "в десятки проектов",
+            "paragraphs": [
+            "За годы работы мне довелось пройти практически все этапы веб-разработки. Я создавал проекты с нуля и развивал уже существующие системы, реализовал более пятидесяти веб-проектов различного масштаба только c 0, занимался поддержкой чужого кода, разрабатывал новые модули, интегрировал сторонние сервисы и платежные системы, а также участвовал в развитии крупных коммерческих продуктов. Не раз приходилось исправлять последствия неудачных архитектурных решений, поэтому сегодня я хорошо понимаю, насколько важно закладывать прочный фундамент еще на этапе проектирования.",
+            "Работая с различными CMS, среди которых OpenCart, Shop-Script и другие системы, я постепенно пришел к пониманию, что для многих проектов не хватает простого, универсального и удобного решения. Так появилась идея собственной CMS — легкой, быстрой и легко поддерживаемой платформы, которую можно было одинаково эффективно использовать как для небольшого лендинга, так и для корпоративного сайта, ресторана или строительной компании. Со временем на ней было реализовано более пятнадцати проектов, а сама разработка стала для меня отличной школой архитектурного мышления, проектирования универсальных компонентов и построения систем, рассчитанных на долгосрочное развитие.",
+            "Этот опыт научил меня смотреть на разработку шире, чем просто написание кода. Когда самостоятельно проектируешь платформу, начинаешь иначе относиться к архитектуре, масштабируемости, расширяемости и качеству каждого решения. Именно тогда приходит понимание, что хороший код должен быть не только рабочим сегодня, но и оставаться понятным, удобным в сопровождении и готовым к новым задачам спустя годы.",
+            "Разрабатывая собственную CMS, я постоянно искал способы сделать систему более универсальной и удобной для развития. Многие решения, которые тогда казались перспективными, со временем стали стандартной практикой и появились в других современных CMS. Это лишь подтвердило, что хороший инженерный подход остается актуальным независимо от конкретной платформы.",
+            "За эти годы я успел поработать как самостоятельно, полностью отвечая за проект от идеи до запуска, так и в составе команд, где принимал участие в развитии крупных продуктов, долгосрочной поддержке и проектировании новых модулей. Благодаря широкому практическому опыту мне легко осваивать новые технологии и быстро включаться в проекты с незнакомым стеком. React, Next.js, Node.js или любой другой современный инструмент для меня — это прежде всего средство решения задачи, а не самоцель. Гораздо важнее понимать принципы построения приложений и инженерные подходы, поэтому переход между технологиями происходит быстро и без потери качества разработки."
+            ],
+            "note": "За каждым успешным продуктом однажды стояла идея. Если вы ищете разработчика, который поможет превратить ее в надежную, масштабируемую и удобную в сопровождении систему — буду рад обсудить ваш проект.",
+            "asideTitle": "Фокус в работе",
+            "highlights": [
+                { "key": "architecture", "label": "Архитектура и прочный фундамент проекта" },
+                {"key": "legacy", "label": "Развитие существующих систем и legacy-кода" },
+                {"key": "integrations", "label": "Интеграции сторонних сервисов и платежей"},
+                {"key": "adaptation", "label": "Быстрое погружение в новый стек"}
+            ],
+            "cta": "Обсудить проект",
+            "stats": [
+                {"key": "experience", "num": "10+", "label": "лет практического опыта"},
+                { "key": "projects", "num": "50+", "label": "веб-проектов различного масштаба" },
+                {"key": "cms","num": "15+", "label": "проектов на собственной CMS"}
+            ]
+        },
+        "contact": {
+            "eyebrow": "( СВЯЗЬ — ДАВАЙТЕ ОБСУДИМ )",
+            "title": "Связаться",
+            "titleGhost": "со мной",
+            "subtitle": "Расскажите о вашем проекте или предложении о работе, оставьте удобный способ связи — я свяжусь с вами в ближайшее время.",
+
+            "roleLabel": "Кто вы?",
+            "roleClient": "Заказчик",
+            "roleEmployer": "Работодатель",
+
+            "namePlaceholderClient": "Ваше имя *",
+            "namePlaceholderEmployer": "Название компании *",
+
+            "websitePlaceholderClient": "Портфолио / сайт",
+            "websitePlaceholderEmployer": "Сайт компании",
+            "websiteHint": "Можно указать https://... или просто любую ссылку",
+
+            "contactsLabel": "Предпочтительный способ связи *",
+            "addContact": "Добавить контакт",
+            "addAnotherContact": "Добавить ещё контакт",
+
+            "projectTypeLabelClient": "Тип проекта",
+            "projectTypeLabelEmployer": "Тип занятости",
+            "projectOptions": {
+                "landing": "Лендинг",
+                "corporateWebsite": "Корпоративный сайт",
+                "webApplication": "Веб-приложение",
+                "ecommerce": "Интернет-магазин",
+                "api": "API",
+                "support": "Поддержка",
+                "consulting": "Консультация",
+                "other": "Другое",
+                "fullTime": "Полная занятость",
+                "partTime": "Частичная занятость",
+                "contract": "Контракт",
+                "freelance": "Фриланс",
+                "remote": "Удалённо",
+                "hybrid": "Гибрид",
+                "office": "Офис"
+            },
+
+            "budgetLabelClient": "Бюджет проекта",
+            "budgetLabelEmployer": "Предполагаемая зарплата",
+            "budgetPlaceholder": "Укажите сумму",
+
+            "descriptionLabel": "Описание",
+            "descriptionPlaceholder": "Расскажите подробнее о задаче или вакансии...",
+
+            "attachmentsLabel": "Ссылки на файлы",
+            "addAttachment": "Добавить ссылку",
+            "attachmentPlaceholder": "https://drive.google.com/...",
+
+            "submit": "Отправить",
+            "sending": "Отправка...",
+            "fillRequired": "Заполните обязательные поля",
+
+            "successTitle": "Сообщение отправлено!",
+            "successText": "Спасибо! Я свяжусь с вами в ближайшее время.",
+            "agreeLabel": "Я согласен на связь по моему запросу",
+            "scrollToFirst": "Перейти к первому незаполненному полю",
+            "errors": {
+                "required": "Обязательное поле",
+                "url": "Введите корректную ссылку",
+                "contactRequired": "Добавьте хотя бы один способ связи",
+                "contactInvalid": "Проверьте правильность контакта",
+                "projectType": "Выберите хотя бы один вариант",
+                "captcha": "Подтвердите, что вы не робот",
+                "sendFailed": "Не удалось отправить. Попробуйте ещё раз или напишите напрямую.",
+                "count_one": "Осталось заполнить {{count}} обязательное поле",
+                "count_few": "Осталось заполнить {{count}} обязательных поля",
+                "count_many": "Осталось заполнить {{count}} обязательных полей",
+                "agreeRequired": "Необходимо ваше согласие"
+            }
         }
+
+
     },
     "ua": {
         "nav": {
@@ -66,7 +320,7 @@
                     "scroll": "Scroll down",
                     "projects": "to see projects"
                 },
-                 "stats": {
+                "stats": {
                     "years": "років комерційної розробки",
                     "projects": "реалізованих проєктів",
 
@@ -87,7 +341,261 @@
                 "btnStart": "Грати зараз",
                 "btnProjects": "Дивитися ігрові проєкти"
             }
+        },
+        "projectsFeatured": [
+            {
+                "id": "hmh-expert",
+                "title": "HMH Expert",
+                "tech": ["React", "WebSocket", "Laravel"],
+                "year": "2025",
+                "accent": "#0006b7",
+                "description": "Онлайн-платформа для бізнесу: корпоративний месенджер, товари й послуги, фільтрація та відстеження замовлень."
+            },
+            {
+                "id": "service-market",
+                "title": "Service Market",
+                "tech": ["Laravel", "React", "REST API"],
+                "year": "2024",
+                "accent": "#d9350a",
+                "description": "Платформа продажу запчастин із каталогом товарів, фільтрацією, обробкою замовлень та керуванням складом."
+            },
+            {
+                "id": "smartmag",
+                "title": "SmartMag",
+                "tech": ["Laravel", "React", "MySQL"],
+                "year": "2024",
+                "accent": "#2652d7",
+                "description": "Інтернет-магазин електроніки з каталогом, порівнянням товарів, оформленням замовлень і особистим кабінетом."
+            },
+            {
+                "id": "tcars",
+                "title": "TCars",
+                "tech": ["Laravel", "React", "REST API"],
+                "year": "2025",
+                "accent": "#bd0429",
+                "description": "Платформа продажу автомобілів і автозапчастин зі зручною системою пошуку, фільтрації та оформлення замовлень."
+            },
+            {
+                "id": "antosh-co",
+                "title": "Antosh & Co",
+                "tech": ["Laravel", "Custom CMS"],
+                "year": "2022",
+                "accent": "#167904",
+                "description": "Корпоративна система співробітників з адміністративною частиною та публічним лендингом компанії."
+            },
+            {
+                "id": "fish-meat",
+                "title": "Fish & Meat",
+                "tech": ["PlatCMS", "tpl", "Custom CMS"],
+                "year": "2018",
+                "accent": "#09b74e",
+                "description": "Сайт ресторану з онлайн-замовленням страв, конструктором інгредієнтів та бронюванням столиків."
+            }
+        ],
+        "projectButton": "Детальніше",
+        "projectAll": "Дивитися всі проєкти →",
+        "ProjectsFeaturedTitle": "виконані",
+        "projectsFeaturedGhost": "проекти",
+        "projectsCount": "проектів",
+        "projectsScrollHint": "скролльте",
+        "projectsScrollHintExtra": "щоб гортати стос",
+        "fpOutro": {
+            "eyebrow": "( Це був весь стос )",
+            "title": "Є ідея?",
+            "subtitle": "Давайте зберемо її",
+            "btnAllProjects": "Всі проекти",
+            "btnOrder": "Зробити замовлення"
+        },
+        "services": {
+            "ariaLabel": "Послуги",
+            "eyebrow": "( Послуги - що ми робимо)",
+            "titleMain": "Повний цикл",
+            "titleGhost": "розробки",
+            "meta": "06 напрямків - від лендінгу до real-time систем",
+            "cta": "Обговорити завдання",
+            "link": "Обговорити послугу",
+            "stack": "технологій у стеку"
+        },
+        "servicesFeatured": [
+            {
+                "id": "web-development",
+                "num": "01",
+                "title": "Web Development",
+                "description": "Створення сучасних сайтів, корпоративних порталів та веб-додатків - від лендингів до складних цифрових платформ.",
+                "tech": [
+                    "HTML5",
+                    "CSS3",
+                    "SCSS",
+                    "JavaScript",
+                    "React",
+                    "Laravel"
+                ],
+                "accent": "#C9F31D"
+            },
+            {
+                "id": "backend-engineering",
+                "num": "02",
+                "title": "Backend Engineering",
+                "description": "Розробка серверної логіки, REST API, мікросервісів, інтеграцій та надійних систем обробки даних.",
+                "tech": ["PHP", "Laravel", "REST API", "Redis", "PostgreSQL"],
+                "accent": "#7C6CFF"
+            },
+            {
+                "id": "frontend-development",
+                "num": "03",
+                "title": "Frontend Development",
+                "description": "Розробка швидких та чуйних інтерфейсів із сучасною архітектурою, анімаціями та адаптивною версткою.",
+                "tech": [
+                    "React",
+                    "TypeScript",
+                    "Responsive Design",
+                    "Animations"
+                ],
+                "accent": "#FF6B4A"
+            },
+            {
+                "id": "system-architecture",
+                "num": "04",
+                "title": "System Architecture",
+                "description": "Проектування архітектури додатків, API та баз даних з урахуванням продуктивності та подальшого масштабування.",
+                "tech": [
+                    "Архітектура",
+                    "Performance",
+                    "Database Design",
+                    "API Design"
+                ],
+                "accent": "#33D6A6"
+            },
+            {
+                "id": "realtime-systems",
+                "num": "05",
+                "title": "Real-time Systems",
+                "description": "Розробка чатів, систем повідомлень, корпоративних месенджерів та інших сервісів реального часу.",
+                "tech": [
+                    "WebSocket",
+                    "RabbitMQ",
+                    "Matrix Synapse",
+                    "Messaging Systems"
+                ],
+                "accent": "#FFB03A"
+            },
+            {
+                "id": "project-support",
+                "num": "06",
+                "title": "Project Support",
+                "description": "Розвиток існуючих проектів, оптимізація продуктивності, виправлення помилок та впровадження нового функціоналу.",
+                "tech": [
+                    "Refactoring",
+                    "Optimization",
+                    "Bug Fixing",
+                    "Feature Development"
+                ],
+                "accent": "#4AA8FF"
+            }
+        ],
+        "about": {
+            "ariaLabel": "Про мене",
+            "eyebrow": "( про мене — досвід, архітектура, відповідальність )",
+            "titleMain": "Шлях довжиною",
+            "titleGhost": "у десятки проєктів",
+            "paragraphs": [
+                "За роки роботи мені довелося пройти практично всі етапи веб‑розробки. Я створював проєкти з нуля та розвивав вже існуючі системи, реалізував понад п’ятдесят веб‑проєктів різного масштабу тільки з нуля, займався підтримкою чужого коду, розробляв нові модулі, інтегрував сторонні сервіси та платіжні системи, а також брав участь у розвитку великих комерційних продуктів. Не раз доводилося виправляти наслідки невдалих архітектурних рішень, тому сьогодні я добре розумію, наскільки важливо закладати міцний фундамент ще на етапі проєктування.",
+                "Працюючи з різними CMS, серед яких OpenCart, Shop‑Script та інші системи, я поступово прийшов до розуміння, що для багатьох проєктів бракує простого, універсального та зручного рішення. Так з’явилася ідея власної CMS — легкої, швидкої та простої у підтримці платформи, яку можна було однаково ефективно використовувати як для невеликого лендингу, так і для корпоративного сайту, ресторану чи будівельної компанії. Згодом на ній було реалізовано понад п’ятнадцять проєктів, а сама розробка стала для мене чудовою школою архітектурного мислення, проєктування універсальних компонентів та побудови систем, розрахованих на довгостроковий розвиток.",
+                "Цей досвід навчив мене дивитися на розробку ширше, ніж просто написання коду. Коли самостійно проєктуєш платформу, починаєш інакше ставитися до архітектури, масштабованості, розширюваності та якості кожного рішення. Саме тоді приходить розуміння, що хороший код має бути не лише робочим сьогодні, але й залишатися зрозумілим, зручним у супроводі та готовим до нових завдань через роки.",
+                "Розробляючи власну CMS, я постійно шукав способи зробити систему більш універсальною та зручною для розвитку. Багато рішень, які тоді здавалися перспективними, згодом стали стандартною практикою й з’явилися в інших сучасних CMS. Це лише підтвердило, що хороший інженерний підхід залишається актуальним незалежно від конкретної платформи.",
+                "За ці роки я встиг попрацювати як самостійно, повністю відповідаючи за проєкт від ідеї до запуску, так і в складі команд, де брав участь у розвитку великих продуктів, довгостроковій підтримці та проєктуванні нових модулів. Завдяки широкому практичному досвіду мені легко освоювати нові технології та швидко включатися в проєкти з незнайомим стеком. React, Next.js, Node.js чи будь‑який інший сучасний інструмент для мене — це насамперед засіб вирішення задачі, а не самоціль. Набагато важливіше розуміти принципи побудови застосунків та інженерні підходи, тому перехід між технологіями відбувається швидко й без втрати якості розробки."
+            ],
+            "note": "За кожним успішним продуктом колись стояла ідея. Якщо ви шукаєте розробника, який допоможе перетворити її на надійну, масштабовану та зручну у супроводі систему — буду радий обговорити ваш проєкт.",
+            "asideTitle": "Фокус у роботі",
+            "highlights": [
+                { "key": "architecture", "label": "Архітектура та міцний фундамент проєкту" },
+                { "key": "legacy", "label": "Розвиток існуючих систем та legacy‑коду" },
+                { "key": "integrations", "label": "Інтеграції сторонніх сервісів та платежів" },
+                { "key": "adaptation", "label": "Швидке занурення у новий стек" }
+            ],
+            "cta": "Обговорити проєкт",
+            "stats": [
+                { "key": "experience", "num": "10+", "label": "років практичного досвіду" },
+                { "key": "projects", "num": "50+", "label": "веб‑проєктів різного масштабу" },
+                { "key": "cms", "num": "15+", "label": "проєктів на власній CMS" }
+            ]
+        },
+        "contact": {
+            "eyebrow": "( ЗВʼЯЗОК — ДАВАЙТЕ ОБГОВОРИМО )",
+            "title": "Звʼязатися",
+            "titleGhost": "зі мною",
+            "subtitle": "Розкажіть про ваш проєкт або пропозицію роботи, залиште зручний спосіб звʼязку — я відповім найближчим часом.",
+
+            "roleLabel": "Хто ви?",
+            "roleClient": "Замовник",
+            "roleEmployer": "Роботодавець",
+
+            "namePlaceholderClient": "Ваше імʼя *",
+            "namePlaceholderEmployer": "Назва компанії *",
+
+            "websitePlaceholderClient": "Портфоліо / сайт",
+            "websitePlaceholderEmployer": "Сайт компанії",
+            "websiteHint": "Можна вказати https://... або будь-яке посилання",
+
+            "contactsLabel": "Бажаний спосіб звʼязку *",
+            "addContact": "Додати контакт",
+            "addAnotherContact": "Додати ще контакт",
+
+            "projectTypeLabelClient": "Тип проєкту",
+            "projectTypeLabelEmployer": "Тип зайнятості",
+            "projectOptions": {
+                "landing": "Лендінг",
+                "corporateWebsite": "Корпоративний сайт",
+                "webApplication": "Веб‑додаток",
+                "ecommerce": "Інтернет‑магазин",
+                "api": "API",
+                "support": "Підтримка",
+                "consulting": "Консультація",
+                "other": "Інше",
+                "fullTime": "Повна зайнятість",
+                "partTime": "Часткова зайнятість",
+                "contract": "Контракт",
+                "freelance": "Фріланс",
+                "remote": "Віддалено",
+                "hybrid": "Гібрид",
+                "office": "Офіс"
+            },
+
+            "budgetLabelClient": "Бюджет проєкту",
+            "budgetLabelEmployer": "Очікувана зарплата",
+            "budgetPlaceholder": "Вкажіть суму",
+
+            "descriptionLabel": "Опис",
+            "descriptionPlaceholder": "Розкажіть детальніше про задачу або вакансію...",
+
+            "attachmentsLabel": "Посилання на файли",
+            "addAttachment": "Додати посилання",
+            "attachmentPlaceholder": "https://drive.google.com/...",
+
+            "submit": "Надіслати",
+            "sending": "Надсилання...",
+            "fillRequired": "Заповніть обовʼязкові поля",
+
+            "successTitle": "Повідомлення надіслано!",
+            "successText": "Дякую! Я звʼяжусь з вами найближчим часом.",
+            "agreeLabel": "Я погоджуюсь на звʼязок за моїм запитом",
+            "scrollToFirst": "Перейти до першого незаповненого поля",
+            "errors": {
+                "required": "Обовʼязкове поле",
+                "url": "Введіть коректне посилання",
+                "contactRequired": "Додайте хоча б один спосіб звʼязку",
+                "contactInvalid": "Перевірте правильність контакту",
+                "projectType": "Оберіть хоча б один варіант",
+                "captcha": "Підтвердіть, що ви не робот",
+                "sendFailed": "Не вдалося надіслати. Спробуйте ще раз або напишіть напряму.",
+                "count_one": "Залишилось заповнити {{count}} обовʼязкове поле",
+                "count_few": "Залишилось заповнити {{count}} обовʼязкових поля",
+                "count_many": "Залишилось заповнити {{count}} обовʼязкових полів",
+                "agreeRequired": "Необхідна ваша згода"
+            }
         }
+
+
     },
     "en": {
         "nav": {
@@ -132,6 +640,260 @@
                 "btnStart": "Play now",
                 "btnProjects": "View game projects"
             }
+        },
+        "projectsFeatured": [
+            {
+                "id": "hmh-expert",
+                "title": "HMH Expert",
+                "tech": ["React", "WebSocket", "Laravel"],
+                "year": "2025",
+                "accent": "#0006b7",
+                "description": "Business platform featuring a corporate messenger, products and services, advanced filtering and order tracking."
+            },
+            {
+                "id": "service-market",
+                "title": "Service Market",
+                "tech": ["Laravel", "React", "REST API"],
+                "year": "2024",
+                "accent": "#d9350a",
+                "description": "Marketplace for spare parts with product catalog, filtering, inventory management and order processing."
+            },
+            {
+                "id": "smartmag",
+                "title": "SmartMag",
+                "tech": ["Laravel", "React", "MySQL"],
+                "year": "2024",
+                "accent": "#2652d7",
+                "description": "Electronics e-commerce platform with product comparison, checkout and personal account."
+            },
+            {
+                "id": "tcars",
+                "title": "TCars",
+                "tech": ["Laravel", "React", "REST API"],
+                "year": "2025",
+                "accent": "#bd0429",
+                "description": "Marketplace for cars and auto parts featuring search, filtering and order management."
+            },
+            {
+                "id": "antosh-co",
+                "title": "Antosh & Co",
+                "tech": ["Laravel", "Custom CMS"],
+                "year": "2018",
+                "accent": "#167904",
+                "description": "Corporate employee management system combined with a public company landing page."
+            },
+            {
+                "id": "fish-meat",
+                "title": "Fish & Meat",
+                "tech": ["PlatCMS", "tpl", "Custom CMS"],
+                "year": "2018",
+                "accent": "#09b74e",
+                "description": "Restaurant website with online ordering, ingredient customization and table reservation."
+            }
+        ],
+        "projectButton": "View project",
+        "projectAll": "View all projects →",
+        "projectsFeaturedTitle": "completed",
+        "projectsFeaturedGhost": "projects",
+        "projectsCount": "projects",
+        "projectsScrollHint": "scroll",
+        "projectsScrollHintExtra": "to scroll through the stack",
+        "fpOutro": {
+            "eyebrow": "(That was the whole stack)",
+            "title": "Have an idea?",
+            "subtitle": "Let's collect it",
+            "btnAllProjects": "All projects",
+            "btnOrder": "Place an order"
+        },
+        "services": {
+            "ariaLabel": "Services",
+            "eyebrow": "(Services - what we do)",
+            "titleMain": "Full cycle",
+            "titleGhost": "development",
+            "meta": "06 directions - from landing to real-time systems",
+            "cta": "Discuss task",
+            "link": "Discuss the service",
+            "stack": "technologies in a stack"
+        },
+        "servicesFeatured": [
+            {
+                "id": "web-development",
+                "num": "01",
+                "title": "Web Development",
+                "description": "Creation of modern websites, corporate portals and web applications - from landing pages to complex digital platforms.",
+                "tech": [
+                    "HTML5",
+                    "CSS3",
+                    "SCSS",
+                    "JavaScript",
+                    "React",
+                    "Laravel"
+                ],
+                "accent": "#C9F31D"
+            },
+            {
+                "id": "backend-engineering",
+                "num": "02",
+                "title": "Backend Engineering",
+                "description": "Development of server logic, REST API, microservices, integrations and reliable data processing systems.",
+                "tech": ["PHP", "Laravel", "REST API", "Redis", "PostgreSQL"],
+                "accent": "#7C6CFF"
+            },
+            {
+                "id": "frontend-development",
+                "num": "03",
+                "title": "Frontend Development",
+                "description": "Development of fast and responsive interfaces with modern architecture, animations and adaptive layout.",
+                "tech": [
+                    "React",
+                    "TypeScript",
+                    "Responsive Design",
+                    "Animations"
+                ],
+                "accent": "#FF6B4A"
+            },
+            {
+                "id": "system-architecture",
+                "num": "04",
+                "title": "System Architecture",
+                "description": "Design application architecture, APIs and databases with performance and scalability in mind.",
+                "tech": [
+                    "Architecture",
+                    "Performance",
+                    "Database Design",
+                    "API Design"
+                ],
+                "accent": "#33D6A6"
+            },
+            {
+                "id": "realtime-systems",
+                "num": "05",
+                "title": "Real-time Systems",
+                "description": "Development of chats, notification systems, corporate messengers and other real-time services.",
+                "tech": [
+                    "WebSocket",
+                    "RabbitMQ",
+                    "Matrix Synapse",
+                    "Messaging Systems"
+                ],
+                "accent": "#FFB03A"
+            },
+            {
+                "id": "project-support",
+                "num": "06",
+                "title": "Project Support",
+                "description": "Development of existing projects, performance optimization, bug fixes and introduction of new functionality.",
+                "tech": [
+                    "Refactoring",
+                    "Optimization",
+                    "Bug Fixing",
+                    "Feature Development"
+                ],
+                "accent": "#4AA8FF"
+            }
+        ],
+        "about": {
+            "ariaLabel": "About me",
+            "eyebrow": "( about me — experience, architecture, responsibility )",
+            "titleMain": "A journey",
+            "titleGhost": "through dozens of projects",
+            "paragraphs": [
+                "Over the years I have gone through practically all stages of web development. I built projects from scratch and enhanced existing systems, delivered more than fifty web projects of various scales entirely from zero, maintained legacy code, developed new modules, integrated third‑party services and payment systems, and contributed to the growth of large commercial products. More than once I had to fix the consequences of poor architectural decisions, which is why today I clearly understand how important it is to lay a solid foundation already at the design stage.",
+                "Working with different CMS platforms, including OpenCart, Shop‑Script and others, I gradually realized that many projects lack a simple, universal and convenient solution. This led to the idea of my own CMS — a lightweight, fast and easily maintainable platform that could be used equally effectively for a small landing page or a corporate site, a restaurant or a construction company. Over time more than fifteen projects were implemented on it, and the development itself became an excellent school of architectural thinking, designing universal components and building systems aimed at long‑term growth.",
+                "This experience taught me to look at development more broadly than just writing code. When you design a platform yourself, you begin to treat architecture, scalability, extensibility and the quality of each decision differently. That is when you realize that good code should not only work today, but also remain clear, easy to maintain and ready for new tasks years later.",
+                "While developing my own CMS, I constantly looked for ways to make the system more universal and convenient for growth. Many solutions that seemed promising at the time later became standard practice and appeared in other modern CMS. This only confirmed that a solid engineering approach remains relevant regardless of the specific platform.",
+                "Over these years I have worked both independently, being fully responsible for a project from idea to launch, and as part of teams where I contributed to the development of large products, long‑term support and design of new modules. Thanks to broad practical experience I can easily master new technologies and quickly join projects with an unfamiliar stack. React, Next.js, Node.js or any other modern tool for me is primarily a means to solve a task, not a goal in itself. It is much more important to understand the principles of building applications and engineering approaches, which is why switching between technologies happens quickly and without loss of development quality."
+            ],
+            "note": "Behind every successful product there once stood an idea. If you are looking for a developer who can help turn it into a reliable, scalable and maintainable system — I will be glad to discuss your project.",
+            "asideTitle": "Focus at work",
+            "highlights": [
+                { "key": "architecture", "label": "Architecture and solid project foundation" },
+                { "key": "legacy", "label": "Enhancing existing systems and legacy code" },
+                { "key": "integrations", "label": "Integrations of third‑party services and payments" },
+                { "key": "adaptation", "label": "Fast immersion into a new stack" }
+            ],
+            "cta": "Discuss the project",
+            "stats": [
+                { "key": "experience", "num": "10+", "label": "years of practical experience" },
+                { "key": "projects", "num": "50+", "label": "web projects of various scales" },
+                { "key": "cms", "num": "15+", "label": "projects on own CMS" }
+            ]
+        },
+        "contact": {
+            "eyebrow": "( CONTACT — LET’S DISCUSS )",
+            "title": "Contact",
+            "titleGhost": "me",
+            "subtitle": "Tell me about your project or job offer, leave a convenient way to reach you — I will get back to you shortly.",
+
+            "roleLabel": "Who are you?",
+            "roleClient": "Client",
+            "roleEmployer": "Employer",
+
+            "namePlaceholderClient": "Your name *",
+            "namePlaceholderEmployer": "Company name *",
+
+            "websitePlaceholderClient": "Portfolio / website",
+            "websitePlaceholderEmployer": "Company website",
+            "websiteHint": "You can enter https://... or any link",
+
+            "contactsLabel": "Preferred contact method *",
+            "addContact": "Add contact",
+            "addAnotherContact": "Add another contact",
+
+            "projectTypeLabelClient": "Project type",
+            "projectTypeLabelEmployer": "Employment type",
+            "projectOptions": {
+                "landing": "Landing page",
+                "corporateWebsite": "Corporate website",
+                "webApplication": "Web application",
+                "ecommerce": "Online store",
+                "api": "API",
+                "support": "Support",
+                "consulting": "Consulting",
+                "other": "Other",
+                "fullTime": "Full‑time",
+                "partTime": "Part‑time",
+                "contract": "Contract",
+                "freelance": "Freelance",
+                "remote": "Remote",
+                "hybrid": "Hybrid",
+                "office": "Office"
+            },
+
+            "budgetLabelClient": "Project budget",
+            "budgetLabelEmployer": "Expected salary",
+            "budgetPlaceholder": "Enter amount",
+
+            "descriptionLabel": "Description",
+            "descriptionPlaceholder": "Provide more details about the task or vacancy...",
+
+            "attachmentsLabel": "File links",
+            "addAttachment": "Add link",
+            "attachmentPlaceholder": "https://drive.google.com/...",
+
+            "submit": "Send",
+            "sending": "Sending...",
+            "fillRequired": "Fill in required fields",
+
+            "successTitle": "Message sent!",
+            "successText": "Thank you! I will contact you shortly.",
+            "agreeLabel": "I agree to be contacted regarding my request",
+            "scrollToFirst": "Go to the first unfilled field",
+            "errors": {
+                "required": "Required field",
+                "url": "Enter a valid link",
+                "contactRequired": "Add at least one contact method",
+                "contactInvalid": "Check the contact details",
+                "projectType": "Select at least one option",
+                "captcha": "Confirm you are not a robot",
+                "sendFailed": "Failed to send. Try again or contact directly.",
+                "count_one": "{{count}} required field left",
+                "count_few": "{{count}} required fields left",
+                "count_many": "{{count}} required fields left",
+                "agreeRequired": "Your consent is required"
+            }
         }
+
+
     }
 }

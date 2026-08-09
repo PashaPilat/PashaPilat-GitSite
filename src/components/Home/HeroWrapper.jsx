@@ -1,13 +1,13 @@
 import React from "react";
-import SmokeEffect from "../components/SmokeEffect";
+import SmokeEffect from "./SmokeEffect";
 import Navigation from "./Navigation";
 import GlowButton from "./GlowButton";
 import HeroStats from "./HeroStats";
-import { t } from "../i18n";
-import { getLangFromPath } from "../utils/getLangFromPath";
+import { t } from "../../i18n";
+import { getLangFromPath } from "../../utils/getLangFromPath";
 
-import "../styles/components/HeroWrapper.scss";
-import photo_home from "../assets/images/photo_home.png";
+import "../../styles/components/Home/HeroWrapper.scss";
+import photo_home from "../../assets/images/photo_home.png";
 
 function HeroWrapper({ page = "home" }) {
     const currentLang = getLangFromPath(window.location.pathname);

@@ -2,7 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import "../styles/components/SmokeEffect.scss";
+import "../../styles/components/Home/SmokeEffect.scss";
 
 const vertexShader = ` void main() {  gl_Position = vec4(position, 1.0); }`;
 const fragmentShader = `

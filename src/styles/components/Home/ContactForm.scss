@@ -1,0 +1,575 @@
+/* ========================================================= */
+/*  КОНТАКТНАЯ ФОРМА (.cf)                                    */
+/* ========================================================= */
+
+.cf {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: clamp(20px, 4vw, 40px);
+  backdrop-filter: blur(6px);
+}
+
+.cf-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(236, 237, 232, 0.55);
+  margin-bottom: 10px;
+}
+
+.cf-field { display: flex; flex-direction: column; }
+
+/* ── базовые инпуты ── */
+.cf-input,
+.cf-textarea,
+.cf-select-native {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 13px 16px;
+  color: #ecede8;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.cf-input::placeholder,
+.cf-textarea::placeholder { color: rgba(236, 237, 232, 0.35); }
+.cf-input:focus,
+.cf-textarea:focus,
+.cf-select-native:focus {
+  border-color: var(--color-lime);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.12);
+}
+
+/* ── лаймовая подсказка (hover на сабмит) ── */
+.cf-input.has-hint,
+.cf-textarea.has-hint,
+.cf-select-native.has-hint {
+  border-color: var(--color-lime);
+  background: rgba(201, 243, 29, 0.05);
+  box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.12);
+}
+.cf-field.has-hint .cf-input,
+.cf-field.has-hint .cf-textarea,
+.cf-field.has-hint .cf-select-native,
+.cf-field.has-hint .cf-select__control,
+.cf-field.has-hint .cf-checkbox__box,
+.cf-contact-value.has-hint .cf-input,
+.cf-field.has-hint .cf-input-icon .cf-input,
+.cf-select-wrap.has-hint .cf-select__control,
+.cf-select-single.has-hint .cf-select__control,
+.cf-checkbox.has-hint .cf-checkbox__box {
+  border-color: var(--color-lime) !important;
+  background: rgba(201, 243, 29, 0.05);
+  box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.12);
+}
+
+/* ── красная ошибка (клик) ── */
+.cf-input.has-error,
+.cf-textarea.has-error,
+.cf-select-native.has-error {
+  border-color: #ff6b6b !important;
+  background: rgba(255, 107, 107, 0.04);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.12) !important;
+}
+.cf-field.has-error .cf-input,
+.cf-field.has-error .cf-textarea,
+.cf-field.has-error .cf-select-native,
+.cf-field.has-error .cf-select__control,
+.cf-field.has-error .cf-checkbox__box,
+.cf-contact-value.has-error .cf-input,
+.cf-field.has-error .cf-input-icon .cf-input,
+.cf-select-wrap.has-error .cf-select__control,
+.cf-select-single.has-error .cf-select__control,
+.cf-checkbox.has-error .cf-checkbox__box {
+  border-color: #ff6b6b !important;
+  background: rgba(255, 107, 107, 0.04);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.12) !important;
+}
+
+.cf-textarea { resize: vertical; min-height: 110px; }
+
+/* ── иконка слева ── */
+.cf-input-icon { position: relative; display: flex; align-items: center; }
+.cf-input-icon__ico {
+  position: absolute; left: 16px;
+  color: rgba(236, 237, 232, 0.4); font-size: 14px; pointer-events: none;
+}
+.cf-input-icon__ico--prefix { font-family: var(--font-mono); font-weight: 600; }
+.cf-input-icon .cf-input--icon { padding-left: 40px; }
+
+/* ── tooltip info ── */
+.cf-tooltip-trigger {
+  position: absolute; right: 14px; color: rgba(236, 237, 232, 0.4); cursor: help;
+}
+.cf-tooltip-trigger:hover .cf-tooltip,
+.cf-tooltip-trigger:focus .cf-tooltip { opacity: 1; visibility: visible; transform: translateY(0); }
+.cf-tooltip {
+  position: absolute; right: 0; bottom: calc(100% + 10px);
+  width: 220px; padding: 10px 12px;
+  background: #1c1d24; border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px; font-size: 12px; line-height: 1.5;
+  color: rgba(236, 237, 232, 0.8);
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: all 0.18s ease; z-index: 5;
+}
+
+/* ── ошибки под полем ── */
+.cf-field-error {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 6px; font-size: 12px; color: #ff8a8a;
+  animation: cf-fade-in 0.2s ease;
+}
+@keyframes cf-fade-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── role toggle ── */
+.cf-role-toggle { display: flex; gap: 12px; }
+.cf-role-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 12px 16px; border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(236, 237, 232, 0.6); font-size: 14px; cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cf-role-btn:hover { border-color: rgba(201, 243, 29, 0.4); color: #ecede8; }
+.cf-role-btn.is-active {
+  background: var(--color-lime); border-color: var(--color-lime);
+  color: #0a0b0e; font-weight: 600;
+}
+
+/* ── контакты / вложения (строки) ── */
+.cf-contacts,
+.cf-attachments { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
+.cf-contact-row,
+.cf-attachment-row {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  gap: 10px; align-items: flex-start;
+}
+@media (max-width: 560px) {
+  .cf-contact-row,
+  .cf-attachment-row { grid-template-columns: 1fr; }
+}
+.cf-contact-value { display: flex; flex-direction: column; min-width: 0; }
+
+.cf-select-wrap { position: relative; display: flex; align-items: stretch; width: 100%; flex: 1 1 auto; }
+.cf-select-ico {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 13px; color: rgba(236, 237, 232, 0.5); pointer-events: none; z-index: 2;
+}
+.cf-select-caret {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 11px; color: rgba(236, 237, 232, 0.4); pointer-events: none; z-index: 2;
+  transition: transform 0.2s ease;
+}
+.cf-select-caret.is-open { transform: translateY(-50%) rotate(180deg); }
+
+.cf-select-native { appearance: none; padding-left: 38px; padding-right: 34px; cursor: pointer; }
+
+.cf-remove-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(236, 237, 232, 0.5);
+  cursor: pointer; transition: all 0.2s ease;
+}
+.cf-remove-btn:hover { border-color: #ff6b6b; color: #ff6b6b; }
+
+.cf-add-btn {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border-radius: 10px;
+  border: 1px dashed rgba(201, 243, 29, 0.4);
+  background: transparent; color: var(--color-lime);
+  font-size: 13px; cursor: pointer; transition: all 0.2s ease;
+}
+.cf-add-btn:hover { background: rgba(201, 243, 29, 0.08); border-style: solid; }
+
+/* Подсветка кнопки "Добавить контакт", когда контактов 0 и поле не заполнено */
+.cf-field--contacts.is-empty.has-hint .cf-add-btn {
+  border-style: solid;
+  border-color: var(--color-lime);
+  background: rgba(201, 243, 29, 0.1);
+  box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.18);
+  color: var(--color-lime);
+  animation: cf-pulse-lime 1.4s ease-in-out infinite;
+}
+.cf-field--contacts.is-empty.has-error .cf-add-btn {
+  border-style: solid;
+  border-color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.08);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.18);
+  color: #ff8a8a;
+  animation: cf-pulse-red 1.4s ease-in-out infinite;
+}
+@keyframes cf-pulse-lime {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.18); }
+  50%      { box-shadow: 0 0 0 6px rgba(201, 243, 29, 0.10); }
+}
+@keyframes cf-pulse-red {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.18); }
+  50%      { box-shadow: 0 0 0 6px rgba(255, 107, 107, 0.10); }
+}
+
+/* ── react-select база ── */
+.cf-select, .cf-select-single { width: 100%; }
+.cf-select-wrapper { width: 100%; }
+.cf-select-wrapper.has-hint .cf-select__control {
+  border-color: var(--color-lime) !important;
+  background: rgba(201, 243, 29, 0.05);
+  box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.12);
+}
+.cf-select-wrapper.has-error .cf-select__control {
+  border-color: #ff6b6b !important;
+  background: rgba(255, 107, 107, 0.04);
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.12);
+}
+
+.cf-select__control {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  min-height: 48px; padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px; cursor: text;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.cf-select__control--is-focused {
+  border-color: var(--color-lime); background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.12);
+}
+.cf-select__value-container { display: flex; flex-wrap: wrap; gap: 6px; flex: 1; padding: 0; }
+.cf-select__placeholder { color: rgba(236, 237, 232, 0.35); font-size: 15px; margin: 0; }
+.cf-select__input-container { color: #ecede8; margin: 0; padding: 0; }
+.cf-select__input { color: #ecede8 !important; }
+.cf-select__single-value { color: #ecede8; font-size: 15px; margin: 0; }
+.cf-select__multi-value {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 10px; border-radius: 8px;
+  background: rgba(201, 243, 29, 0.14);
+  color: var(--color-lime); font-size: 13px;
+}
+.cf-select__multi-value__remove { cursor: pointer; opacity: 0.7; }
+.cf-select__multi-value__remove:hover { opacity: 1; }
+.cf-select__indicator-separator { display: none; }
+.cf-select__dropdown-indicator { color: rgba(236, 237, 232, 0.4); padding: 0 4px; }
+
+.cf-select__menu {
+  margin-top: 6px; background: #1c1d24;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px; padding: 6px; overflow: hidden; z-index: 20;
+}
+.cf-select__menu-list { max-height: 240px; overflow-y: auto; }
+.cf-select__option {
+  padding: 10px 12px; border-radius: 8px; font-size: 14px;
+  color: #ecede8; cursor: pointer;
+}
+.cf-select__option--is-focused { background: rgba(255, 255, 255, 0.06); }
+.cf-select__option--is-selected { background: rgba(201, 243, 29, 0.16); color: var(--color-lime); }
+
+/* ── react-select single ── */
+.cf-select-single .cf-select__control {
+  display: flex; align-items: center;
+  width: 100%; min-height: 48px; height: 48px;
+  padding: 0; gap: 0; flex-wrap: nowrap; cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px; box-sizing: border-box;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.cf-select-single .cf-select__control--is-focused {
+  border-color: var(--color-lime); background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.12);
+}
+.cf-select-single .cf-select__value-container {
+  flex: 1 1 auto; width: 100%;
+  padding: 0 38px 0 38px;
+  display: flex; align-items: center; flex-wrap: nowrap; gap: 0;
+  height: 100%; box-sizing: border-box;
+}
+.cf-select-single .cf-select__single-value {
+  color: #ecede8; font-size: 15px; margin: 0;
+  max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.cf-select-single .cf-select__placeholder { font-size: 15px; margin: 0; }
+.cf-select-single .cf-select__input-container {
+  position: absolute !important; opacity: 0; pointer-events: none;
+  width: 1px !important; height: 1px !important;
+  margin: 0 !important; padding: 0 !important;
+}
+.cf-select-single .cf-select__indicators { display: none !important; }
+
+/* ── чекбокс ── */
+.cf-field--agree { gap: 6px; }
+.cf-checkbox {
+  display: inline-flex; align-items: center; gap: 12px;
+  cursor: pointer; user-select: none;
+  font-size: 14px; color: rgba(236, 237, 232, 0.85); line-height: 1.4;
+}
+.cf-checkbox__input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.cf-checkbox__box {
+  flex: 0 0 auto; width: 22px; height: 22px; border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--color-lime);
+  transition: all 0.18s ease;
+}
+.cf-checkbox__box.is-checked {
+  background: var(--color-lime); border-color: var(--color-lime); color: #0a0b0e;
+}
+.cf-checkbox:hover .cf-checkbox__box { border-color: rgba(201, 243, 29, 0.5); }
+.cf-checkbox__input:focus-visible + .cf-checkbox__box {
+  box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.22);
+}
+
+/* ── капча ── */
+.cf-field--captcha.has-hint iframe { box-shadow: 0 0 0 3px rgba(201, 243, 29, 0.35); border-radius: 4px; }
+.cf-field--captcha.has-error iframe { box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.35); border-radius: 4px; }
+
+/* ── submit ── */
+.cf-submit-area {
+  position: relative;
+  display: inline-flex; flex-direction: column;
+  align-items: flex-start; gap: 10px;
+  margin-top: 8px;
+  pointer-events: auto; z-index: 2;
+}
+.cf-submit {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 28px; border-radius: 999px; border: none;
+  background: var(--color-lime);
+  color: #0a0b0e; font-weight: 600; font-size: 15px;
+  cursor: pointer; transition: all 0.2s ease;
+  pointer-events: auto;
+}
+.cf-submit:hover:not(:disabled):not(.is-disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 243, 29, 0.25);
+}
+.cf-submit.is-disabled,
+.cf-submit:disabled {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(236, 237, 232, 0.35);
+  cursor: not-allowed; transform: none; box-shadow: none;
+}
+.cf-submit-tip {
+  display: inline-flex; align-items: center; gap: 8px;
+  max-width: 100%;
+  padding: 9px 14px; border-radius: 10px;
+  border: 1px solid rgba(201, 243, 29, 0.4);
+  background: rgba(201, 243, 29, 0.08);
+  color: var(--color-lime);
+  font-size: 12px; line-height: 1.4;
+  text-align: left; font-family: inherit; cursor: default;
+  animation: cf-fade-in 0.2s ease;
+}
+.cf-submit-tip svg { flex: 0 0 auto; font-size: 13px; }
+.cf-submit-tip span { word-break: break-word; }
+
+.cf-error-text { color: #ff8a8a; font-size: 13px; margin-top: -8px; }
+
+/* ── success ── */
+.cf-success {
+  text-align: center;
+  padding: clamp(40px, 8vh, 80px) 20px;
+  animation: cf-fade-in 0.4s ease;
+}
+.cf-success__icon { font-size: 52px; color: var(--color-lime); margin-bottom: 20px; }
+.cf-success h3 { font-size: 22px; margin-bottom: 10px; color: #ecede8; }
+.cf-success p  { color: rgba(236, 237, 232, 0.6); max-width: 420px; margin: 0 auto; }
+
+
+/* ========================================================= */
+/*  ШИРОКИЙ ЭКРАН ≥1400px — двухколоночная компоновка          */
+/* ========================================================= */
+
+.contact-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 4vw, 32px);
+}
+
+@media (min-width: 1400px) {
+
+  .cf {
+    display: grid !important;
+    /* 3 главных колонки + ещё одна для колонки с вложениями/контактами (2-колоночная сетка внутри секций) */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "role        role"
+      "name        website"
+      "contacts    contacts"
+      "project     budget"
+      "description description"
+      "attachments attachments"
+      "agree       captcha"
+      "submit      submit";
+    column-gap: 18px;
+    row-gap: 14px;
+    padding: 24px 28px;
+    align-items: start;
+  }
+
+  .cf-field--role               { grid-area: role; }
+  .cf [data-grid="name"]        { grid-area: name; }
+  .cf [data-grid="website"]     { grid-area: website; }
+  .cf-field--contacts,
+  .cf [data-grid="contacts"]    { grid-area: contacts; }
+  .cf [data-grid="project"]     { grid-area: project; }
+  .cf [data-grid="budget"]      { grid-area: budget; }
+  .cf-field--description,
+  .cf [data-grid="description"] { grid-area: description; }
+  .cf-field--attachments,
+  .cf [data-grid="attachments"] { grid-area: attachments; }
+  .cf-field--agree,
+  .cf [data-grid="agree"]       { grid-area: agree; }
+  .cf-field--captcha,
+  .cf [data-grid="captcha"]     { grid-area: captcha; }
+  .cf-submit-area,
+  .cf [data-grid="submit"]      { grid-area: submit; }
+
+  /* компактнее лейблы и общие размеры */
+  .cf-label { margin-bottom: 6px; font-size: 11px; letter-spacing: 0.06em; }
+
+  .cf-input, .cf-select-native { padding: 10px 12px; font-size: 14px; border-radius: 10px; }
+  .cf-textarea { padding: 10px 12px; min-height: 76px; border-radius: 10px; }
+
+  .cf-select__control { min-height: 40px; padding: 4px 10px; border-radius: 10px; }
+  .cf-select-single .cf-select__control { height: 40px; min-height: 40px; border-radius: 10px; }
+  .cf-select-single .cf-select__value-container { padding: 0 34px 0 34px; }
+
+  .cf-role-btn { padding: 9px 12px; font-size: 13px; border-radius: 10px; gap: 8px; }
+  .cf-remove-btn { width: 38px; height: 38px; border-radius: 10px; }
+  .cf-add-btn { padding: 7px 12px; font-size: 12px; border-radius: 8px; gap: 6px; }
+
+  .cf-input-icon .cf-input--icon { padding-left: 34px; }
+  .cf-input-icon__ico { left: 12px; font-size: 12px; }
+  .cf-input-icon__ico--prefix { font-size: 12px; }
+
+  .cf-contacts, .cf-attachments { gap: 8px; margin-bottom: 8px; }
+
+  /* Контакты и вложения — по ДВЕ строки в ряд на широком экране */
+  .cf-contact-row,
+  .cf-attachment-row {
+    display: grid;
+    grid-template-columns: 130px 1fr auto;
+    gap: 8px;
+  }
+  /* делаем сами контейнеры .cf-contacts / .cf-attachments двухколоночными */
+  .cf-contacts,
+  .cf-attachments {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px 12px;
+    margin-bottom: 8px;
+  }
+
+  .cf-select-ico { left: 12px; font-size: 12px; }
+  .cf-select-caret { right: 12px; font-size: 10px; }
+
+  /* Отступ между блоком "Ссылки на файлы" и следующей строкой (чекбокс+капча) */
+  .cf-field--attachments { margin-bottom: 6px; }
+
+  /* Чекбокс — слева, вертикально по центру */
+  .cf-field--agree {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 74px;
+  }
+  .cf-checkbox { font-size: 13px; line-height: 1.3; gap: 10px; color: rgba(236, 237, 232, 0.8); align-items: center; margin: 0; }
+  .cf-checkbox__box { width: 20px; height: 20px; font-size: 11px; border-radius: 6px; flex: 0 0 auto; }
+
+  /* Капча — справа, вертикально по центру (ровно на уровне чекбокса) */
+  .cf-field--captcha {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 74px;
+    overflow: visible;
+  }
+  .cf-field--captcha > div {
+    transform: scale(0.82);
+    transform-origin: right center;
+    margin-left: -58px; /* компенсация пустого места после scale */
+  }
+
+  /* Кнопка отправки — на всю ширину, своей отдельной строкой */
+  .cf-submit-area {
+    margin-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+  .cf-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 14px;
+    gap: 8px;
+    margin: 0;
+    align-self: stretch;
+    min-height: 44px;
+    border-radius: 12px;
+  }
+  .cf-submit-tip {
+    font-size: 11px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    gap: 6px;
+    line-height: 1.3;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    max-width: 100%;
+  }
+
+  /* error text компактнее */
+  .cf-error-text { font-size: 12px; margin-top: -4px; }
+
+  /* success-state компактнее */
+  .cf-success { padding: clamp(22px, 4vh, 40px) 20px; }
+  .cf-success__icon { font-size: 40px; margin-bottom: 10px; }
+  .cf-success h3 { font-size: 19px; margin-bottom: 6px; }
+  .cf-success p { font-size: 13px; }
+
+  /* тултип info под иконкой i */
+  .cf-tooltip { width: 200px; font-size: 11px; padding: 8px 10px; }
+}
+
+
+@media (min-width: 1400px) and (max-width: 1600px) {
+  .cf-field--captcha > div { transform: scale(0.78); margin-left: -70px; }
+  .cf-submit-area { min-width: auto; }
+}
+
+@media (min-width: 1800px) {
+  .cf { max-width: 1400px; margin: 0 auto; }
+}

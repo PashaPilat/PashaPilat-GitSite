@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "../styles/components/HeroStats.scss";
+import "../../styles/components/Home/HeroStats.scss";
 
 function HeroStats({ stats, className }) {
     const ref = useRef(null);

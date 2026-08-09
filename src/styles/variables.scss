@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
 // Breakpoints
 $ultrawide: 1920px; // UltraWide / 2K / 4K
 $fullhd: 1600px; // FullHD
@@ -10,6 +12,7 @@ $mobile: 480px; // Телефоны
 //Цвета
 $background-color: #000000;
 $background-color-burger: #000000f0;
+$background-skew-white: radial-gradient(circle at 82% 8%,#c9f31d1f,#0000 24%),radial-gradient(circle at 8% 58%,#7c6cff14,#0000 30%),linear-gradient(#f1f1ed,#fff 34%,#f7f7f3 72%,#ecece7);
 $text-color-white: #ffffff;
 $nav-link-color: #ffffffa6;
 $nav-link-hover-color: #ffffff;
@@ -17,6 +20,21 @@ $gradient-color-hero: #ffffff;
 
 //градиенты
 $gradient_subtitle_black: linear-gradient(135deg, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.20) 20%, rgba(255, 255, 255, 0.06) 45%, rgba(255, 255, 255, 0.00) 70%); // Градиент: яркий top-left → невидимый bottom-right
+
+// Шрифты
+:root {
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  // Цвета
+  --color-ink: #0a0b0e;
+  --color-paper: #ecede8;
+  --color-lime: #d6fc05;
+
+  // Отступы
+  --pad: clamp(20px, 5vw, 96px);
+}
 
 // Миксин для адаптации
 // Миксин для адаптации вниз (<= breakpoint)
