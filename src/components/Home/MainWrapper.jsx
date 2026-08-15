@@ -5,6 +5,7 @@ import HeroMarquee from "./HeroMarquee";
 import Services from "./Services";
 import About from "./About";
 import ContactSection from "./ContactSection";
+import Footer from "./Footer";
 
 function MainWrapper() {
     const [angle, setAngle] = useState(0);
@@ -36,17 +37,7 @@ function MainWrapper() {
             <Services />
             <About />
             <ContactSection />
-            <section id="projects4" className="projects">
-                <p className="scroll-text">
-                    Прокрутите вниз, чтобы увидеть проекты
-                </p>
-                <div className="project-list">
-                    <div className="project-item">Dune</div>
-                    <div className="project-item">Oasis</div>
-                    <div className="project-item">Asterisk</div>
-                    <div className="project-item">Eooks</div>
-                </div>
-            </section>
+            <Footer />
         </main>
     );
 }

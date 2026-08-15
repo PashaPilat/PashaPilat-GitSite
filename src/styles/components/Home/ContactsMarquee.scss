@@ -1,0 +1,45 @@
+.contacts__marquee {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  margin-inline: calc(var(--pad) * -1);
+  overflow: clip;
+  padding-block: 16px;
+
+  /* фон: мягкий градиент от светло‑голубого к белому */
+  background: linear-gradient(0deg, #4a90e2 0%, #f9f9f9 50%, #4a90e2 100%);
+
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.contacts__marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 100s linear infinite;
+}
+
+.contacts__marquee-row {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.contacts__marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding-right: 18px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1a1a99;
+}
+
+.contacts__marquee-item i {
+  font-style: normal;
+  color: #4a90e2;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}

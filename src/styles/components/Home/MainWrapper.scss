@@ -7,16 +7,17 @@
     z-index: 20;
 
     &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 200px;
-      background: $background-skew-white;
-      transform-origin: bottom left;
-      transform: skewY(calc(var(--skew-angle) * -1));
-      transition: transform .08s linear;
-      z-index: -1;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 45vw;
+        background: $background-skew-white;
+        transform-origin: bottom left;
+        transform: skewY(calc(var(--skew-angle) * -1));
+        transition: transform .08s linear;
+        pointer-events: none;
+        z-index: -1;
     }
 }
 

@@ -88,9 +88,7 @@ useEffect(() => {
                         <li>
                             <a href="#projects" onClick={(e) => {
                             e.preventDefault();
-                            window.lenis.scrollTo("#projects", 
-                                { duration: 3.0, easing: (t) => t,offset: -1415  }
-                            );
+                            window.lenis.scrollTo("#projects", { duration: 2.0, easing: (t) => t,offset: -1415  });
                             handleClose();
                             }}>
                             {t(currentLang, "nav", "projects")}
@@ -99,9 +97,7 @@ useEffect(() => {
                         <li>
                             <a href="#services" onClick={(e) => {
                             e.preventDefault();
-                            window.lenis.scrollTo("#services", 
-                                { duration: 4.5, easing: (t) => t,offset: -1515  }
-                            );
+                            window.lenis.scrollTo("#services", { duration: 2.5, easing: (t) => t,offset: -1515  });
                             handleClose();
                             }}>
                             {t(currentLang, "nav", "services")}
@@ -110,7 +106,7 @@ useEffect(() => {
                         <li>
                             <a href="#about" onClick={(e) => {
                             e.preventDefault();
-                            window.lenis.scrollTo("#about", { duration: 2.5 });
+                            window.lenis.scrollTo("#about", { duration: 3.5, easing: (t) => t,offset: -1500 });
                             handleClose();
                             }}>
                             {t(currentLang, "nav", "about")}
@@ -119,7 +115,7 @@ useEffect(() => {
                         <li>
                             <a href="#contact" onClick={(e) => {
                             e.preventDefault();
-                            window.lenis.scrollTo("#contact", { duration: 3.0 });
+                            window.lenis.scrollTo("#contact", { duration: 4.5, easing: (t) => t,offset: -100  });
                             handleClose();
                             }}>
                             {t(currentLang, "nav", "contact")}

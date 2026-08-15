@@ -1,4 +1,8 @@
+#contact {  padding-bottom: 0;}
 .contact-section {
+  --skew-offset: 0px;
+  --wedge-h: clamp(90px, 11vw, 250px);
+  padding-top: 250px; // чтобы не было наложения на скошенную кромку сверху
   position: relative;
   isolation: isolate;
   color: #ecede8;
@@ -8,40 +12,29 @@
     radial-gradient(50% 42% at 100% 100%, rgba(201, 243, 29, 0.08), transparent 62%),
     linear-gradient(180deg, #0a0b0e 0%, #0e0f14 45%, #191a22 100%);
 
-  // скошенная кромка сверху — "продолжение" предыдущей светлой секции
+  // скошенная кромка сверху — продолжение предыдущей светлой секции
   &::before {
     content: "";
     position: absolute;
     z-index: -1;
-    left: -8%;
-    right: -8%;
-    top: -1px;
-    height: clamp(90px, 11vw, 170px);
-    background:
-      radial-gradient(circle at 20% 80%, rgba(201, 243, 29, 0.18), transparent 32%),
-      linear-gradient(180deg, #f1f1eb 0%, #ecece5 100%);
-    transform-origin: top left;
-    transform: skewY(calc(var(--skew-angle) * -1));
-    transition: transform 0.08s linear;
+    left: -2px;
+    right: -2px;
+    top: -4px; // нахлёст, чтобы не было 1px-щели на стыке
+    height: calc(var(--wedge-h) + 4px);
+    background: #ecece6;
+    clip-path: polygon(0 0,100% 0, 100% calc(100% - var(--skew-offset)),0 100%);
     pointer-events: none;
-    will-change: transform;
   }
 }
 
-.hr-line {
-  position: relative;
-  z-index: 1;
-  height: 1px;
-  margin: 0 auto clamp(48px, 8vh, 88px);
-  max-width: 1200px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(236, 237, 232, 0.35) 20%,
-    rgba(201, 243, 29, 0.6) 50%,
-    rgba(236, 237, 232, 0.35) 80%,
-    transparent
-  );
+.hr-line-white {
+    position: relative;
+    z-index: 1;
+    height: 1px;
+    margin: 0 auto;
+    margin-top: clamp(100px, 12vh, 140px);
+    max-width: 1200px;
+    background: linear-gradient(90deg, transparent, rgba(236, 237, 232, 0.35) 20%, rgba(201, 243, 29, 0.6) 50%, rgba(236, 237, 232, 0.35) 80%, transparent);
 }
 
 .contact-wrapper {
@@ -50,6 +43,7 @@
   max-width: 80%;
   margin: 0 auto;
   padding-inline: clamp(16px, 4vw, 32px);
+  margin-top: 100px;
 }
 
 .contact-head {
@@ -100,4 +94,5 @@
 [data-reveal].is-in {
   opacity: 1;
   transform: none;
+  margin-bottom: 20px;
 }

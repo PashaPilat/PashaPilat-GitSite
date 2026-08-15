@@ -294,8 +294,26 @@
                 "count_many": "Осталось заполнить {{count}} обязательных полей",
                 "agreeRequired": "Необходимо ваше согласие"
             }
+        },
+        "directContact": {
+            "eyebrow": "( связь — напрямую )",
+            "title": "Связаться",
+            "titleGhost": "со мной",
+            "subtitle": "Если удобнее обсудить проект напрямую — я доступен в Telegram, по телефону или электронной почте.",
+            "qrAlt": "QR-код для связи в Telegram",
+            "qrLabel": "Telegram + QR",
+            "telegram": "Telegram",
+            "phone": "Телефон",
+            "email": "Email",
+            "linkedin": "LinkedIn",
+            "github": "GitHub"
+        },
+        "footer": {
+            "tagline": "Инженер, который превращает идеи в работающие продукты.",
+            "navigation": "Навигация в подвале сайта",
+            "goToTop": "Вернуться в начало страницы",
+            "copyright": "© 2026 PashaPlat"
         }
-
 
     },
     "ua": {
@@ -593,8 +611,26 @@
                 "count_many": "Залишилось заповнити {{count}} обовʼязкових полів",
                 "agreeRequired": "Необхідна ваша згода"
             }
+        },
+        "directContact": {
+            "eyebrow": "( зв’язок — напряму )",
+            "title": "Зв’язатися",
+            "titleGhost": "зі мною",
+            "subtitle": "Якщо зручніше обговорити проєкт напряму — я доступний у Telegram, телефоном або електронною поштою.",
+            "qrAlt": "QR-код для зв’язку в Telegram",
+            "qrLabel": "Telegram + QR",
+            "telegram": "Telegram",
+            "phone": "Телефон",
+            "email": "Email",
+            "linkedin": "LinkedIn",
+            "github": "GitHub"
+        },
+        "footer": {
+            "tagline": "Інженер, який перетворює ідеї на робочі продукти.",
+            "navigation": "Навігація у нижній частині сайту",
+            "goToTop": "Повернутися на початок сторінки",
+            "copyright": "© 2026 PashaPlat"
         }
-
 
     },
     "en": {
@@ -892,8 +928,26 @@
                 "count_many": "{{count}} required fields left",
                 "agreeRequired": "Your consent is required"
             }
+        },
+        "directContact": {
+            "eyebrow": "( contact — directly )",
+            "title": "Contact",
+            "titleGhost": "me",
+            "subtitle": "If it is more convenient to discuss the project directly, I am available on Telegram, by phone or by email.",
+            "qrAlt": "QR code for contacting me on Telegram",
+            "qrLabel": "Telegram + QR",
+            "telegram": "Telegram",
+            "phone": "Phone",
+            "email": "Email",
+            "linkedin": "LinkedIn",
+            "github": "GitHub"
+        },
+        "footer": {
+            "tagline": "Engineer turning ideas into working products.",
+            "navigation": "Footer navigation",
+            "goToTop": "Back to the top of the page",
+            "copyright": "© 2026 PashaPlat"
         }
-
 
     }
 }
