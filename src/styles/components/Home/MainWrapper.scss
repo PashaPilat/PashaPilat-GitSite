@@ -4,6 +4,8 @@
     position: relative;
     background: $background-skew-white; // белый фон, непрозрачный
     width: 100%; // чтобы не было отступа справа
+    // Keep wide decorative wedges inside the page, preserving vertical sticky sections.
+    overflow-x: clip;
     z-index: 20;
 
     &::before {

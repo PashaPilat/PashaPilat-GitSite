@@ -8,7 +8,9 @@ body {
     font-family: "Sans-Serif", Arial, sans-serif;
     background-color: $background-color;
     color: $text-color-white;
-    overflow-x: hidden;
+    // Clip decorative overflow without creating a horizontally scrollable body.
+    // Focus/hash navigation must not shift the whole page sideways.
+    overflow-x: clip;
 }
 
 .root{

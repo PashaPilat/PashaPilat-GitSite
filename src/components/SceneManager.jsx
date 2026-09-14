@@ -8,8 +8,7 @@ export default function SceneManager() {
         const main = document.querySelector(".skew-hero");
 
         if (!hero || !main) return;
-        const heroHeight = hero.offsetHeight;
-        placeholder.current.style.height = `${heroHeight}px`;
+        let heroHeight = hero.offsetHeight;
         const onScroll = () => {
             const heroBottom = heroHeight - window.innerHeight;
             // Hero дошел до конца
@@ -23,9 +22,22 @@ export default function SceneManager() {
             //     hero.classList.remove("hero-pinned");
             // }
         };
-        onScroll();
+        const measure = () => {
+            heroHeight = hero.offsetHeight;
+            placeholder.current.style.height = `${heroHeight}px`;
+            onScroll();
+        };
+        const observer = new ResizeObserver(measure);
+        observer.observe(hero);
+        measure();
+        window.addEventListener("resize", measure);
         window.addEventListener("scroll", onScroll);
-        return () => { window.removeEventListener("scroll", onScroll); };
+        return () => {
+            observer.disconnect();
+            window.removeEventListener("resize", measure);
+            window.removeEventListener("scroll", onScroll);
+            hero.classList.remove("hero-pinned");
+        };
     }, []);
 
     return <div ref={placeholder} className="hero-placeholder"></div>;

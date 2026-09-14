@@ -342,6 +342,16 @@ function countErrors(errors, missingCaptcha) {
 
 export default function ContactForm({ currentLang = "ru" }) {
   const [captchaToken, setCaptchaToken] = useState(null);
+  const [compactCaptcha, setCompactCaptcha] = useState(() => window.innerWidth <= 480);
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 480px)");
+    const update = () => {
+      setCompactCaptcha(media.matches);
+      setCaptchaToken(null);
+    };
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
   // капча считается заполненной когда есть captchaToken
   const [submitState, setSubmitState] = useState("idle"); // idle | sending | success | error
   // errorMode: 'none' | 'hint' (лайм, без текста) | 'error' (красный + текст)
@@ -726,7 +736,7 @@ export default function ContactForm({ currentLang = "ru" }) {
       {/* Капча */}
       <div data-grid="captcha" className={`cf-field cf-field--captcha ${!captchaToken ? hintOrErrCls(true) : ""}`}
         data-cf-error={!captchaToken && highlightMode !== "none" ? "true" : "false"} >
-        <ReCAPTCHA sitekey="6LcjOX0tAAAAAOo-JtLgvhnjTaNAF5Ih088MAZCP" theme="dark" onChange={setCaptchaToken} />
+        <ReCAPTCHA key={compactCaptcha ? "compact" : "normal"} size={compactCaptcha ? "compact" : "normal"} sitekey="6LcjOX0tAAAAAOo-JtLgvhnjTaNAF5Ih088MAZCP" theme="dark" onChange={setCaptchaToken} />
         {highlightMode === "error" && !captchaToken && (
           <FieldError message={t(currentLang, "contact", "errors", "captcha")} />
         )}

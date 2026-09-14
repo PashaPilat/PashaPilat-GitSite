@@ -1,16 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 
+import { nav } from "../../navigation/navigate";
 import { t } from "../../i18n";
 import { getLangFromPath } from "../../utils/getLangFromPath";
 
 import "../../styles/components/Home/Footer.scss";
 import logo from "../../assets/images/logo 2.png";
 
-const navigationItems = ["projects", "services", "about", "contact"];
+
 
 function Footer() {
     const location = useLocation();
+    const navigationItems = nav("", [], location.pathname);
     const currentLang = getLangFromPath(location.pathname);
 
     const footerRef = useRef(null);
@@ -47,46 +49,6 @@ function Footer() {
         return () => observer.disconnect();
     }, []);
 
-    const scrollToSection = (event, targetId) => {
-        const target = document.querySelector(targetId);
-
-        // Если секции на странице нет — оставляем обычное поведение ссылки.
-        if (!target) return;
-
-        event.preventDefault();
-
-        if (window.lenis) {
-            window.lenis.scrollTo(target, {
-                duration: 1.5,
-                offset: -90,
-            });
-
-            return;
-        }
-
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        });
-    };
-
-    const scrollToTop = (event) => {
-        event.preventDefault();
-
-        if (window.lenis) {
-            window.lenis.scrollTo(0, {
-                duration: 1.6,
-            });
-
-            return;
-        }
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    };
-
     return (
         <footer
             ref={footerRef}
@@ -99,7 +61,6 @@ function Footer() {
                     <a
                         href="#top"
                         className="site-footer__brand"
-                        onClick={scrollToTop}
                         aria-label={t(currentLang, "footer", "goToTop")}
                     >
                         <img
@@ -121,9 +82,9 @@ function Footer() {
                     >
                         <ul className="site-footer__nav-list">
                             {navigationItems.map((item) => (
-                                <li key={item}>
-                                    <a href={`#${item}`} onClick={(event) => scrollToSection(event, `#${item}`)} >
-                                        {t(currentLang, "nav", item)}
+                                <li key={item.key}>
+                                    <a href={item.href}>
+                                        {item.title}
                                     </a>
                                 </li>
                             ))}

@@ -6,7 +6,8 @@
     place-content: center;
     align-items: center;
     gap: 10px;
-    width: min-content;
+    width: max-content;
+    max-width: 100%;
     height: min-content;
     padding: 0;
     text-decoration: none;
@@ -122,7 +123,8 @@
     -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
-    white-space: pre;
+    white-space: normal;
+    overflow-wrap: anywhere;
 
     z-index: 1;
     flex: none;

@@ -25,7 +25,7 @@ function HeroWrapper({ page = "home" }) {
     ];
 
     return (
-        <div className="hero-wrapper">
+        <div className="hero-wrapper" id="top">
             <SmokeEffect />
             <Navigation />
 
@@ -57,11 +57,11 @@ function HeroWrapper({ page = "home" }) {
                         {t(currentLang, "hero", page, "description")}
                     </p>
                     <div className="hero-buttons">
-                        <GlowButton onClick={() => console.log("clicked btnStart")} href="#"  >
+                        <GlowButton href="#contact">
                             {t(currentLang, "hero", page, "btnStart")}
                         </GlowButton>
                         
-                        <GlowButton className="" >
+                        <GlowButton href="#projects">
                             {t(currentLang, "hero", page, "btnProjects")}
                         </GlowButton>
                     </div>

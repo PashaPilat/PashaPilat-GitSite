@@ -64,9 +64,14 @@ export default function FeaturedProjects() {
         let m = getMetrics();
         let headH = 0;
         let pinDistance = 0;
+        const shortViewport = window.matchMedia("(max-height: 600px)");
 
         const layout = () => {
             m = getMetrics();
+            if (shortViewport.matches) {
+                section.style.height = "auto";
+                return;
+            }
             headH = head.offsetHeight;
             pinDistance = (total - 1) * m.seg;
             section.style.height = `${headH + m.stageH + pinDistance}px`;
@@ -77,6 +82,7 @@ export default function FeaturedProjects() {
 
         const paint = () => {
             raf = 0;
+            if (shortViewport.matches) return;
             const rect = section.getBoundingClientRect();
             const p = Math.min(Math.max(STAGE_TOP - rect.top - headH, 0), pinDistance);
 
@@ -200,7 +206,7 @@ export default function FeaturedProjects() {
                     {/* Кнопка "Все проекты" */}
                     <GlowButton href="#projects">{t(currentLang, "fpOutro", "btnAllProjects")}</GlowButton>
                     {/* Кнопка "Сделать заказ" */}
-                    <GlowButton onClick={() => console.log("clicked btnStart")} href="#" >
+                    <GlowButton href="#contact">
                         {t(currentLang, "fpOutro", "btnOrder")}
                     </GlowButton>
                 </div>

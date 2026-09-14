@@ -1,0 +1,45 @@
+{
+    "web": {
+        "home": {
+            "projects": {
+                "id": "projects",
+                "icon": "fa-solid fa-folder-open",
+                "offset": -1415
+            },
+            "services": {
+                "id": "services",
+                "icon": "fa-solid fa-code",
+                "offset": -1515
+            },
+            "about": {
+                "id": "about",
+                "icon": "fa-solid fa-user",
+                "offset": -1550
+            },
+            "contact": {
+                "id": "contact",
+                "icon": "fa-solid fa-envelope",
+                "offset": -150
+            }
+        }
+    },
+    "unity": {
+        "home": {
+            "projects": {
+                "id": "projects",
+                "icon": "fa-solid fa-gamepad",
+                "offset": -1200
+            },
+            "about": {
+                "id": "about",
+                "icon": "fa-solid fa-user",
+                "offset": -1200
+            },
+            "contact": {
+                "id": "contact",
+                "icon": "fa-solid fa-envelope",
+                "offset": -100
+            }
+        }
+    }
+}

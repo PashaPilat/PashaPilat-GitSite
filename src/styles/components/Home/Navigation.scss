@@ -254,3 +254,20 @@
         }
     }
 }
+
+@media (max-width: 1600px) {
+    .hero-wrapper .navbar {
+        padding-inline: var(--pad);
+        .nav-controls {
+            max-height: 100dvh;
+            overflow-y: auto;
+            padding: 130px 0 24px;
+            .logo-burger { top: 24px; left: var(--pad); }
+            .toggle { top: 78px; left: var(--pad); right: auto; margin-top: 0; }
+            .lang-switcher { top: 78px; right: var(--pad); margin-top: 0; }
+            .nav-links { margin: 0; padding: 16px var(--pad); gap: 12px; }
+            .nav-links a { display: block; padding-block: 10px; }
+        }
+        .burger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+    }
+}

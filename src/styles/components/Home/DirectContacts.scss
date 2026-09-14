@@ -272,7 +272,8 @@
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
   font-family: var(--font-body);
   font-size: clamp(16px, 1.35vw, 21px);
   font-weight: 700;

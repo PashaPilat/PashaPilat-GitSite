@@ -1,7 +1,4 @@
 /* ── Services ──────────────────────────────────────────── */
-section[id] {
-  scroll-margin-top: 76px;
-}
 .svc {
   position: relative;
   isolation: isolate;
@@ -21,7 +18,7 @@ section[id] {
   left: -8%;
   right: -8%;
   bottom: -1px;
-  height: clamp(90px, 11vw, 170px);
+  height: clamp(90px, 11vw, 250px);
   background: #f2f2ed;
   transform: skewY(var(--transition-angle));
   transform-origin: bottom left;
@@ -436,7 +433,7 @@ color-mix(in oklab, var(--accent) 24%, #15161d) 0%, #101117 62%);
 }
 @media (max-width: 620px) {
   .svc-row__head {
-    grid-template-columns: 34px 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
   }
   .svc-row__iconbox {
     display: none;

@@ -284,3 +284,47 @@
 @include respond-to(mobile) {
 
 }
+
+@media (max-width: 1600px) {
+    .hero-wrapper {
+        height: auto;
+        min-height: 170svh;
+        .hero {
+            position: relative;
+            top: auto;
+            padding-top: 90px;
+            .hero-content { gap: 32px; }
+            .hero-title { font-size: clamp(2rem, 4.6vw, 4.1rem); }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-wrapper .hero {
+        .hero-content { max-width: 100%; padding: 24px var(--pad) 40px; gap: 28px; }
+        .hero-title { overflow-wrap: anywhere; }
+        .hero-text { max-width: 680px; width: 100%; line-height: 1.5; margin-bottom: 0; }
+        .hero-subtitle-container { max-width: 100%; }
+        .hero-content .hero-subtitle-container .hero-subtitle-block .hero-subtitle-inner {
+            padding: 12px 16px;
+            .hero-subtitle-point { flex-shrink: 0; }
+            .hero-subtitle-text { white-space: normal; text-align: center; font-size: 0.75rem; }
+        }
+        .horo-bottom-counter { width: 100%; margin-top: 0; }
+        .hero-buttons { flex-wrap: wrap; max-width: 100%; }
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-wrapper {
+        .photo-block { opacity: 0.45; }
+        .hero {
+            .hero-title { font-size: clamp(1.75rem, 7.8vw, 2.5rem); line-height: 1.12; }
+            .hero-buttons { flex-direction: column; width: 100%; align-items: stretch; gap: 12px; }
+            .hero-buttons .glow-button { width: 100%; }
+            .hero-bottom { gap: 8px; font-size: 0.65rem; letter-spacing: 0.5px; }
+            .hero-bottom-text { max-width: 100px; }
+            .hero-bottom-icon { flex-shrink: 0; }
+        }
+    }
+}

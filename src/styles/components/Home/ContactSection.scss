@@ -96,3 +96,8 @@
   transform: none;
   margin-bottom: 20px;
 }
+
+@media (max-width: 1024px) {
+  .contact-wrapper { max-width: 100%; padding-inline: var(--pad); }
+  .contact-title { overflow-wrap: anywhere; }
+}

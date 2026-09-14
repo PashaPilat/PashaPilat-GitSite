@@ -23,7 +23,7 @@
   margin-bottom: 10px;
 }
 
-.cf-field { display: flex; flex-direction: column; }
+.cf-field { display: flex; flex-direction: column; min-width: 0; }
 
 /* ── базовые инпуты ── */
 .cf-input,
@@ -157,7 +157,7 @@
 .cf-contact-row,
 .cf-attachment-row {
   display: grid;
-  grid-template-columns: 180px 1fr auto;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
   gap: 10px; align-items: flex-start;
 }
 @media (max-width: 560px) {
@@ -572,4 +572,11 @@
 
 @media (min-width: 1800px) {
   .cf { max-width: 1400px; margin: 0 auto; }
+}
+@media (max-width: 560px) {
+  .cf { padding: 16px; }
+  .cf-input, .cf-textarea, .cf-select-native { font-size: 16px; min-width: 0; }
+  .cf-role-toggle { flex-wrap: wrap; }
+  .cf-role-btn { flex: 1 1 auto; min-height: 44px; }
+  .cf-submit { max-width: 100%; white-space: normal; }
 }

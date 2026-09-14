@@ -1,7 +1,7 @@
 
 .hero__marquee {
     border-top: 1px solid rgba(255, 255, 255, 0.09);
-    margin-inline: calc(var(--pad) * -1);
+    margin-inline: 0;
     overflow: clip;
     padding-block: 14px;
     /* фон: серый по краям, бежевый в центре */
