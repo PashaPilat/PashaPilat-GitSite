@@ -3,23 +3,19 @@
         "home": {
             "projects": {
                 "id": "projects",
-                "icon": "fa-solid fa-folder-open",
-                "offset": -1415
+                "icon": "fa-solid fa-folder-open"
             },
             "services": {
                 "id": "services",
-                "icon": "fa-solid fa-code",
-                "offset": -1515
+                "icon": "fa-solid fa-code"
             },
             "about": {
                 "id": "about",
-                "icon": "fa-solid fa-user",
-                "offset": -1550
+                "icon": "fa-solid fa-user"
             },
             "contact": {
-                "id": "contact",
-                "icon": "fa-solid fa-envelope",
-                "offset": -150
+                "id": "direct-contact",
+                "icon": "fa-solid fa-envelope"
             }
         }
     },

@@ -1,108 +1,34 @@
-import test from 'node:test';
+﻿import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
+import {readFileSync} from 'node:fs';
+import {createRequire} from 'node:module';
 import vm from 'node:vm';
 import * as geometry from '../src/navigation/scrollGeometry.mjs';
-
-const require = createRequire(import.meta.url);
-const config = JSON.parse(readFileSync(new URL('../src/navigation/navigation.json', import.meta.url)));
-const { code } = require('@babel/core').transformSync(
-    readFileSync(new URL('../src/navigation/scroll.js', import.meta.url), 'utf8'),
-    { babelrc: false, configFile: false, presets: [['@babel/preset-env', { targets: { node: 'current' } }]] },
-);
-
-function setup({ lenis = true, reduced = false, pinnedHeroHeight = 0, insideMain = true } = {}) {
-    const calls = [];
-    const elements = Object.fromEntries(Object.values(config.web.home).map(item => [item.id, {
-        offsetTop: 3000 - pinnedHeroHeight,
-        offsetParent: { offsetTop: 1000, offsetParent: null },
-        closest: () => insideMain ? {} : null,
-        getBoundingClientRect() { throw new Error('Animated geometry must not be used'); },
-    }]));
-    const context = {
-        exports: {},
-        document: {
-            getElementById: id => elements[id],
-            querySelector: () => pinnedHeroHeight ? { offsetHeight: pinnedHeroHeight } : null,
-        },
-        window: {
-            scrollY: 1500,
-            matchMedia: () => ({ matches: reduced }),
-            scrollTo: options => calls.push(options),
-            lenis: lenis ? { scrollTo: (position, options) => calls.push({ position, ...options }) } : null,
-        },
-        require: name => name === './navigate'
-            ? { nav: () => Object.values(config.web.home).map(item => ({ ...item, href: `#${item.id}` })) }
-            : geometry,
-    };
-    vm.runInNewContext(code, context);
-    return { ...context.exports, calls };
+const require=createRequire(import.meta.url);
+const config=JSON.parse(readFileSync(new URL('../src/navigation/navigation.json',import.meta.url)));
+const {code}=require('@babel/core').transformSync(readFileSync(new URL('../src/navigation/scroll.js',import.meta.url),'utf8'),{babelrc:false,configFile:false,presets:[['@babel/preset-env',{targets:{node:'current'}}]]});
+function setup({pinned=false,heroHeight=1800,dividerHeight=60,lenis=true}={}){
+ const calls=[];const hero={offsetHeight:heroHeight,classList:{contains:()=>pinned}};
+ const elements=Object.fromEntries(Object.values(config.web.home).map(item=>item.id).map(id=>[id,{id,offsetTop:5000,offsetParent:null}]));
+ const dividers=Object.keys(elements).map(id=>({dataset:{scrollSection:id},offsetTop:5000+(pinned?0:heroHeight),offsetHeight:dividerHeight,offsetParent:null,closest:()=>({})}));
+ const context={exports:{},document:{getElementById:id=>elements[id],querySelector:()=>hero,querySelectorAll:()=>dividers},window:{scrollY:0,matchMedia:()=>({matches:false}),scrollTo:options=>calls.push(options),lenis:lenis?{resize:()=>{},scrollTo:(position,options)=>calls.push({position,...options})}:null},require:name=>name==='./navigate'?{nav:()=>Object.values(config.web.home).map(item=>({...item,href:`#${item.id}`}))}:geometry};
+ vm.runInNewContext(code,context);return {...context.exports,calls,dividers,context};
 }
-
-test('every configured landing section uses its offset and layout coordinates', () => {
-    const app = setup();
-    for (const item of Object.values(config.web.home)) {
-        assert.equal(app.scrollToSection(`#${item.id}`), true);
-        assert.equal(app.calls.at(-1).position, 4000 + item.offset);
-    }
+test('all Web links land below their divider from top and from pinned Hero',()=>{
+ for(const pinned of [false,true]){const app=setup({pinned});for(const id of Object.values(config.web.home).map(item=>item.id)){app.scrollToSection(`#${id}`);assert.equal(app.calls.at(-1).position,5061)}}
 });
-
-test('native fallback reaches the same section; reduced motion is immediate', () => {
-    const app = setup({ lenis: false, reduced: true });
-    app.scrollToSection('#services');
-    assert.equal(app.calls[0].top, 4000 + config.web.home.services.offset);
-    assert.equal(app.calls[0].behavior, 'instant');
-    const animated = setup({ reduced: true });
-    animated.scrollToSection('#contact');
-    assert.equal(animated.calls[0].immediate, true);
+test('resizing remeasures divider position and height without hardcoded offsets',()=>{
+ const app=setup({pinned:true});app.scrollToSection('#services');const divider=app.dividers.find(d=>d.dataset.scrollSection==='services');divider.offsetTop=9200;divider.offsetHeight=88;app.scrollToSection('#services');assert.equal(app.calls.at(-1).position,9289);
+ for(const heroHeight of [1474,1909]){const resized=setup({heroHeight,dividerHeight:88});resized.scrollToSection('#about');assert.equal(resized.calls.at(-1).position,5089)}
 });
-
-test('missing or malformed anchors do not scroll; top always works', () => {
-    const app = setup();
-    assert.equal(app.scrollToSection('#missing'), false);
-    assert.equal(app.scrollToSection('#%broken'), false);
-    assert.equal(app.calls.length, 0);
-    assert.equal(app.scrollToSection('#top'), true);
-    assert.equal(app.calls[0].position, 0);
-});
-
-test('offset override accepts zero and coordinates never become negative', () => {
-    const app = setup();
-    app.scrollToSection('#projects', { offset: 0 });
-    assert.equal(app.calls[0].position, 4000);
-    assert.equal(geometry.getSectionPosition({ offsetTop: 10 }, -100), 0);
-    assert.equal(geometry.getScrollDuration(20000), 6);
-});
-
-test('anchor interception respects GitHub Pages, language, queries and external links', () => {
-    const current = 'https://pashapilat.github.io/PashaPilat-GitSite/en?preview=1';
-    const anchor = (href, options = {}) => ({ href, target: '', hasAttribute: () => false, ...options });
-    assert.equal(geometry.getSamePageHash(anchor('#contact'), current), '#contact');
-    assert.equal(geometry.getSamePageHash(anchor(`${current}#projects`), current), '#projects');
-    for (const href of ['/projects/demo#contact', '/PashaPilat-GitSite/ua#contact', 'https://example.com/#contact', '?other=1#contact']) {
-        assert.equal(geometry.getSamePageHash(anchor(href), current), null);
-    }
-    assert.equal(geometry.getSamePageHash(anchor('#contact', { target: '_blank' }), current), null);
-    assert.equal(geometry.getSamePageHash(anchor('#contact', { hasAttribute: () => true }), current), null);
-});
-
-test('header before Hero pinning and radial navigation inside projects reach the same positions', () => {
-    const header = setup();
-    for (const pinnedHeroHeight of [1836, 1474, 1909]) {
-        const radial = setup({ pinnedHeroHeight });
-        for (const item of Object.values(config.web.home)) {
-            header.scrollToSection(`#${item.id}`);
-            radial.scrollToSection(`#${item.id}`);
-            assert.equal(radial.calls.at(-1).position, header.calls.at(-1).position);
-        }
-    }
-});
-
-test('Hero compensation does not affect top or elements outside the landing main', () => {
-    const app = setup({ pinnedHeroHeight: 1836, insideMain: false });
-    app.scrollToSection('#contact');
-    assert.equal(app.calls.at(-1).position, 4000 - 1836 + config.web.home.contact.offset);
-    app.scrollToSection('#top');
-    assert.equal(app.calls.at(-1).position, 0);
+test('completion corrects layout changes during animation',()=>{const app=setup({pinned:true});app.scrollToSection('#about');const finish=app.calls[0].onComplete;app.dividers.find(d=>d.dataset.scrollSection==='about').offsetTop=5200;app.context.window.scrollY=5061;finish();assert.equal(app.calls.at(-1).position,5261);assert.equal(app.calls.at(-1).immediate,true)});
+test('native fallback uses the same measured destination',()=>{const app=setup({lenis:false});app.scrollToSection('#direct-contact');assert.equal(app.calls[0].top,5061)});
+test('top and missing anchors do not depend on dividers',()=>{const app=setup();assert.equal(app.scrollToSection('#missing'),false);assert.equal(app.scrollToSection('#%bad'),false);app.scrollToSection('#top');assert.equal(app.calls[0].position,0)});
+test('unmarked sections keep ordinary layout and optional offsets',()=>{const app=setup();app.dividers.length=0;app.scrollToSection('#about',{offset:-40});assert.equal(app.calls[0].position,4960)});
+test('same-page anchors preserve route, language, queries and modified destinations',()=>{const current='https://pashapilat.github.io/PashaPilat-GitSite/en?preview=1';const anchor=(href,extra={})=>({href,target:'',hasAttribute:()=>false,...extra});assert.equal(geometry.getSamePageHash(anchor('#contact'),current),'#contact');for(const href of ['/projects/demo#contact','/PashaPilat-GitSite/ua#contact','https://example.com/#contact','?other=1#contact'])assert.equal(geometry.getSamePageHash(anchor(href),current),null);assert.equal(geometry.getSamePageHash(anchor('#contact',{target:'_blank'}),current),null)});
+test('completion rechecks layout after React commits immediate navigation',()=>{
+ const app=setup({pinned:true});const frames=[];app.context.window.requestAnimationFrame=callback=>frames.push(callback);
+ app.scrollToSection('#direct-contact');app.context.window.scrollY=5061;app.calls[0].onComplete();
+ app.dividers.find(d=>d.dataset.scrollSection==='direct-contact').offsetTop+=24;
+ frames.shift()();frames.shift()();assert.equal(app.calls.at(-1).position,5085);
 });

@@ -1,31 +1,29 @@
-# Navigation
-
-The site has Web and Unity branches, optionally prefixed by a language.
-Russian uses `/`, English `/en`, Ukrainian `/ua`. GitHub Pages adds the
-router basename `/PashaPilat-GitSite`.
+﻿# Navigation
 
 Web Home is a landing page: `#projects`, `#services`, `#about`, `#contact`.
-The contact section contains the form and `#direct-contact` contact details.
-`/projects` (all projects) and `/projects/:slug` (English project slug) are
-planned separate Web pages; their routes and content are not implemented yet.
-Unity remains a placeholder.
+Russian uses `/`, English `/en`, Ukrainian `/ua`; GitHub Pages adds
+`/PashaPilat-GitSite`. Unity remains a separate placeholder branch.
+`/projects` is the searchable Web catalog; `/projects/:slug` is a project page.
+Both routes support the same language prefixes. Their content comes from
+`getProjects()` in `src/data/projects.js`, shared with the Home cards.
 
-`navigation.json` is the source of menu items and section offsets. Keep
-offsets there, not in individual buttons. A negative offset scrolls above
-the section's layout start. Existing values are preserved.
+`navigation.json` defines menu items. Web landing sections use automatic
+positions, not fixed pixel offsets. Mark the divider for a section with
+`data-scroll-section="section-id"`. The divider may be inside the section
+or immediately before it (for example the services marquee).
 
-Use normal anchors such as `<a href="#contact">` or
-`<GlowButton href="#projects">`. `SmoothScroll`, mounted inside the router,
-handles same-page anchors, URL hashes and browser history. Modified clicks,
-downloads, external links and links to other pages retain native behavior.
-Do not preventDefault in section links: their local handlers may close menus,
-but the central handler must receive the click.
+`scroll.js` measures the divider's layout bottom and scrolls it just above
+the viewport, excluding animated transforms. It accounts for Hero leaving
+the flow when pinned and remeasures after scrolling. Responsive widths,
+font sizes, divider heights and accordion changes require no offset tuning.
+The same calculation drives header/footer links and radial active-section
+tracking. Unmarked sections can still use ordinary layout offsets.
 
-`scroll.js` is the shared programmatic scroll API. `scrollGeometry.mjs`
-provides layout coordinates without CSS transforms. `scroll.js` also restores
-Hero's flow contribution after SceneManager pins it, keeping the same reference
-position as navigation from the top of the page. Both scrolling and active-section
-tracking use this calculation. Without Lenis, the native
-fallback uses the same coordinates. Reduced motion disables scroll animation.
+Use `<a href="#contact">` or `<GlowButton href="#projects">` without
+preventDefault. `SmoothScroll` handles same-page anchors, hashes and history.
+Modified clicks, downloads, external links and other routes retain native
+behavior. Reduced motion disables scrolling animation.
 
-Run `npm test` for navigation checks and `npm run build` for production compilation.
+Run `npm test` and `npm run build` for module checks and production compilation.
+
+Ссылки меню «Контакты» ведут на `#direct-contact`: целью прокрутки служит нижний край `ContactsMarquee`. CTA «Начать», «Сделать заказ», «Обсудить» ведут на `#contact`, к форме после разделителя ContactSection. Эти назначения разделены и используют одну функцию измерения текущего положения разделителя.

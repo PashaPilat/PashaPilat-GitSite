@@ -10,7 +10,7 @@ const CONTACTS = [
 
 export default function ContactsMarquee() {
   return (
-    <div className="contacts__marquee" aria-hidden>
+    <div className="contacts__marquee" data-scroll-section="direct-contact" aria-hidden>
       <div className="contacts__marquee-track">
         {[0, 1].map((copy) => (
           <span key={copy} className="contacts__marquee-row">

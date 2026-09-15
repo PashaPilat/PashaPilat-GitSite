@@ -1,0 +1,9 @@
+{
+  "frontend": ["AJAX","CSS","Ext JS","HTML","JavaScript","jQuery","Next.js","React","SCSS","Twig"],
+  "backend": ["Kohana Query Builder","Laravel","Laravel CMS","Node.js","PHP","Yii2"],
+  "cms": ["Custom PHP engine","Joomla 3","PlatCMS","WordPress"],
+  "data": ["Elasticsearch","MySQL","PostgreSQL","Redis"],
+  "realtime": ["HTTPS/WSS","Matrix Synapse","RabbitMQ","WebSocket"],
+  "infrastructure": ["Docker","Laradock","MinIO","Webpack"],
+  "integrations": ["Geo API","Google Maps API","Payments","REST API","Stripe"]
+}

@@ -88,7 +88,7 @@ export default function ContactSection() {
       className="contact-section"
       aria-label={t(currentLang, "contact", "title")}
     >
-      <div className="hr-line-white" />
+      <div className="hr-line-white" data-scroll-section="contact" aria-hidden="true" />
 
       <div className="contact-wrapper">
         <div className="contact-head">

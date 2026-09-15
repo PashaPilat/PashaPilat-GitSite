@@ -18,7 +18,7 @@ const MARQUEE = [
 export default function HeroMarquee (){
 
     return (
-        <div className="hero__marquee" aria-hidden>
+        <div className="hero__marquee" data-scroll-section="services" aria-hidden>
         <div className="hero__marquee-track">
           {[0, 1].map((copy) => (
             <span key={copy} className="hero__marquee-row">

@@ -678,7 +678,11 @@ export default function ScrollTopButton({
         .join(" ")}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
-      onFocus={openMenu}
+      onFocus={() => {
+        // Touch focuses before click. Opening here makes that same tap look
+        // like a second tap and sends the user to the top instead of the menu.
+        if (!isCoarsePointerRef.current) openMenu();
+      }}
       onBlur={handleRootBlur}
       onKeyDown={handleKeyDown}
     >

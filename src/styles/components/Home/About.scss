@@ -61,6 +61,8 @@
     margin-inline: auto;
   }
 
+  .hr-line { margin-bottom: clamp(24px, 4vw, 48px); }
+
   /* Фоновое фото */
   &__photo-bg {
     position: absolute;

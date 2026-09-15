@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../styles/components/Home/GlowButton.scss";
 
 const GlowButton = ({
     children,
     href,
+    to,
     target,
     rel,
     onClick,
@@ -20,7 +22,7 @@ const GlowButton = ({
     glowColor = "#ffffff",
     style = {},
 }) => {
-    const Component = href ? "a" : "button";
+    const Component = to ? Link : href ? "a" : "button";
     const buttonStyle = {
         "--btn-bg": background,
         "--btn-frame": frameColor,
@@ -41,9 +43,10 @@ const GlowButton = ({
         ${className}
       `}
             href={href}
+            to={to}
             target={target}
             rel={rel}
-            type={href ? undefined : type}
+            type={href || to ? undefined : type}
             onClick={disabled ? undefined : onClick}
             style={buttonStyle}
         >

@@ -15,9 +15,9 @@ function LanguageSwitcher({burgerOpen = "close"}) {
     const handleSelect = (lang) => {
         const path = location.pathname.replace(/^\/(ru|ua|en|de)/, "");
         if (lang === "ru") {
-            navigate(path || "/");
+            navigate(`${path || "/"}${location.search}${location.hash}`);
         } else {
-            navigate(`/${lang}${path}`);
+            navigate(`/${lang}${path}${location.search}${location.hash}`);
         }
         setOpen(false);
     };

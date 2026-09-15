@@ -35,7 +35,7 @@ function MainWrapper() {
 
     return (
         <main className="skew-hero" style={{ "--skew-angle": `${angle}deg` }}>
-            <div className="hr-line"></div>
+            <div className="hr-line" data-scroll-section="projects" aria-hidden="true"></div>
             <FeaturedProjects />
             <HeroMarquee />
             <Services />

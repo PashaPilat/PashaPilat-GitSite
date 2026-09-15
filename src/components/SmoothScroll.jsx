@@ -1,4 +1,4 @@
-﻿import { useEffect } from "react";
+﻿import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Lenis from "lenis";
 import { getTargetElement, scrollToSection } from "../navigation/scroll";
@@ -7,6 +7,11 @@ import { getSamePageHash } from "../navigation/scrollGeometry.mjs";
 export default function SmoothScroll() {
     const location = useLocation();
     const navigate = useNavigate();
+    const previousPath = useRef(location.pathname);
+    useEffect(() => {
+        if (previousPath.current !== location.pathname && !location.hash) scrollToSection("#top", { immediate: true });
+        previousPath.current = location.pathname;
+    }, [location.pathname, location.hash]);
 
     useEffect(() => {
         const lenis = new Lenis({
@@ -46,9 +51,12 @@ export default function SmoothScroll() {
 
     useEffect(() => {
         if (!location.hash) return;
-        const frame = requestAnimationFrame(() => scrollToSection(location.hash));
+        const scrollCurrentHash = (options) => {
+            if (window.location.hash === location.hash) scrollToSection(location.hash, options);
+        };
+        const frame = requestAnimationFrame(() => scrollCurrentHash());
         // Initial deep links need a second measurement once images have loaded.
-        const onLoad = () => scrollToSection(location.hash, { immediate: true });
+        const onLoad = () => scrollCurrentHash({ immediate: true });
         const cancelLoad = () => window.removeEventListener("load", onLoad);
         if (document.readyState !== "complete") window.addEventListener("load", onLoad, { once: true });
         window.addEventListener("wheel", cancelLoad, { passive: true, once: true });

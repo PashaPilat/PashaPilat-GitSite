@@ -5,25 +5,10 @@ import "../../styles/components/Home/FeaturedProjects.scss";
 import { t } from "../../i18n";
 import { getLangFromPath } from "../../utils/getLangFromPath";
 
-import hmhExpert from "../../assets/images/projects/hmh-expert/1.png";
-import serviceMarket from "../../assets/images/projects/service-market/1.png";
-import smartmag from "../../assets/images/projects/smartmag/1.png";
-import tcars from "../../assets/images/projects/tcars/1.png";
-import antoshCo from "../../assets/images/projects/other/antosh&co.png";
-import fishMeat from "../../assets/images/projects/fish&meat/1.png";
-
+import { Link } from "react-router-dom";
+import { getProjects } from "../../data/projects";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-
-const projectImages = {
-    "hmh-expert": hmhExpert,
-    "service-market": serviceMarket,
-    "smartmag": smartmag,
-    "tcars": tcars,
-    "antosh-co": antoshCo,
-    "fish-meat": fishMeat,
-};
+import { faLayerGroup, faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const STAGE_TOP = 50; // px — потолок
 
@@ -51,9 +36,10 @@ export default function FeaturedProjects() {
 
     const currentLang = getLangFromPath(window.location.pathname);
     const projects = t(currentLang, "projectsFeatured");
-    const preparedProjects = useMemo(() => projects.map((p) => ({ ...p, image: projectImages[p.id] })), [projects]);
+    const preparedProjects = useMemo(() => projects.map((p) => { const shared = getProjects(currentLang).find(item => item.id === p.id); return { ...p, ...shared, tech: shared.keyTech }; }), [projects, currentLang]);
 
     const total = preparedProjects.length;
+    const projectsPath = `${currentLang === "ru" ? "" : `/${currentLang}`}/projects`;
 
     useEffect(() => {
         const section = sectionRef.current;
@@ -172,10 +158,10 @@ export default function FeaturedProjects() {
                                     <span key={item} className="fp-card__chip">{item}</span>
                                 ))}
                             </div>
-                            <a className="fp-card__link" href={`/projects/${project.id}`}>
+                            <Link className="fp-card__link" to={`${projectsPath}/${project.id}`}>
                                 <span>{t(currentLang, "projectButton")}</span>
                                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" />
-                            </a>
+                            </Link>
                         </div>
                         <span className="fp-card__shade" aria-hidden />
                     </article>
@@ -204,7 +190,7 @@ export default function FeaturedProjects() {
                 </h2>
                 <div className="fp-outro__actions">
                     {/* Кнопка "Все проекты" */}
-                    <GlowButton href="#projects">{t(currentLang, "fpOutro", "btnAllProjects")}</GlowButton>
+                    <GlowButton to={projectsPath}>{t(currentLang, "fpOutro", "btnAllProjects")}</GlowButton>
                     {/* Кнопка "Сделать заказ" */}
                     <GlowButton href="#contact">
                         {t(currentLang, "fpOutro", "btnOrder")}

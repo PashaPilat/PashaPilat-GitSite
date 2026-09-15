@@ -62,6 +62,7 @@ export default function About() {
       aria-label={ariaLabel}
     >
       <div className="about__skew-inner">
+        <div className="hr-line" data-scroll-section="about" aria-hidden="true" />
         <div className="about__photo-bg" aria-hidden="true">
           <img src={photo} alt="" loading="lazy" decoding="async" />
         </div>

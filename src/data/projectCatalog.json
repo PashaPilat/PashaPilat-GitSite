@@ -1,0 +1,377 @@
+[
+  {
+    "id": "fifth-ocean",
+    "period": "2014–2015",
+    "yearStart": 2014,
+    "yearEnd": 2015,
+    "tech": [
+      "Joomla 3",
+      "PHP",
+      "MySQL",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "keyTech": [
+      "Joomla 3",
+      "PHP",
+      "MySQL"
+    ]
+  },
+  {
+    "id": "autocity",
+    "period": "2015–2016",
+    "yearStart": 2015,
+    "yearEnd": 2016,
+    "tech": [
+      "PHP",
+      "Custom PHP engine",
+      "MySQL",
+      "Twig",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "keyTech": [
+      "PHP",
+      "MySQL",
+      "Twig"
+    ]
+  },
+  {
+    "id": "call-center",
+    "period": "2016–2021",
+    "yearStart": 2016,
+    "yearEnd": 2021,
+    "dateUncertain": true,
+    "tech": [
+      "Yii2",
+      "JavaScript",
+      "WebSocket",
+      "HTTPS/WSS"
+    ],
+    "keyTech": [
+      "Yii2",
+      "JavaScript",
+      "WebSocket"
+    ]
+  },
+  {
+    "id": "vezdevoz",
+    "period": "2017–2018",
+    "yearStart": 2017,
+    "yearEnd": 2018,
+    "tech": [
+      "PHP",
+      "Custom PHP engine",
+      "MySQL",
+      "Twig",
+      "Kohana Query Builder",
+      "JavaScript",
+      "Google Maps API"
+    ],
+    "keyTech": [
+      "PHP",
+      "MySQL",
+      "Google Maps API"
+    ]
+  },
+  {
+    "id": "platcms",
+    "period": "2017+",
+    "yearStart": 2017,
+    "yearEnd": 2017,
+    "tech": [
+      "PHP",
+      "MySQL",
+      "Twig",
+      "Kohana Query Builder",
+      "jQuery",
+      "AJAX",
+      "JavaScript"
+    ],
+    "keyTech": [
+      "PHP",
+      "MySQL",
+      "Twig"
+    ]
+  },
+  {
+    "id": "comfort-club",
+    "period": "2017",
+    "yearStart": 2017,
+    "yearEnd": 2017,
+    "tech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL",
+      "Twig",
+      "Kohana Query Builder",
+      "jQuery",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "keyTech": [
+      "PlatCMS",
+      "PHP",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": "oncoplastic-surgery",
+    "period": "2018",
+    "yearStart": 2018,
+    "yearEnd": 2018,
+    "tech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL",
+      "Twig",
+      "jQuery",
+      "JavaScript",
+      "Payments"
+    ],
+    "keyTech": [
+      "PlatCMS",
+      "PHP",
+      "Payments"
+    ]
+  },
+  {
+    "id": "dolce-bella",
+    "period": "2018",
+    "yearStart": 2018,
+    "yearEnd": 2018,
+    "tech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL",
+      "Twig",
+      "Kohana Query Builder",
+      "jQuery",
+      "JavaScript"
+    ],
+    "keyTech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL"
+    ]
+  },
+  {
+    "id": "fish-meat",
+    "period": "2018",
+    "yearStart": 2018,
+    "yearEnd": 2018,
+    "imageFolder": "fish&meat",
+    "tech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL",
+      "Twig",
+      "Kohana Query Builder",
+      "jQuery",
+      "AJAX",
+      "JavaScript"
+    ],
+    "keyTech": [
+      "PlatCMS",
+      "PHP",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": "prime",
+    "period": "2016–2021",
+    "yearStart": 2016,
+    "yearEnd": 2021,
+    "dateUncertain": true,
+    "imageFolder": "prime-fitnes",
+    "tech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL",
+      "Twig",
+      "Kohana Query Builder",
+      "jQuery",
+      "JavaScript"
+    ],
+    "keyTech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL"
+    ]
+  },
+  {
+    "id": "antosh-co",
+    "period": "2020",
+    "yearStart": 2020,
+    "yearEnd": 2020,
+    "tech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL",
+      "Twig",
+      "Kohana Query Builder",
+      "jQuery",
+      "JavaScript"
+    ],
+    "keyTech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL"
+    ]
+  },
+  {
+    "id": "haukun",
+    "period": "2020",
+    "yearStart": 2020,
+    "yearEnd": 2020,
+    "tech": [
+      "PlatCMS",
+      "PHP",
+      "MySQL",
+      "Twig",
+      "Kohana Query Builder",
+      "jQuery",
+      "JavaScript",
+      "Google Maps API",
+      "Geo API",
+      "Payments"
+    ],
+    "keyTech": [
+      "PlatCMS",
+      "Google Maps API",
+      "Geo API"
+    ]
+  },
+  {
+    "id": "tourist-booking",
+    "period": "2016–2021",
+    "yearStart": 2016,
+    "yearEnd": 2021,
+    "dateUncertain": true,
+    "tech": [
+      "WordPress",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "jQuery",
+      "HTML",
+      "CSS"
+    ],
+    "keyTech": [
+      "WordPress",
+      "PHP",
+      "JavaScript"
+    ]
+  },
+  {
+    "id": "colortech",
+    "period": "2021–2022",
+    "yearStart": 2021,
+    "yearEnd": 2022,
+    "tech": [
+      "Ext JS",
+      "JavaScript",
+      "REST API",
+      "Webpack"
+    ],
+    "keyTech": [
+      "Ext JS",
+      "JavaScript",
+      "REST API"
+    ]
+  },
+  {
+    "id": "service-market",
+    "period": "2023–2025",
+    "yearStart": 2023,
+    "yearEnd": 2025,
+    "tech": [
+      "Laravel CMS",
+      "PHP",
+      "MySQL",
+      "Redis",
+      "Elasticsearch",
+      "SCSS",
+      "Webpack",
+      "Laradock"
+    ],
+    "keyTech": [
+      "Laravel CMS",
+      "MySQL",
+      "Elasticsearch"
+    ]
+  },
+  {
+    "id": "smartmag",
+    "period": "2023–2025",
+    "yearStart": 2023,
+    "yearEnd": 2025,
+    "tech": [
+      "Laravel CMS",
+      "PHP",
+      "MySQL",
+      "Redis",
+      "Elasticsearch",
+      "SCSS",
+      "Webpack",
+      "Laradock"
+    ],
+    "keyTech": [
+      "Laravel CMS",
+      "MySQL",
+      "Elasticsearch"
+    ]
+  },
+  {
+    "id": "tcars",
+    "period": "2023–2025",
+    "yearStart": 2023,
+    "yearEnd": 2025,
+    "tech": [
+      "Laravel CMS",
+      "PHP",
+      "MySQL",
+      "Redis",
+      "Elasticsearch",
+      "SCSS",
+      "Webpack",
+      "Laradock"
+    ],
+    "keyTech": [
+      "Laravel CMS",
+      "MySQL",
+      "Elasticsearch"
+    ]
+  },
+  {
+    "id": "hmh-expert",
+    "period": "2025",
+    "yearStart": 2025,
+    "yearEnd": 2025,
+    "tech": [
+      "Next.js",
+      "React",
+      "Laravel",
+      "PHP",
+      "REST API",
+      "Matrix Synapse",
+      "Node.js",
+      "WebSocket",
+      "RabbitMQ",
+      "MySQL",
+      "PostgreSQL",
+      "Redis",
+      "MinIO",
+      "Stripe",
+      "Docker"
+    ],
+    "keyTech": [
+      "React",
+      "Laravel",
+      "Matrix Synapse"
+    ]
+  }
+]

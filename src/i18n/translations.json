@@ -1,5 +1,22 @@
 {
     "ru": {
+        "projectCatalog": {
+            "title": "Все проекты",
+            "home": "Главная",
+            "intro": "Веб-платформы, интернет-магазины и корпоративные системы.",
+            "search": "Поиск проектов",
+            "all": "Все технологии",
+            "filter": "Технология",
+            "details": "Подробнее",
+            "contact": "Обсудить проект",
+            "empty": "Проекты не найдены",
+            "reset": "Сбросить фильтры",
+            "missing": "Проект не найден",
+            "year": "Год",
+            "stack": "Технологии",
+            "about": "О проекте",
+            "shown": "Найдено"
+        },
         "nav": {
             "projects": "Проекты",
             "services": "Услуги",
@@ -317,6 +334,23 @@
 
     },
     "ua": {
+        "projectCatalog": {
+            "title": "Усі проєкти",
+            "home": "Головна",
+            "intro": "Вебплатформи, інтернет-магазини та корпоративні системи.",
+            "search": "Пошук проєктів",
+            "all": "Усі технології",
+            "filter": "Технологія",
+            "details": "Докладніше",
+            "contact": "Обговорити проєкт",
+            "empty": "Проєктів не знайдено",
+            "reset": "Скинути фільтри",
+            "missing": "Проєкт не знайдено",
+            "year": "Рік",
+            "stack": "Технології",
+            "about": "Про проєкт",
+            "shown": "Знайдено"
+        },
         "nav": {
             "projects": "Проєкти",
             "services": "Послуги",
@@ -634,6 +668,23 @@
 
     },
     "en": {
+        "projectCatalog": {
+            "title": "All projects",
+            "home": "Home",
+            "intro": "Web platforms, online stores and business systems.",
+            "search": "Search projects",
+            "all": "All technologies",
+            "filter": "Technology",
+            "details": "View project",
+            "contact": "Discuss a project",
+            "empty": "No projects found",
+            "reset": "Reset filters",
+            "missing": "Project not found",
+            "year": "Year",
+            "stack": "Technologies",
+            "about": "About the project",
+            "shown": "Results"
+        },
         "nav": {
             "projects": "Projects",
             "services": "Services",
