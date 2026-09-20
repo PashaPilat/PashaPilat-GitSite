@@ -9,29 +9,29 @@ import { getLangFromPath } from "../../utils/getLangFromPath";
 import "../../styles/components/Home/HeroWrapper.scss";
 import photo_home from "../../assets/images/photo_home.png";
 
-function HeroWrapper({ page = "home" }) {
+function HeroWrapper() {
     const currentLang = getLangFromPath(window.location.pathname);
     const stats = [
-        { id: "years", type: "number", value: 10, label: t(currentLang,"hero","home","stats","years") },
-        { id: "backend", type: "text", value: "Laravel, PHP", icon: "fa-brands fa-laravel", label: t(currentLang,"hero","home","stats","backend") },
-        { id: "api", type: "text", value: "REST API", icon: "fa-solid fa-network-wired", label: t(currentLang,"hero","home","stats","api") },
-        { id: "projects", type: "number", value: 50, label: t(currentLang,"hero","home","stats","projects") },
-        { id: "frontend", type: "text", value: "React", icon: "fa-brands fa-react", label: t(currentLang,"hero","home","stats","frontend") },
-        { id: "performance", type: "text", value: "Performance", icon: "fa-solid fa-gauge-high", label: t(currentLang,"hero","home","stats","performance") }
+        { id: "years", type: "number", value: 10, label: t(currentLang, "common", "hero", "stats","years") },
+        { id: "backend", type: "text", value: "Laravel, PHP", icon: "fa-brands fa-laravel", label: t(currentLang, "common", "hero", "stats","backend") },
+        { id: "api", type: "text", value: "REST API", icon: "fa-solid fa-network-wired", label: t(currentLang, "common", "hero", "stats","api") },
+        { id: "projects", type: "number", value: 50, label: t(currentLang, "common", "hero", "stats","projects") },
+        { id: "frontend", type: "text", value: "React", icon: "fa-brands fa-react", label: t(currentLang, "common", "hero", "stats","frontend") },
+        { id: "performance", type: "text", value: "Performance", icon: "fa-solid fa-gauge-high", label: t(currentLang, "common", "hero", "stats","performance") }
     ];
 
     const statsCms = [
-        { id: "cms", type: "text", value: "CMS", icon: "fa-solid fa-database", label: t(currentLang,"hero","home","stats","cmsList") }
+        { id: "cms", type: "text", value: "CMS", icon: "fa-solid fa-database", label: t(currentLang, "common", "hero", "stats","cmsList") }
     ];
 
     return (
-        <div className="hero-wrapper" id="top">
+        <div className="hero-wrapper home-hero" id="top">
             <SmokeEffect />
             <Navigation />
 
             {/* Фото блок */}
             <section className="photo-block">
-                <img src={photo_home} alt="Photo" className="background-photo-img" />
+                <img src={photo_home} alt={t(currentLang, "common", "photoAlt")} className="background-photo-img" />
             </section>
 
             {/* Hero блок */}
@@ -45,29 +45,29 @@ function HeroWrapper({ page = "home" }) {
                                     <span className="hero-subtitle-point-dot"></span>
                                 </span>
                                 <span className="hero-subtitle-text">
-                                    {t(currentLang, "hero", page, "subtitle")}
+                                    {t(currentLang, "home", "hero", "subtitle")}
                                 </span>
                             </div>
                         </div>
                     </div>
                     <h1 className="hero-title">
-                        {t(currentLang, "hero", page, "title")}
+                        {t(currentLang, "home", "hero", "title")}
                     </h1>
                     <p className="hero-text">
-                        {t(currentLang, "hero", page, "description")}
+                        {t(currentLang, "home", "hero", "description")}
                     </p>
                     <div className="hero-buttons">
-                        <GlowButton href="#contact">
-                            {t(currentLang, "hero", page, "btnStart")}
+                        <GlowButton href="#direct-contact">
+                            {t(currentLang, "home", "hero", "btnStart")}
                         </GlowButton>
                         
                         <GlowButton href="#projects">
-                            {t(currentLang, "hero", page, "btnProjects")}
+                            {t(currentLang, "home", "hero", "btnProjects")}
                         </GlowButton>
                     </div>
                     <div className="hero-bottom">
                         <p className="hero-bottom-text">
-                            {t(currentLang, "hero", "home", "bottom", "scroll")}
+                            {t(currentLang, "common", "hero", "bottom", "scroll")}
                         </p>
                         <div className="hero-bottom-line"></div>
                         <div className="hero-bottom-icon">
@@ -80,7 +80,7 @@ function HeroWrapper({ page = "home" }) {
                         </div>
                         <div className="hero-bottom-line"></div>
                         <p className="hero-bottom-text">
-                            {t(currentLang, "hero", "home", "bottom", "projects")}
+                            {t(currentLang, "common", "hero", "bottom", "projects")}
                         </p>
                     </div>
                     <div className="horo-bottom-counter">

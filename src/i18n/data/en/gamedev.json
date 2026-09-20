@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "subtitle": "I create interactive game universes",
+    "title": "I turn ideas into living game worlds you want to complete",
+    "description": "Game development for me is the opportunity to create worlds with their own history, logic, and laws. I independently design the project architecture, develop world generation technologies, gameplay mechanics, and development tools, paying special attention to performance, scalability, and the logic of the game world.",
+    "btnStart": "Play now",
+    "btnProjects": "View game projects"
+  },
+  "scrollProjects": "Scroll down to see projects"
+}

@@ -61,7 +61,7 @@ function Footer() {
                     <a
                         href="#top"
                         className="site-footer__brand"
-                        aria-label={t(currentLang, "footer", "goToTop")}
+                        aria-label={t(currentLang, "home", "footer", "goToTop")}
                     >
                         <img
                             src={logo}
@@ -73,12 +73,12 @@ function Footer() {
                     </a>
 
                     <p className="site-footer__tagline">
-                        {t(currentLang, "footer", "tagline")}
+                        {t(currentLang, "home", "footer", "tagline")}
                     </p>
 
                     <nav
                         className="site-footer__nav"
-                        aria-label={t(currentLang, "footer", "navigation")}
+                        aria-label={t(currentLang, "home", "footer", "navigation")}
                     >
                         <ul className="site-footer__nav-list">
                             {navigationItems.map((item) => (
@@ -93,7 +93,7 @@ function Footer() {
                 </div>
 
                 <div className="site-footer__bottom">
-                    <p className="site-footer__copyright">{t(currentLang, "footer", "copyright")}</p>
+                    <p className="site-footer__copyright">{t(currentLang, "home", "footer", "copyright")}</p>
                 </div>
             </div>
         </footer>

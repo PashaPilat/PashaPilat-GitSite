@@ -62,7 +62,7 @@ export default function DirectContacts() {
             <div className="direct-contact__container">
                 <div className="contact-head direct-contact__head">
                     <span className="contact-eyebrow" data-reveal>
-                        {t(currentLang, "directContact", "eyebrow")}
+                        {t(currentLang, "home", "directContact", "eyebrow")}
                     </span>
 
                     <h2
@@ -70,9 +70,9 @@ export default function DirectContacts() {
                         data-reveal
                         style={{ "--d": "0.05s" }}
                     >
-                        {t(currentLang, "directContact", "title")}{" "}
+                        {t(currentLang, "home", "directContact", "title")}{" "}
                         <span className="contact-title__ghost">
-                            {t(currentLang, "directContact", "titleGhost")}
+                            {t(currentLang, "home", "directContact", "titleGhost")}
                         </span>
                     </h2>
 
@@ -81,7 +81,7 @@ export default function DirectContacts() {
                         data-reveal
                         style={{ "--d": "0.1s" }}
                     >
-                        {t(currentLang, "directContact", "subtitle")}
+                        {t(currentLang, "home", "directContact", "subtitle")}
                     </p>
                 </div>
 
@@ -99,7 +99,7 @@ export default function DirectContacts() {
                         <div className="direct-contact__qr-frame">
                             <img
                                 src={qrCode}
-                                alt={t(currentLang, "directContact", "qrAlt")}
+                                alt={t(currentLang, "home", "directContact", "qrAlt")}
                                 className="direct-contact__qr-img"
                                 loading="lazy"
                             />
@@ -107,7 +107,7 @@ export default function DirectContacts() {
 
                         <div className="direct-contact__qr-info">
                             <span className="direct-contact__qr-label">
-                                {t(currentLang, "directContact", "qrLabel")}
+                                {t(currentLang, "home", "directContact", "qrLabel")}
                             </span>
 
                             <a
@@ -149,8 +149,7 @@ export default function DirectContacts() {
                                 <span className="direct-contact__content">
                                     <span className="direct-contact__label">
                                         {t(
-                                            currentLang,
-                                            "directContact",
+                                            currentLang, "home", "directContact",
                                             item.key,
                                         )}
                                     </span>

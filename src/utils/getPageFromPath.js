@@ -1,6 +1,11 @@
+import { modes, modeIndexFromPath } from "../navigation/modes.mjs";
+
 const PAGE_TYPES = {
     WEB: "web",
-    UNITY: "unity",
+    GAMEDEV: "gamedev",
+    SOFTWARE: "software",
+    RADIO: "radio",
+    OTHER: "other",
 };
 
 const PAGE_NAMES = {
@@ -8,12 +13,8 @@ const PAGE_NAMES = {
 };
 
 const getPageFromPath = (pathname = window.location.pathname) => {
-    const segments = pathname.split("/").filter(Boolean);
-
     return {
-        type: segments.includes("unity")
-            ? PAGE_TYPES.UNITY
-            : PAGE_TYPES.WEB,
+        type: modes[modeIndexFromPath(pathname)].id,
 
         page: PAGE_NAMES.HOME,
     };

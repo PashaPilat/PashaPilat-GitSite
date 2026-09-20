@@ -13,7 +13,7 @@
     width:100%;
     z-index:10;
 }
-.hero-wrapper {
+.home-hero {
     position: relative;
     height: 170vh;
     width: 100%;
@@ -246,7 +246,7 @@
 }
 //max 1600px;
 @include respond-to(fullhd) {
-    .hero-wrapper {
+    .home-hero {
         .photo-block{
             width: 60%;
         }
@@ -259,7 +259,7 @@
 }
 /* Ноутбуки 13-14" → 1280px; */
 @include respond-to(laptop-medium) {
-    .hero-wrapper {
+    .home-hero {
         .photo-block{
             width: 100%;
         }
@@ -267,14 +267,14 @@
 }
 /* Планшеты  → 1024px; */
 @include respond-to(tablet-large) {
-    .hero-wrapper {
+    .home-hero {
         .photo-block { left: 0; }
         .hero-title { font-size: 2.5rem; }
     }
 }
 /* Мобильные  → 768px; */
 @include respond-to(tablet-small) {
-    .hero-wrapper {
+    .home-hero {
         .hero-content { padding: 1rem; gap: 1rem;}
         .hero-title { font-size: 2rem; }
         .hero-text {  font-size: 0.9rem;  }
@@ -286,7 +286,7 @@
 }
 
 @media (max-width: 1600px) {
-    .hero-wrapper {
+    .home-hero {
         height: auto;
         min-height: 170svh;
         .hero {
@@ -300,7 +300,7 @@
 }
 
 @media (max-width: 1024px) {
-    .hero-wrapper .hero {
+    .home-hero .hero {
         .hero-content { max-width: 100%; padding: 24px var(--pad) 40px; gap: 28px; }
         .hero-title { overflow-wrap: anywhere; }
         .hero-text { max-width: 680px; width: 100%; line-height: 1.5; margin-bottom: 0; }
@@ -316,7 +316,7 @@
 }
 
 @media (max-width: 560px) {
-    .hero-wrapper {
+    .home-hero {
         .photo-block { opacity: 0.45; }
         .hero {
             .hero-title { font-size: clamp(1.75rem, 7.8vw, 2.5rem); line-height: 1.12; }

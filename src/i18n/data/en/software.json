@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "subtitle": "Software and tool development",
+    "title": "SoftWare — software projects",
+    "description": "Applications, tools and experiments in software development.",
+    "btnStart": "View projects",
+    "btnProjects": "Projects"
+  },
+  "placeholder": "Projects in this field will appear here soon."
+}

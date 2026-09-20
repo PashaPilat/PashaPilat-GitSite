@@ -35,7 +35,7 @@ export default function FeaturedProjects() {
     const countRef = useRef(null);
 
     const currentLang = getLangFromPath(window.location.pathname);
-    const projects = t(currentLang, "projectsFeatured");
+    const projects = t(currentLang, "home", "projectsFeatured");
     const preparedProjects = useMemo(() => projects.map((p) => { const shared = getProjects(currentLang).find(item => item.id === p.id); return { ...p, ...shared, tech: shared.keyTech }; }), [projects, currentLang]);
 
     const total = preparedProjects.length;
@@ -119,21 +119,21 @@ export default function FeaturedProjects() {
     }, [total]);
 
     return (
-        <section id="projects" ref={sectionRef} className="fp" aria-label="Избранные проекты">
+        <section id="projects" ref={sectionRef} className="fp" aria-label={t(currentLang, "home", "featuredAriaLabel")}>
             <div ref={headRef} className="fp-head">
                 <div className="fp-head__left">
-                    <p className="fp-eyebrow">( Кейсы — стопка )</p>
+                    <p className="fp-eyebrow">{t(currentLang, "home", "featuredEyebrow")}</p>
                     <h2 className="fp-title">
-                        {t(currentLang, "projectsFeaturedTitle")}
+                        {t(currentLang, "home", "projectsFeaturedTitle")}
                         <br />
-                        <span className="fp-title__ghost">{t(currentLang, "projectsFeaturedGhost")}</span>
+                        <span className="fp-title__ghost">{t(currentLang, "home", "projectsFeaturedGhost")}</span>
                     </h2>
                 </div>
                 <div className="fp-head__right">
                     <FontAwesomeIcon icon={faLayerGroup} size="sm" />
-                    <p>{total} {t(currentLang, "projectsCount")} · {t(currentLang, "projectsScrollHint")}
+                    <p>{total} {t(currentLang, "home", "projectsCount")} · {t(currentLang, "home", "projectsScrollHint")}
                         <br className="hidden md:block" />
-                        {t(currentLang, "projectsScrollHintExtra")}
+                        {t(currentLang, "home", "projectsScrollHintExtra")}
                     </p>
                 </div>
             </div>
@@ -159,7 +159,7 @@ export default function FeaturedProjects() {
                                 ))}
                             </div>
                             <Link className="fp-card__link" to={`${projectsPath}/${project.id}`}>
-                                <span>{t(currentLang, "projectButton")}</span>
+                                <span>{t(currentLang, "home", "projectButton")}</span>
                                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" />
                             </Link>
                         </div>
@@ -182,18 +182,18 @@ export default function FeaturedProjects() {
             </div>
             <div className="fp-outro">
                 <div className="fp-outro__glow" aria-hidden="true"></div>
-                <p className="fp-outro__eyebrow">{t(currentLang, "fpOutro", "eyebrow")}</p>
+                <p className="fp-outro__eyebrow">{t(currentLang, "home", "fpOutro", "eyebrow")}</p>
                 <h2 className="fp-outro__title">
-                    {t(currentLang, "fpOutro", "title")}
+                    {t(currentLang, "home", "fpOutro", "title")}
                     <br />
-                    <span className="hero__outline">{t(currentLang, "fpOutro", "subtitle")}</span>
+                    <span className="hero__outline">{t(currentLang, "home", "fpOutro", "subtitle")}</span>
                 </h2>
                 <div className="fp-outro__actions">
                     {/* Кнопка "Все проекты" */}
-                    <GlowButton to={projectsPath}>{t(currentLang, "fpOutro", "btnAllProjects")}</GlowButton>
+                    <GlowButton to={projectsPath}>{t(currentLang, "home", "fpOutro", "btnAllProjects")}</GlowButton>
                     {/* Кнопка "Сделать заказ" */}
                     <GlowButton href="#contact">
-                        {t(currentLang, "fpOutro", "btnOrder")}
+                        {t(currentLang, "home", "fpOutro", "btnOrder")}
                     </GlowButton>
                 </div>
             </div>

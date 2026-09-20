@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUp } from "@fortawesome/free-regular-svg-icons";
 import { getTargetElement, getSectionPosition, scrollToSection } from "../navigation/scroll";
 import { nav } from "../navigation/navigate";
+import { t } from "../i18n";
+import { getLangFromPath } from "../utils/getLangFromPath";
 import "../styles/components/ScrollTopButton.scss";
 
 const RING_R = 47;
@@ -736,7 +738,7 @@ export default function ScrollTopButton({
       {hasNavigation && (
         <nav
           className="scroll-top__nav"
-          aria-label="Быстрая навигация"
+          aria-label={t(getLangFromPath(location.pathname), "common", "quickNavigation")}
           aria-hidden={!menuActive}
           style={{ "--st-nav-radius": `${navRadius}px` }}
         >

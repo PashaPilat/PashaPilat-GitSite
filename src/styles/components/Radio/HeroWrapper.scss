@@ -1,0 +1,10 @@
+.radio-hero {
+    position: relative;
+    min-height: 85svh;
+    background: #10151c;
+    color: #e5eaf0;
+    .radio-development-background, .radio-floating-3d-objects { position: absolute; }
+    &__content { position: relative; z-index: 2; padding: 160px var(--pad, 32px) 80px; max-width: 1000px; }
+    h1 { font-size: clamp(2rem, 5vw, 4rem); }
+    p { line-height: 1.7; margin-bottom: 28px; }
+}

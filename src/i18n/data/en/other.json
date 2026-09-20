@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "subtitle": "Other fields",
+    "title": "Other — more projects",
+    "description": "Projects, ideas and experiments beyond the main fields.",
+    "btnStart": "View projects",
+    "btnProjects": "Projects"
+  },
+  "placeholder": "Projects in this field will appear here soon."
+}

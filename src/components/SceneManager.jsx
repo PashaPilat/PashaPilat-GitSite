@@ -7,9 +7,12 @@ export default function SceneManager() {
         const hero = document.querySelector(".hero-wrapper");
         const main = document.querySelector(".skew-hero");
 
-        if (!hero || !main) return;
+        const placeholderElement = placeholder.current;
+        if (!hero || !main || !placeholderElement) return;
+        let disposed = false;
         let heroHeight = hero.offsetHeight;
         const onScroll = () => {
+            if (disposed || !placeholder.current) return;
             const heroBottom = heroHeight - window.innerHeight;
             // Hero дошел до конца
             if (window.scrollY >= heroBottom) {
@@ -23,8 +26,9 @@ export default function SceneManager() {
             // }
         };
         const measure = () => {
+            if (disposed || !placeholder.current) return;
             heroHeight = hero.offsetHeight;
-            placeholder.current.style.height = `${heroHeight}px`;
+            placeholderElement.style.height = `${heroHeight}px`;
             onScroll();
         };
         const observer = new ResizeObserver(measure);
@@ -33,6 +37,7 @@ export default function SceneManager() {
         window.addEventListener("resize", measure);
         window.addEventListener("scroll", onScroll);
         return () => {
+            disposed = true;
             observer.disconnect();
             window.removeEventListener("resize", measure);
             window.removeEventListener("scroll", onScroll);

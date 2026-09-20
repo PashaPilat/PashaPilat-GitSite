@@ -22,7 +22,7 @@ const buildItem = (key, item, lang) => {
     }
 
     if (!result.title) {
-        result.title = t(lang, "nav", key);
+        result.title = t(lang, "common", "nav", key);
     }
 
     return result;

@@ -1,54 +1,89 @@
-.toggle {
-    width: 100px;
-    height: 30px;
-    border-radius: 25px;
-    border: 1px solid #333333;
-    background: linear-gradient(145deg, #101010, #252424);
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
-        inset 2px 2px 6px rgba(0, 0, 0, 0.6);
+@use "sass:math";
 
-    .track {
+$mode-height: 32px;
+@function mode-size($size) {
+    @return $size * math.div(34px, 58px);
+}
+
+.toggle {
+    width: mode-size(260px);
+    height: $mode-height;
+    flex: 0 0 auto;
+    display: flex;
+    gap: mode-size(7px);
+    padding: calc(mode-size(6px) - 1px) mode-size(6px);
+    box-sizing: border-box;
+    border: mode-size(1px) solid #65717c;
+    border-radius: mode-size(35px);
+    background: linear-gradient(155deg, #4b535c 0%, #222a32 35%, #111820 65%, #3c444d);
+    box-shadow: inset 0 mode-size(1px) mode-size(1px) #c3cbd177, inset 0 (0px - mode-size(2px)) mode-size(3px) #000, 0 mode-size(5px) mode-size(12px) #0008;
+    .mode-track, .mode-display {
+        border: mode-size(1px) solid #070b10;
+        border-radius: mode-size(26px);
+        background: linear-gradient(150deg, #050b10, #17222c);
+        box-shadow: inset 0 mode-size(3px) mode-size(6px) #000, 0 mode-size(1px) mode-size(1px) #a3afbb66;
+    }
+    .mode-track {
+        position: relative;
+        flex: 1;
+        min-width: 0;
+        cursor: ew-resize;
+        touch-action: none;
+        user-select: none;
+        &:focus-visible { outline: mode-size(2px) solid #9ad9ff; outline-offset: mode-size(3px); }
+    }
+    .mode-track {
+        border: 0;
+        background: none;
+        box-shadow: none;
+    }
+    .mode-well {
         position: absolute;
-        top: 0;
         left: 0;
-        height: 100%;
+        right: 0;
+        bottom: 0;
+        height: mode-size(26px);
+        border: mode-size(1px) solid #070b10;
+        border-radius: mode-size(14px);
+        background: linear-gradient(150deg, #050b10, #17222c);
+        box-shadow: inset 0 mode-size(3px) mode-size(6px) #000, 0 mode-size(1px) mode-size(1px) #a3afbb66;
+    }
+    .mode-ticks {
+        position: absolute;
+        top: mode-size(2px);
+        left: mode-size(21px);
+        right: mode-size(21px);
+        display: flex;
+        justify-content: space-between;
+        span { width: mode-size(3px); height: mode-size(7px); border-radius: mode-size(2px); background: #535b62; box-shadow: 0 0 mode-size(2px) #000; }
+        .active { background: #bceaff; box-shadow: 0 0 mode-size(5px) #58bbff, 0 0 mode-size(9px) #58bbff; }
+    }
+    .mode-thumb {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: calc(mode-size(3px) + (100% - mode-size(42px)) * var(--mode-position) / 4);
+        width: mode-size(36px);
+        height: mode-size(22px);
         display: flex;
         align-items: center;
-        gap: 1px;
-        width: 190px; // ширина больше тоггла
-        transform: translateX(10px); // базовое положение
+        justify-content: center;
+        gap: mode-size(3px);
+        border: mode-size(1px) solid #a1aab4;
+        border-radius: mode-size(14px);
+        background: linear-gradient(#626c76, #303941);
+        box-shadow: inset 0 mode-size(1px) mode-size(1px) #e5eaf0aa, 0 mode-size(2px) mode-size(4px) #000;
+        transition: left 180ms ease;
+        i { width: mode-size(2px); height: mode-size(9px); border-radius: mode-size(2px); background: #151c22; box-shadow: mode-size(1px) 0 mode-size(1px) #b0bbc077; }
     }
-
-    .label {
-        font-size: 0.9rem;
-        font-weight: bold;
-        color: #019d2b;
-        width: 60px;
-        text-align: center;
-        text-shadow: 0px 0px 2px #060606;
-    }
-
-    .slider {
-        width: 26px;
-        height: 26px;
-        border-radius: 50%;
-        background: #333;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    }
-
-    // активируем анимацию только после первого клика
-    &.animate .track {
-        transition: transform 0.4s ease;
-    }
-
-    &.web .track {
-        transform: translateX(10px);
-    }
-
-    &.unity .track {
-        transform: translateX(-59px);
+    .mode-display {
+        width: mode-size(112px);
+        display: grid;
+        place-items: center;
+        color: #b3e1ff;
+        font-size: mode-size(20px);
+        font-weight: 500;
+        text-shadow: 0 0 mode-size(10px) #3baaff88;
     }
 }
+@media (prefers-reduced-motion: reduce) { .toggle .mode-thumb { transition: none; } }

@@ -86,23 +86,23 @@ export default function ContactSection() {
       id="contact"
       ref={sectionRef}
       className="contact-section"
-      aria-label={t(currentLang, "contact", "title")}
+      aria-label={t(currentLang, "home", "contact", "title")}
     >
       <div className="hr-line-white" data-scroll-section="contact" aria-hidden="true" />
 
       <div className="contact-wrapper">
         <div className="contact-head">
           <span className="contact-eyebrow" data-reveal>
-            {t(currentLang, "contact", "eyebrow")}
+            {t(currentLang, "home", "contact", "eyebrow")}
           </span>
           <h2 className="contact-title" data-reveal style={{ "--d": "0.05s" }}>
-            {t(currentLang, "contact", "title")}{" "}
+            {t(currentLang, "home", "contact", "title")}{" "}
             <span className="contact-title__ghost">
-              {t(currentLang, "contact", "titleGhost")}
+              {t(currentLang, "home", "contact", "titleGhost")}
             </span>
           </h2>
           <p className="contact-subtitle" data-reveal style={{ "--d": "0.1s" }}>
-            {t(currentLang, "contact", "subtitle")}
+            {t(currentLang, "home", "contact", "subtitle")}
           </p>
         </div>
 

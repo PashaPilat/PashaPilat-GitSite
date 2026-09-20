@@ -124,8 +124,8 @@ function IconSelect({ icon, open, children }) {
 function buildSchema(lang) {
   return yup.object().shape({
     role: yup.string().required(),
-    name: yup.string().required(t(lang, "contact", "errors", "required")),
-    website: yup.string().nullable().test("website", t(lang, "contact", "errors", "url"), (value) => {
+    name: yup.string().required(t(lang, "home", "contact", "errors", "required")),
+    website: yup.string().nullable().test("website", t(lang, "home", "contact", "errors", "url"), (value) => {
       if (!value) return true;
       return URL_RE.test(value.trim());
     }),
@@ -133,8 +133,8 @@ function buildSchema(lang) {
       yup.object().shape({
         type: yup.string().required(),
         value: yup.string()
-          .required(t(lang, "contact", "errors", "required"))
-          .test("contact-valid", t(lang, "contact", "errors", "contactInvalid"), function (value) {
+          .required(t(lang, "home", "contact", "errors", "required"))
+          .test("contact-valid", t(lang, "home", "contact", "errors", "contactInvalid"), function (value) {
             if (!value) return false;
             const v = value.trim();
             switch (this.parent.type) {
@@ -147,20 +147,20 @@ function buildSchema(lang) {
             }
           }),
       })
-    ).min(1, t(lang, "contact", "errors", "contactRequired")),
-    projectType: yup.array().min(1, t(lang, "contact", "errors", "projectType")),
+    ).min(1, t(lang, "home", "contact", "errors", "contactRequired")),
+    projectType: yup.array().min(1, t(lang, "home", "contact", "errors", "projectType")),
     budget: yup.string().nullable(),
     description: yup.string().nullable(),
     attachments: yup.array().of(
       yup.object().shape({
         platform: yup.string(),
-        url: yup.string().test("url", t(lang, "contact", "errors", "url"), (value) => {
+        url: yup.string().test("url", t(lang, "home", "contact", "errors", "url"), (value) => {
           if (!value) return true;
           return URL_RE.test(value.trim());
         }),
       })
     ).nullable(),
-    agree: yup.bool().oneOf([true], t(lang, "contact", "errors", "agreeRequired")),
+    agree: yup.bool().oneOf([true], t(lang, "home", "contact", "errors", "agreeRequired")),
   });
 }
 
@@ -302,7 +302,7 @@ function AttachmentRow({ index, control, currentLang, onRemove, mode }) {
                 {...field}
                 type="text"
                 className={`cf-input ${fieldStateClass(mode, hasErr)}`}
-                placeholder={t(currentLang, "contact", "attachmentPlaceholder")}
+                placeholder={t(currentLang, "home", "contact", "attachmentPlaceholder")}
               />
               {mode === "error" && <FieldError message={fieldState.error?.message} />}
             </div>
@@ -402,7 +402,7 @@ export default function ContactForm({ currentLang = "ru" }) {
     const list = role === "Client" ? CLIENT_PROJECT_TYPES : EMPLOYER_PROJECT_TYPES;
     return list.map((value) => ({
       value,
-      label: t(currentLang, "contact", "projectOptions", PROJECT_LABEL_KEYS[value]),
+      label: t(currentLang, "home", "contact", "projectOptions", PROJECT_LABEL_KEYS[value]),
     }));
   }, [role, currentLang]);
 
@@ -514,8 +514,8 @@ export default function ContactForm({ currentLang = "ru" }) {
     return (
       <div className="cf-success">
         <FontAwesomeIcon icon={faCircleCheck} className="cf-success__icon" />
-        <h3>{t(currentLang, "contact", "successTitle")}</h3>
-        <p>{t(currentLang, "contact", "successText")}</p>
+        <h3>{t(currentLang, "home", "contact", "successTitle")}</h3>
+        <p>{t(currentLang, "home", "contact", "successText")}</p>
       </div>
     );
   }
@@ -547,7 +547,7 @@ export default function ContactForm({ currentLang = "ru" }) {
 
       {/* Роль */}
       <div className="cf-field cf-field--role">
-        <label className="cf-label">{t(currentLang, "contact", "roleLabel")}</label>
+        <label className="cf-label">{t(currentLang, "home", "contact", "roleLabel")}</label>
         <Controller name="role" control={control}
           render={({ field }) => (
             <div className="cf-role-toggle">
@@ -557,7 +557,7 @@ export default function ContactForm({ currentLang = "ru" }) {
                   field.onChange("Client");
                   setValue("projectType", [], { shouldValidate: true });
                 }}>
-                <FontAwesomeIcon icon={faUser} /> {t(currentLang, "contact", "roleClient")}
+                <FontAwesomeIcon icon={faUser} /> {t(currentLang, "home", "contact", "roleClient")}
               </button>
               <button type="button"
                 className={`cf-role-btn ${field.value === "Employer" ? "is-active" : ""}`}
@@ -565,7 +565,7 @@ export default function ContactForm({ currentLang = "ru" }) {
                   field.onChange("Employer");
                   setValue("projectType", [], { shouldValidate: true });
                 }}>
-                <FontAwesomeIcon icon={faBriefcase} /> {t(currentLang, "contact", "roleEmployer")}
+                <FontAwesomeIcon icon={faBriefcase} /> {t(currentLang, "home", "contact", "roleEmployer")}
               </button>
             </div>
           )} />
@@ -578,8 +578,8 @@ export default function ContactForm({ currentLang = "ru" }) {
             <input {...field} type="text"
               className={`cf-input ${hintOrErrCls(nameErr)}`}
               placeholder={role === "Client"
-                ? t(currentLang, "contact", "namePlaceholderClient")
-                : t(currentLang, "contact", "namePlaceholderEmployer")} />
+                ? t(currentLang, "home", "contact", "namePlaceholderClient")
+                : t(currentLang, "home", "contact", "namePlaceholderEmployer")} />
           )} />
         {highlightMode === "error" && <FieldError message={errors.name?.message} />}
       </div>
@@ -593,12 +593,12 @@ export default function ContactForm({ currentLang = "ru" }) {
               <input {...field} type="text"
                 className={`cf-input cf-input--icon ${hintOrErrCls(websiteErr)}`}
                 placeholder={role === "Client"
-                  ? t(currentLang, "contact", "websitePlaceholderClient")
-                  : t(currentLang, "contact", "websitePlaceholderEmployer")} />
+                  ? t(currentLang, "home", "contact", "websitePlaceholderClient")
+                  : t(currentLang, "home", "contact", "websitePlaceholderEmployer")} />
             )} />
           <span className="cf-tooltip-trigger" tabIndex={0}>
             <FontAwesomeIcon icon={faCircleInfo} />
-            <span className="cf-tooltip">{t(currentLang, "contact", "websiteHint")}</span>
+            <span className="cf-tooltip">{t(currentLang, "home", "contact", "websiteHint")}</span>
           </span>
         </div>
         {highlightMode === "error" && <FieldError message={errors.website?.message} />}
@@ -614,7 +614,7 @@ export default function ContactForm({ currentLang = "ru" }) {
         }
         data-cf-error={contactsErr && highlightMode !== "none" ? "true" : "false"}
       >
-        <label className="cf-label">{t(currentLang, "contact", "contactsLabel")}</label>
+        <label className="cf-label">{t(currentLang, "home", "contact", "contactsLabel")}</label>
         <div className="cf-contacts">
           {contactFields.map((field, index) => (
             <ContactRow
@@ -629,8 +629,8 @@ export default function ContactForm({ currentLang = "ru" }) {
           onClick={() => appendContact({ type: "Email", value: "" })}>
           <FontAwesomeIcon icon={faPlus} />
           {contactFields.length === 0
-            ? t(currentLang, "contact", "addContact")
-            : t(currentLang, "contact", "addAnotherContact")}
+            ? t(currentLang, "home", "contact", "addContact")
+            : t(currentLang, "home", "contact", "addAnotherContact")}
         </button>
         {highlightMode === "error" && contactsErr && !Array.isArray(errors.contacts) && (
           <FieldError message={errors.contacts.message} />
@@ -641,8 +641,8 @@ export default function ContactForm({ currentLang = "ru" }) {
       <div data-grid="project" className={`cf-field ${hintOrErrCls(projectErr)}`}>
         <label className="cf-label">
           {role === "Client"
-            ? t(currentLang, "contact", "projectTypeLabelClient")
-            : t(currentLang, "contact", "projectTypeLabelEmployer")}
+            ? t(currentLang, "home", "contact", "projectTypeLabelClient")
+            : t(currentLang, "home", "contact", "projectTypeLabelEmployer")}
         </label>
         <div
           data-cf-error={projectErr && highlightMode !== "none" ? "true" : "false"}
@@ -662,8 +662,8 @@ export default function ContactForm({ currentLang = "ru" }) {
       <div data-grid="budget" className="cf-field">
         <label className="cf-label">
           {role === "Client"
-            ? t(currentLang, "contact", "budgetLabelClient")
-            : t(currentLang, "contact", "budgetLabelEmployer")}
+            ? t(currentLang, "home", "contact", "budgetLabelClient")
+            : t(currentLang, "home", "contact", "budgetLabelEmployer")}
         </label>
         <div className="cf-input-icon">
           <span className="cf-input-icon__ico cf-input-icon__ico--prefix">$</span>
@@ -671,7 +671,7 @@ export default function ContactForm({ currentLang = "ru" }) {
             render={({ field }) => (
               <input type="text" inputMode="numeric"
                 className="cf-input cf-input--icon"
-                placeholder={t(currentLang, "contact", "budgetPlaceholder")}
+                placeholder={t(currentLang, "home", "contact", "budgetPlaceholder")}
                 value={field.value || ""}
                 onChange={(e) => field.onChange(formatBudget(e.target.value))} />
             )} />
@@ -680,18 +680,18 @@ export default function ContactForm({ currentLang = "ru" }) {
 
       {/* Описание */}
       <div data-grid="description" className="cf-field">
-        <label className="cf-label">{t(currentLang, "contact", "descriptionLabel")}</label>
+        <label className="cf-label">{t(currentLang, "home", "contact", "descriptionLabel")}</label>
         <Controller name="description" control={control}
           render={({ field }) => (
             <textarea {...field} rows={5} className="cf-textarea"
-              placeholder={t(currentLang, "contact", "descriptionPlaceholder")} />
+              placeholder={t(currentLang, "home", "contact", "descriptionPlaceholder")} />
           )} />
       </div>
 
       {/* Вложения */}
       <div data-grid="attachments" className="cf-field">
         <label className="cf-label">
-          <FontAwesomeIcon icon={faFileLines} /> {t(currentLang, "contact", "attachmentsLabel")}
+          <FontAwesomeIcon icon={faFileLines} /> {t(currentLang, "home", "contact", "attachmentsLabel")}
         </label>
         <div className="cf-attachments">
           {attachmentFields.map((field, index) => (
@@ -705,7 +705,7 @@ export default function ContactForm({ currentLang = "ru" }) {
         </div>
         <button type="button" className="cf-add-btn"
           onClick={() => appendAttachment({ platform: "Google Drive", url: "" })}>
-          <FontAwesomeIcon icon={faPlus} /> {t(currentLang, "contact", "addAttachment")}
+          <FontAwesomeIcon icon={faPlus} /> {t(currentLang, "home", "contact", "addAttachment")}
         </button>
       </div>
 
@@ -725,11 +725,11 @@ export default function ContactForm({ currentLang = "ru" }) {
               <span className={`cf-checkbox__box ${field.value ? "is-checked" : ""} ${hintOrErrCls(agreeErr)}`}>
                 {field.value && <FontAwesomeIcon icon={faCheck} />}
               </span>
-              <span className="cf-checkbox__label">{t(currentLang, "contact", "agreeLabel")}</span>
+              <span className="cf-checkbox__label">{t(currentLang, "home", "contact", "agreeLabel")}</span>
             </label>
           )} />
         {highlightMode === "error" && (
-          <FieldError message={errors.agree?.message || t(currentLang, "contact", "errors", "agreeRequired")} />
+          <FieldError message={errors.agree?.message || t(currentLang, "home", "contact", "errors", "agreeRequired")} />
         )}
       </div>
 
@@ -738,7 +738,7 @@ export default function ContactForm({ currentLang = "ru" }) {
         data-cf-error={!captchaToken && highlightMode !== "none" ? "true" : "false"} >
         <ReCAPTCHA key={compactCaptcha ? "compact" : "normal"} size={compactCaptcha ? "compact" : "normal"} sitekey="6LcjOX0tAAAAAOo-JtLgvhnjTaNAF5Ih088MAZCP" theme="dark" onChange={setCaptchaToken} />
         {highlightMode === "error" && !captchaToken && (
-          <FieldError message={t(currentLang, "contact", "errors", "captcha")} />
+          <FieldError message={t(currentLang, "home", "contact", "errors", "captcha")} />
         )}
       </div>
 
@@ -764,26 +764,26 @@ export default function ContactForm({ currentLang = "ru" }) {
             spin={submitState === "sending"}
           />
           {submitState === "sending"
-            ? t(currentLang, "contact", "sending")
-            : t(currentLang, "contact", "submit")}
+            ? t(currentLang, "home", "contact", "sending")
+            : t(currentLang, "home", "contact", "submit")}
         </button>
 
         {showTip && (
           <div className="cf-submit-tip" role="status" aria-live="polite">
             <FontAwesomeIcon icon={faCircleExclamation} />
             <span>
-              {t(currentLang, "contact", "errors", pluralKey, { count: errorCount })}
+              {t(currentLang, "home", "contact", "errors", pluralKey, { count: errorCount })}
               {" · "}
               {!captchaToken
-                ? t(currentLang, "contact", "errors", "captcha")
-                : t(currentLang, "contact", "fillRequired")}
+                ? t(currentLang, "home", "contact", "errors", "captcha")
+                : t(currentLang, "home", "contact", "fillRequired")}
             </span>
           </div>
         )}
       </div>
 
       {submitState === "error" && (
-        <p className="cf-error-text">{t(currentLang, "contact", "errors", "sendFailed")}</p>
+        <p className="cf-error-text">{t(currentLang, "home", "contact", "errors", "sendFailed")}</p>
       )}
     </form>
   );

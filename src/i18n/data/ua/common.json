@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "projects": "Проєкти",
+    "services": "Послуги",
+    "about": "Про мене",
+    "contact": "Контакти"
+  },
+  "toggle": {
+    "web": "Web",
+    "gamedev": "GameDev",
+    "software": "SoftWare"
+  },
+  "hero": {
+    "bottom": {
+      "scroll": "Scroll down",
+      "projects": "to see projects"
+    },
+    "stats": {
+      "years": "років комерційної розробки",
+      "projects": "реалізованих проєктів",
+      "backend": "основний Backend стек",
+      "frontend": "основний Frontend стек",
+      "api": "інтеграції та мікросервіси",
+      "performance": "оптимізація та масштабування",
+      "cms": "CMS",
+      "cmsList": "OpenCart • ShopScript • MODX"
+    }
+  },
+  "backToTop": "Нагору",
+  "photoAlt": "Фото Павла",
+  "quickNavigation": "Швидка навігація"
+}

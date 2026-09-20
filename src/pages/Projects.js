@@ -5,7 +5,7 @@ import { faTableCellsLarge, faList } from "@fortawesome/free-solid-svg-icons";
 import { getProjects } from "../data/projects";
 import { PAGE_SIZE, selectProjects } from "../data/projectQuery.mjs";
 import groups from "../data/technologyGroups.json";
-import labels from "../data/projects/ui.json";
+
 import { getLangFromPath } from "../utils/getLangFromPath";
 import { t } from "../i18n";
 import LanguageSwitcher from "../components/LanguageSwitcher";
@@ -23,7 +23,7 @@ export default function Projects() {
     const lang = getLangFromPath(location.pathname);
     const home = lang === "ru" ? "/" : `/${lang}`;
     const base = `${lang === "ru" ? "" : `/${lang}`}/projects`;
-    const copy = labels[lang] || labels.en;
+    const copy = t(lang, "projects", "ui");
     const projects = useMemo(() => getProjects(lang), [lang]);
     const query = params.get("q") || "";
     const technologies = params.getAll("tech");
@@ -49,7 +49,7 @@ export default function Projects() {
         <div className="project-catalog__smoke" aria-hidden="true"><SmokeEffect /></div>
         <header className="project-catalog__nav">
             <Link className="project-catalog__brand" to={home}><img src={logo} alt="" />PashaPilat</Link>
-            <nav aria-label={copy.title}><Link to={home}>{copy.home}</Link><Link to={`${home}#direct-contact`}>{t(lang, "nav", "contact")}</Link><LanguageSwitcher /></nav>
+            <nav aria-label={copy.title}><Link to={home}>{copy.home}</Link><Link to={`${home}#direct-contact`}>{t(lang, "common", "nav", "contact")}</Link><LanguageSwitcher /></nav>
         </header>
         <main className="project-catalog__main">
             <p className="project-catalog__eyebrow">PashaPilat / Web</p>
@@ -87,6 +87,6 @@ export default function Projects() {
                 </div>
             </>}
         </main>
-        <footer className="project-catalog__footer"><span>PashaPilat · Web</span><Link to={`${home}#direct-contact`}>{t(lang, "nav", "contact")}</Link><Link to={`${home}#contact`}>{copy.contact} ↗</Link></footer>
+        <footer className="project-catalog__footer"><span>PashaPilat · Web</span><Link to={`${home}#direct-contact`}>{t(lang, "common", "nav", "contact")}</Link><Link to={`${home}#contact`}>{copy.contact} ↗</Link></footer>
     </div>;
 }

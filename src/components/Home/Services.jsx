@@ -107,7 +107,7 @@ export default function Services() {
     };
   }, []);
 
-    const services = t(currentLang, "servicesFeatured");
+    const services = t(currentLang, "home", "servicesFeatured");
     const preparedServices = useMemo(
         () => services.map((s) => ({ ...s, 
                 icon: serviceIcons[s.id],
@@ -119,21 +119,21 @@ export default function Services() {
     return (
         <section ref={sectionRef} id="services" className="svc" 
         style={{"--transition-angle": `${transitionAngle}deg`,}}
-        aria-label={t(currentLang, "services", "ariaLabel")}>
+        aria-label={t(currentLang, "home", "services", "ariaLabel")}>
             <div className="svc__inner">
                 <header className="svc-head svc-reveal">
                     <div>
-                        <p className="svc-eyebrow">{t(currentLang, "services", "eyebrow")}</p>
+                        <p className="svc-eyebrow">{t(currentLang, "home", "services", "eyebrow")}</p>
                         <h2 className="svc-title">
-                            {t(currentLang, "services", "titleMain")}
+                            {t(currentLang, "home", "services", "titleMain")}
                             <br />
-                            <span className="svc-title__ghost"> {t(currentLang, "services", "titleGhost")} </span>
+                            <span className="svc-title__ghost"> {t(currentLang, "home", "services", "titleGhost")} </span>
                         </h2>
                     </div>
                     <div className="svc-head__right">
-                        <p className="svc-head__meta">{t(currentLang, "services", "meta")}</p>
+                        <p className="svc-head__meta">{t(currentLang, "home", "services", "meta")}</p>
                         <a href="#contact" className="svc-cta">
-                            <span>{t(currentLang, "services", "cta")}</span>
+                            <span>{t(currentLang, "home", "services", "cta")}</span>
                             <FontAwesomeIcon icon={faArrowRight} aria-hidden />
                         </a>
                     </div>
@@ -166,7 +166,7 @@ export default function Services() {
                                                     {s.tech.map((tch) => (<span key={tch} className="svc-row__chip" >{tch}</span> ))}
                                                 </div>
                                                 <a className="svc-row__link" href="#contact">
-                                                    <span> {t( currentLang,"services", "link",)}</span>
+                                                    <span> {t( currentLang, "home", "services", "link",)}</span>
                                                     <FontAwesomeIcon icon={faArrowRight} aria-hidden />
                                                 </a>
                                             </div>

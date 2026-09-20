@@ -1,16 +1,20 @@
 import React from "react";
-import HeroWrapper from "../components/Home/HeroWrapper";
+import HeroWrapper from "../components/GameDev/HeroWrapper";
 import CursorFollower from "../components/CursorFollower";
+import { useLocation } from "react-router-dom";
+import { getLangFromPath } from "../utils/getLangFromPath";
+import { t } from "../i18n";
 
-import "../styles/pages/unity.scss";
+import "../styles/pages/gamedev.scss";
 
-function Unity() {
+function GameDev() {
+    const lang = getLangFromPath(useLocation().pathname);
     return (
-        <>
-            <HeroWrapper page="unity" />
+        <main className="gamedev-page">
+            <HeroWrapper />
             {/* Секция проектов */}
-            <section id="projects" className="projects">
-                <p className="scroll-text">Прокрутите вниз, чтобы увидеть проекты</p>
+            <section id="projects" className="gamedev-projects">
+                <p className="scroll-text">{t(lang, "gamedev", "scrollProjects")}</p>
                 <div className="project-list">
                     <div className="project-item">Dune</div>
                     <div className="project-item">Oasis</div>
@@ -22,8 +26,8 @@ function Unity() {
             {/* Здесь можно добавить ещё секции */}
 
             <CursorFollower />
-        </>
+        </main>
     );
 }
 
-export default Unity;
+export default GameDev;

@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "toggle": {
+    "web": "Web",
+    "gamedev": "GameDev",
+    "software": "SoftWare"
+  },
+  "hero": {
+    "bottom": {
+      "scroll": "Scroll down",
+      "projects": "to see projects"
+    },
+    "stats": {
+      "years": "years of commercial development",
+      "projects": "completed projects",
+      "backend": "primary backend stack",
+      "frontend": "primary frontend stack",
+      "api": "integrations & microservices",
+      "performance": "optimization & scalability",
+      "cms": "CMS",
+      "cmsList": "OpenCart • ShopScript • MODX"
+    }
+  },
+  "backToTop": "Back to top",
+  "photoAlt": "Photo of Pavlo",
+  "quickNavigation": "Quick navigation"
+}

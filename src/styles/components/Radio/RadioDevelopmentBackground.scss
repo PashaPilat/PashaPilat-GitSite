@@ -1,0 +1,160 @@
+/* ==========================================================================
+   RadioDevelopmentBackground
+   --------------------------------------------------------------------------
+   Изолированный фон страницы «Разработка радиоустройств».
+   Отвечает ТОЛЬКО за фон: сцена рисуется в canvas, SCSS даёт базу,
+   маску читаемости hero-текста, виньетку и fallback без canvas.
+   ========================================================================== */
+
+$bg-deep: #030302;
+$bg-mid: #060504;
+$bg-warm: #090603;
+
+$signal: #d86a16;
+$signal-hot: #ff8a20;
+$signal-bright: #ff9f32;
+$signal-light: #ffbd63;
+
+/* CSS-версия технической сетки — используется только в fallback */
+@function radiating-grid($color, $step) {
+    @return repeating-linear-gradient(0deg, #{$color} 0 1px, transparent 1px #{$step}),
+        repeating-linear-gradient(90deg, #{$color} 0 1px, transparent 1px #{$step});
+}
+
+.radio-development-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: $bg-deep;
+    contain: layout style paint;
+    -webkit-tap-highlight-color: transparent;
+
+    &__canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* --- читаемость hero: слева экран остаётся существенно темнее --------- */
+    &__scrim {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.92) 0%,
+            rgba(0, 0, 0, 0.72) 30%,
+            rgba(0, 0, 0, 0.25) 55%,
+            rgba(0, 0, 0, 0) 75%
+        );
+    }
+
+    /* --- мягкая виньетка: верх/низ не «светятся», сцена держит глубину ----- */
+    &__vignette {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+            radial-gradient(
+                125% 95% at 52% 46%,
+                rgba(0, 0, 0, 0) 42%,
+                rgba(0, 0, 0, 0.5) 100%
+            ),
+            linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.42) 0%,
+                rgba(0, 0, 0, 0) 20%,
+                rgba(0, 0, 0, 0) 72%,
+                rgba(0, 0, 0, 0.45) 100%
+            );
+    }
+
+    /* --- fallback: canvas недоступен -------------------------------------- */
+    &--fallback {
+        background:
+            radial-gradient(
+                58% 52% at 74% 56%,
+                rgba(216, 106, 22, 0.16) 0%,
+                rgba(184, 85, 15, 0.07) 38%,
+                rgba(3, 3, 2, 0) 74%
+            ),
+            radiating-grid(rgba(255, 200, 145, 0.032), 26px),
+            linear-gradient(165deg, $bg-mid 0%, $bg-deep 46%, $bg-warm 100%);
+
+        .radio-development-background__canvas {
+            display: none;
+        }
+
+        /* «остывающий» спектр в fallback — только средствами CSS */
+        .radio-development-background__scrim {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.92) 0%,
+                    rgba(0, 0, 0, 0.72) 30%,
+                    rgba(0, 0, 0, 0.25) 55%,
+                    rgba(0, 0, 0, 0) 75%
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(216, 106, 22, 0) 40%,
+                    rgba(216, 106, 22, 0.06) 62%,
+                    rgba(216, 106, 22, 0) 88%
+                );
+        }
+    }
+}
+
+/* -------------------------------------------------------------------------
+   Tablet: 768–1199px — меньше плотности, маска чуть иначе смещена
+   ------------------------------------------------------------------------- */
+@media (max-width: 1199px) {
+    .radio-development-background {
+        &__scrim {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.9) 0%,
+                rgba(0, 0, 0, 0.66) 34%,
+                rgba(0, 0, 0, 0.22) 62%,
+                rgba(0, 0, 0, 0) 82%
+            );
+        }
+    }
+}
+
+/* -------------------------------------------------------------------------
+   Mobile: <768px — тише и темнее, чтобы не спорить с контентом
+   ------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+    .radio-development-background {
+        &__scrim {
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.88) 0%,
+                rgba(0, 0, 0, 0.58) 40%,
+                rgba(0, 0, 0, 0.18) 70%,
+                rgba(0, 0, 0, 0) 92%
+            );
+        }
+
+        &__vignette {
+            background:
+                radial-gradient(
+                    130% 90% at 55% 48%,
+                    rgba(0, 0, 0, 0) 38%,
+                    rgba(0, 0, 0, 0.55) 100%
+                ),
+                linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.4) 0%,
+                    rgba(0, 0, 0, 0) 26%,
+                    rgba(0, 0, 0, 0) 70%,
+                    rgba(0, 0, 0, 0.5) 100%
+                );
+        }
+    }
+}

@@ -1,9 +1,5 @@
 ﻿import catalog from "./projectCatalog.json";
-import ru from "./projects/ru.json";
-import ua from "./projects/ua.json";
-import en from "./projects/en.json";
-
-const translations = { ru, ua, en };
+import { t } from "../i18n";
 const files = require.context("../assets/images/projects", true, /\.(png|jpe?g|webp)$/i);
 const galleries = Object.fromEntries(catalog.map(project => {
     const prefix = `./${project.imageFolder || project.id}/`;
@@ -15,9 +11,9 @@ const galleries = Object.fromEntries(catalog.map(project => {
 export const projectImages = Object.fromEntries(Object.entries(galleries).map(([id, images]) => [id, images[0]]));
 export const getProjects = (lang) => catalog.map(project => ({
     ...project,
-    ...(translations[lang] || en)[project.id],
+    ...t(lang, "projects", "items", project.id),
     images: galleries[project.id],
     image: galleries[project.id][0],
     year: project.period,
-    description: (translations[lang] || en)[project.id].summary,
+    description: t(lang, "projects", "items", project.id).summary,
 }));

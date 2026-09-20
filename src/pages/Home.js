@@ -7,14 +7,16 @@ import ScrollTopButton from "../components/ScrollTopButton";
 
 import { t } from "../i18n";
 import { getLangFromPath } from "../utils/getLangFromPath";
+import { useLocation } from "react-router-dom";
 
 function Home() {
+    const lang = getLangFromPath(useLocation().pathname);
     return (
         <>
-            <HeroWrapper page="home" />
+            <HeroWrapper />
             <SceneManager />
             <MainWrapper />
-            <ScrollTopButton label="Наверх" threshold={1000} />
+            <ScrollTopButton label={t(lang, "common", "backToTop")} threshold={1000} />
             <CursorFollower />
         </>
     );

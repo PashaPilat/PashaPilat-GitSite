@@ -44,15 +44,15 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
 
-  const ariaLabel = t(currentLang, "about", "ariaLabel") || "About";
-  const titleMain = t(currentLang, "about", "titleMain") || "";
-  const titleGhost = t(currentLang, "about", "titleGhost") || "";
-  const paragraphs = asArray(t(currentLang, "about", "paragraphs"));
-  const note = t(currentLang, "about", "note") || "";
-  const asideTitle = t(currentLang, "about", "asideTitle") || "";
-  const highlights = asArray(t(currentLang, "about", "highlights"));
-  const stats = asArray(t(currentLang, "about", "stats"));
-  const cta = t(currentLang, "about", "cta") || "";
+  const ariaLabel = t(currentLang, "home", "about", "ariaLabel") || "About";
+  const titleMain = t(currentLang, "home", "about", "titleMain") || "";
+  const titleGhost = t(currentLang, "home", "about", "titleGhost") || "";
+  const paragraphs = asArray(t(currentLang, "home", "about", "paragraphs"));
+  const note = t(currentLang, "home", "about", "note") || "";
+  const asideTitle = t(currentLang, "home", "about", "asideTitle") || "";
+  const highlights = asArray(t(currentLang, "home", "about", "highlights"));
+  const stats = asArray(t(currentLang, "home", "about", "stats"));
+  const cta = t(currentLang, "home", "about", "cta") || "";
 
   return (
     <section
@@ -70,7 +70,7 @@ export default function About() {
         <div className="about__grid">
           <header className="about__header about-reveal">
             <p className="about__eyebrow">
-              {t(currentLang, "about", "eyebrow")}
+              {t(currentLang, "home", "about", "eyebrow")}
             </p>
 
             <h2 className="about__title">

@@ -1,8 +1,8 @@
-﻿# Navigation
+# Navigation
 
 Web Home is a landing page: `#projects`, `#services`, `#about`, `#contact`.
 Russian uses `/`, English `/en`, Ukrainian `/ua`; GitHub Pages adds
-`/PashaPilat-GitSite`. Unity remains a separate placeholder branch.
+`/PashaPilat-GitSite`. GameDev remains a separate placeholder branch.
 `/projects` is the searchable Web catalog; `/projects/:slug` is a project page.
 Both routes support the same language prefixes. Their content comes from
 `getProjects()` in `src/data/projects.js`, shared with the Home cards.

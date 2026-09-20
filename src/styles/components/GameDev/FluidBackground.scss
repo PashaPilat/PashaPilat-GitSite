@@ -1,0 +1,42 @@
+.gamedev-fluid {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: #050201;
+
+    &__canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    &--fallback {
+        background:
+            radial-gradient(
+                ellipse 55% 70% at 62% 35%,
+                rgba(101, 11, 3, 0.55) 0%,
+                transparent 62%
+            ),
+            radial-gradient(
+                ellipse 40% 50% at 70% 60%,
+                rgba(141, 17, 5, 0.28) 0%,
+                transparent 55%
+            ),
+            radial-gradient(
+                ellipse 70% 80% at 30% 50%,
+                rgba(8, 3, 2, 0.95) 0%,
+                transparent 70%
+            ),
+            linear-gradient(
+                160deg,
+                #050201 0%,
+                #0c0302 45%,
+                #120201 100%
+            );
+    }
+}

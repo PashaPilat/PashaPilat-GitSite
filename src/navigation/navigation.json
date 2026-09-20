@@ -19,22 +19,35 @@
             }
         }
     },
-    "unity": {
+    "gamedev": {
         "home": {
             "projects": {
                 "id": "projects",
-                "icon": "fa-solid fa-gamepad",
-                "offset": -1200
-            },
-            "about": {
-                "id": "about",
-                "icon": "fa-solid fa-user",
-                "offset": -1200
-            },
-            "contact": {
-                "id": "contact",
-                "icon": "fa-solid fa-envelope",
-                "offset": -100
+                "icon": "fa-solid fa-gamepad"
+            }
+        }
+    },
+    "software": {
+        "home": {
+            "projects": {
+                "id": "projects",
+                "icon": "fa-solid fa-folder-open"
+            }
+        }
+    },
+    "radio": {
+        "home": {
+            "projects": {
+                "id": "projects",
+                "icon": "fa-solid fa-folder-open"
+            }
+        }
+    },
+    "other": {
+        "home": {
+            "projects": {
+                "id": "projects",
+                "icon": "fa-solid fa-folder-open"
             }
         }
     }
