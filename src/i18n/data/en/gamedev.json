@@ -6,5 +6,6 @@
     "btnStart": "Play now",
     "btnProjects": "View game projects"
   },
-  "scrollProjects": "Scroll down to see projects"
+  "projectsTitle": "Projects",
+  "placeholder": "Projects in this field will appear here soon."
 }

@@ -14,13 +14,8 @@ function GameDev() {
             <HeroWrapper />
             {/* Секция проектов */}
             <section id="projects" className="gamedev-projects">
-                <p className="scroll-text">{t(lang, "gamedev", "scrollProjects")}</p>
-                <div className="project-list">
-                    <div className="project-item">Dune</div>
-                    <div className="project-item">Oasis</div>
-                    <div className="project-item">Asterisk</div>
-                    <div className="project-item">Eooks</div>
-                </div>
+                <h2>{t(lang, "gamedev", "projectsTitle")}</h2>
+                <p>{t(lang, "gamedev", "placeholder")}</p>
             </section>
 
             {/* Здесь можно добавить ещё секции */}
