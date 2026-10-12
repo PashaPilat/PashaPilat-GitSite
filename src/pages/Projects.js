@@ -87,6 +87,5 @@ export default function Projects() {
                 </div>
             </>}
         </main>
-        <footer className="project-catalog__footer"><span>PashaPilat · Web</span><Link to={`${home}#direct-contact`}>{t(lang, "common", "nav", "contact")}</Link><Link to={`${home}#contact`}>{copy.contact} ↗</Link></footer>
     </div>;
 }

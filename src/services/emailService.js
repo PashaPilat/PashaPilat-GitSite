@@ -188,16 +188,17 @@ export async function sendContactForm(data) {
     console.log("Initializing emailjs with public key:", PUBLIC_KEY);
     console.log("Sending email with data:", data);
     const isClient = data.role === "Client";
+    const isSoftware = data.role === "Software";
 
-    const subject = isClient
+    const subject = isSoftware ? `${data.direction || "PlatP Software"} — ${data.topic || "Обращение"}` : isClient
         ? "Запрос на заказ с GitPage"
         : "Предложение о работе с GitPage";
 
-    const badgeText = isClient ? "ЗАКАЗЧИК" : "РАБОТОДАТЕЛЬ";
+    const badgeText = isSoftware ? escapeHtml((data.direction || "PlatP Software").toUpperCase()) : isClient ? "ЗАКАЗЧИК" : "РАБОТОДАТЕЛЬ";
     const badgeColor = isClient ? "#D4FF00" : "#38BDF8";
     const badgeTextColor = isClient ? "#000000" : "#ffffff";
 
-    const projectTypeLabel = isClient
+    const projectTypeLabel = isSoftware ? "Проект / тема обращения" : isClient
         ? "Тип проекта"
         : "Формат занятости";
 
@@ -597,6 +598,7 @@ export async function sendContactForm(data) {
         {
             subject,
             body: htmlBody,
+            ...(isSoftware ? { "g-recaptcha-response": data.captchaToken } : {}),
             email: "pir.pilat.pasha@gmail.com"
         }
     );

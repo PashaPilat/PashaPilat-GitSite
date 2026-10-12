@@ -5,7 +5,6 @@ import HeroMarquee from "./HeroMarquee";
 import Services from "./Services";
 import About from "./About";
 import ContactSection from "./ContactSection";
-import Footer from "./Footer";
 
 function MainWrapper() {
     const [angle, setAngle] = useState(0);
@@ -41,7 +40,6 @@ function MainWrapper() {
             <Services />
             <About />
             <ContactSection />
-            <Footer />
         </main>
     );
 }

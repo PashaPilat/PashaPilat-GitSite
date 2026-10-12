@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import ContactForm from "./ContactForm";
 import ContactsMarquee from "./ContactsMarquee";
 import DirectContacts from "./DirectContacts";
+import SoftwareContactForm from "../SoftWare/SoftwareContactForm";
+import "../../styles/components/SoftWare/ContactSection.scss";
 
 import { t } from "../../i18n";
 import { getLangFromPath } from "../../utils/getLangFromPath";
@@ -14,6 +16,10 @@ function useReveal(ref) {
     const root = ref.current;
     if (!root) return;
     const els = root.querySelectorAll("[data-reveal]");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      els.forEach(el => el.classList.add("is-in"));
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -30,10 +36,12 @@ function useReveal(ref) {
   }, [ref]);
 }
 
-export default function ContactSection() {
+export default function ContactSection({ variant = "web" }) {
   const sectionRef = useRef(null);
   const location = useLocation();
-  const currentLang = getLangFromPath(location.pathname);
+    const currentLang = getLangFromPath(location.pathname);
+    const software = variant !== "web";
+    const copy = software ? t(currentLang, variant, "contact") : null;
 
   useReveal(sectionRef);
 
@@ -85,32 +93,32 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="contact-section"
-      aria-label={t(currentLang, "home", "contact", "title")}
+      className={`contact-section${software ? " software-contact-section" : ""}`}
+      aria-label={software ? copy.title : t(currentLang, "home", "contact", "title")}
     >
       <div className="hr-line-white" data-scroll-section="contact" aria-hidden="true" />
 
       <div className="contact-wrapper">
         <div className="contact-head">
           <span className="contact-eyebrow" data-reveal>
-            {t(currentLang, "home", "contact", "eyebrow")}
+            {software ? copy.eyebrow : t(currentLang, "home", "contact", "eyebrow")}
           </span>
           <h2 className="contact-title" data-reveal style={{ "--d": "0.05s" }}>
-            {t(currentLang, "home", "contact", "title")}{" "}
+            {software ? copy.title : t(currentLang, "home", "contact", "title")}{" "}
             <span className="contact-title__ghost">
-              {t(currentLang, "home", "contact", "titleGhost")}
+              {software ? "" : t(currentLang, "home", "contact", "titleGhost")}
             </span>
           </h2>
           <p className="contact-subtitle" data-reveal style={{ "--d": "0.1s" }}>
-            {t(currentLang, "home", "contact", "subtitle")}
+            {software ? copy.description : t(currentLang, "home", "contact", "subtitle")}
           </p>
         </div>
 
         <div data-reveal style={{ "--d": "0.15s" }}>
-          <ContactForm currentLang={currentLang} />
+          {software ? <SoftwareContactForm currentLang={currentLang} page={variant} /> : <ContactForm currentLang={currentLang} />}
         </div>
       </div>
-      <ContactsMarquee />
+      {(!software || ['gamedev', 'radio', 'other'].includes(variant)) && <ContactsMarquee />}
       <DirectContacts />
     </section>
   );

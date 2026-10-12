@@ -1,0 +1,119 @@
+.contact-section.software-contact-section {
+    &::before { background: #0b2414; }
+    --color-lime: #98e7b2;
+    background: #06120b;
+    padding-bottom: 0;
+    .contact-wrapper { width: 100%; max-width: 1440px; }
+    .software-contact-form { display: flex; flex-direction: column; grid-template-areas: none; grid-template-columns: none; }
+    .contact-head { text-align: left; }
+    .contact-subtitle { max-width: 850px; margin: 24px 0 0; }
+    .contact-title { font-size: clamp(2rem, 3.8vw, 3.4rem); }
+    .contact-eyebrow { color: #98e7b2; }
+    .direct-contact { background: #07190f; }
+    .cf-submit, .cf-add-btn { color: #dff5e7; background: #0b2c18; border-color: #427850; }
+    .cf-submit:hover { background: #123e23; }
+    .cf-select-native option { color: #e5eaf0; background: #0b2114; }
+    .cf-input:focus, .cf-textarea:focus, .cf-select-native:focus { box-shadow: 0 0 0 3px #7bdd9830; }
+}
+.software-contact-form {
+    border-color: #34563f;
+    &__grid { 
+        display: grid; 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 24px; 
+        &.cf{
+            padding: 0px;
+            background: none !important;
+            border: none !important;
+            row-gap: 0px;
+            padding-bottom: 10px;
+        }
+    }
+    &__consent { 
+        display: flex; gap: 12px; line-height: 1.6; color: #c3d4c8; 
+        input { accent-color: #98e7b2; flex-shrink: 0; width: 18px; } 
+        span {
+            max-width: fit-content;
+        }
+    }
+    &__status { margin: 0; line-height: 1.6; }
+    &__captcha { max-width: 100%; overflow-x: auto; }
+}
+
+/* Only the Software landing form uses this compact submit treatment. */
+.software-category .software-contact-form__captcha {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    overflow: visible;
+}
+
+.software-category .software-contact-form__captcha > .cf-submit.glow-button {
+    flex: 0 0 auto;
+    width: 180px;
+    min-width: 0;
+    height: 52px;
+    margin-left: auto;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    background: transparent !important;
+}
+
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__frame {
+    height: 100%;
+    padding: 2px;
+    border-radius: 14px;
+    box-sizing: border-box;
+    background-color: #315d40;
+    box-shadow: 0 0 16px rgba(124, 221, 160, .32);
+}
+
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__inner {
+    height: 100%;
+    padding: 0 16px;
+    border-radius: 10px;
+    background-color: #061b10;
+}
+
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__text {
+    color: #def6e6;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: .12em;
+    white-space: nowrap;
+}
+
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__glow--1,
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__glow--2,
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__outer-glow--1,
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__outer-glow--2 {
+    background: radial-gradient(ellipse, rgba(124, 221, 160, .55), transparent 70%);
+}
+
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__white-top,
+.software-category .software-contact-form__captcha > .cf-submit .glow-button__white-blur {
+    background-color: #b0edc5;
+}
+
+.software-category .software-contact-form__captcha > .cf-submit:hover .glow-button__frame {
+    background-color: #427a55;
+    box-shadow: 0 0 22px rgba(124, 221, 160, .52);
+}
+
+@media (max-width: 650px) {
+    .software-category .software-contact-form__captcha {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .software-category .software-contact-form__captcha > .cf-submit.glow-button {
+        width: min(180px, 100%);
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 650px) { .software-contact-form__grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .software-contact-section [data-reveal] { opacity: 1; transform: none; transition: none; } }

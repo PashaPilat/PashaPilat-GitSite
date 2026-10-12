@@ -3,7 +3,6 @@ import HeroWrapper from "../components/Home/HeroWrapper";
 import CursorFollower from "../components/CursorFollower";
 import MainWrapper from "../components/Home/MainWrapper";
 import SceneManager from "../components/SceneManager";
-import ScrollTopButton from "../components/ScrollTopButton";
 
 import { t } from "../i18n";
 import { getLangFromPath } from "../utils/getLangFromPath";
@@ -16,7 +15,6 @@ function Home() {
             <HeroWrapper />
             <SceneManager />
             <MainWrapper />
-            <ScrollTopButton label={t(lang, "common", "backToTop")} threshold={1000} />
             <CursorFollower />
         </>
     );

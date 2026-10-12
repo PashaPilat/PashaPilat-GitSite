@@ -1,11 +1,164 @@
 {
   "hero": {
-    "subtitle": "I create interactive game universes",
-    "title": "I turn ideas into living game worlds you want to complete",
-    "description": "Game development for me is the opportunity to create worlds with their own history, logic, and laws. I independently design the project architecture, develop world generation technologies, gameplay mechanics, and development tools, paying special attention to performance, scalability, and the logic of the game world.",
+    "subtitle": "Original worlds. Game experiments.",
+    "title": "Game worlds that begin with an idea",
+    "description": "I explore game mechanics, virtual worlds and development tools. This section will collect my game ideas and experiments, from early concepts to gradually evolving projects.",
     "btnStart": "Play now",
-    "btnProjects": "View game projects"
+    "btnProjects": "View game projects",
+    "btnApproach": "My approach",
+    "scroll": "SCROLL TO EXPLORE",
+    "directions": [
+      {
+        "title": "Original worlds",
+        "description": "Ideas, atmosphere and internal logic."
+      },
+      {
+        "title": "Game mechanics",
+        "description": "Rules and player interaction."
+      },
+      {
+        "title": "Tools",
+        "description": "Supporting development and experiments."
+      },
+      {
+        "title": "Gradual development",
+        "description": "From concept to a testable result."
+      }
+    ]
   },
   "projectsTitle": "Projects",
-  "placeholder": "Projects in this field will appear here soon."
+  "placeholder": "Projects in this field will appear here soon.",
+  "navigation": {
+    "projects": "Projects",
+    "philosophy": "My approach",
+    "faq": "Questions and answers",
+    "contact": "Get in touch"
+  },
+  "footerTagline": "Original worlds. Game experiments.",
+  "catalog": {
+    "eyebrow": "MY PROJECTS",
+    "title": "Worlds and mechanics I explore",
+    "description": "Game development brings together stories, rules, technology and player interaction. This section will describe my ideas, approaches and current progress.",
+    "note": "These cards currently describe areas of work. Specific project descriptions will be added later.",
+    "status": "Description in preparation",
+    "items": [
+      {
+        "title": "Game worlds",
+        "description": "Exploring virtual worlds, their stories and internal rules."
+      },
+      {
+        "title": "Mechanics and interaction",
+        "description": "Experiments with player actions, game systems and their relationships."
+      },
+      {
+        "title": "Development tools",
+        "description": "Ideas for tools to create, test and develop game projects."
+      }
+    ]
+  },
+  "philosophy": {
+    "eyebrow": "MY APPROACH",
+    "title": "A game world begins with a clear idea",
+    "contents": "In this article",
+    "intro": [
+      "Games let us explore ideas through action and interaction. I am interested in how stories, rules and a technical foundation combine into a complete experience.",
+      "A detailed account of my approach will gradually appear here. For now, this text outlines the areas the section will cover."
+    ],
+    "sections": [
+      {
+        "title": "The idea and player experience",
+        "paragraphs": [
+          "First, it is important to understand what the player will do and why they will want to continue. Atmosphere and mechanics should support one another."
+        ]
+      },
+      {
+        "title": "Systems and tools",
+        "paragraphs": [
+          "World systems and development tools help test ideas and grow a project consistently. Technical choices should be evaluated in specific game scenarios."
+        ]
+      },
+      {
+        "title": "Experiments and development",
+        "paragraphs": [
+          "Prototypes help identify weak points and refine the concept. Further development starts by testing how the idea works in practice."
+        ]
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "QUESTIONS AND ANSWERS",
+    "title": "What to know about this area",
+    "items": [
+      {
+        "question": "Can I explore the projects already?",
+        "answer": "Materials for this section are being prepared gradually. Details and available results will appear on individual project pages."
+      },
+      {
+        "question": "When will new materials appear?",
+        "answer": "The section will be updated as ideas develop and descriptions are prepared. Specific dates have not been set."
+      },
+      {
+        "question": "Will finished results be available?",
+        "answer": "Publication options and access will be determined individually for each project."
+      },
+      {
+        "question": "Can I propose an idea or collaboration?",
+        "answer": "Yes. The form below accepts questions, ideas, collaboration proposals and discussions about supporting the projects."
+      },
+      {
+        "question": "Can I support development?",
+        "answer": "You can discuss sponsorship or other support through the contact form. Arrangements will depend on the specific project."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "HAVE IDEAS OR QUESTIONS?",
+    "title": "Let's discuss future projects",
+    "description": "Write to ask a question, suggest an idea, discuss collaboration or support the development of this area.",
+    "button": "Get in touch"
+  },
+  "contactForm": {
+    "title": "Let's discuss future projects",
+    "name": "Your name",
+    "email": "Reply email",
+    "topic": "Message topic",
+    "project": "Area of interest",
+    "choose": "Choose a topic",
+    "message": "Message",
+    "placeholder": "Tell me about your question, idea or proposal…",
+    "agree": "I consent to the processing of these details to receive a reply to my message.",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "success": "Message sent. Thank you for your interest in the projects!",
+    "error": "The message could not be sent. Please try again or use the direct contacts below.",
+    "captcha": "Please confirm that you are not a robot.",
+    "topics": [
+      {
+        "value": "sponsor",
+        "label": "Sponsorship"
+      },
+      {
+        "value": "question",
+        "label": "Ask a question"
+      },
+      {
+        "value": "collaboration",
+        "label": "Collaboration"
+      },
+      {
+        "value": "feedback",
+        "label": "Feedback"
+      },
+      {
+        "value": "other",
+        "label": "Other"
+      }
+    ],
+    "projects": [
+      "GameDev",
+      "Game worlds",
+      "Mechanics and interaction",
+      "Development tools"
+    ]
+  }
 }

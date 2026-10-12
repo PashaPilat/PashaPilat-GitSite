@@ -24,6 +24,18 @@
             "projects": {
                 "id": "projects",
                 "icon": "fa-solid fa-gamepad"
+            },
+            "philosophy": {
+                "id": "philosophy",
+                "icon": "fa-solid fa-lightbulb"
+            },
+            "faq": {
+                "id": "faq",
+                "icon": "fa-solid fa-circle-question"
+            },
+            "contact": {
+                "id": "contact",
+                "icon": "fa-solid fa-envelope"
             }
         }
     },
@@ -32,6 +44,18 @@
             "projects": {
                 "id": "projects",
                 "icon": "fa-solid fa-folder-open"
+            },
+            "philosophy": {
+                "id": "philosophy",
+                "icon": "fa-solid fa-lightbulb"
+            },
+            "faq": {
+                "id": "faq",
+                "icon": "fa-solid fa-circle-question"
+            },
+            "contact": {
+                "id": "contact",
+                "icon": "fa-solid fa-envelope"
             }
         }
     },
@@ -40,6 +64,18 @@
             "projects": {
                 "id": "projects",
                 "icon": "fa-solid fa-folder-open"
+            },
+            "philosophy": {
+                "id": "philosophy",
+                "icon": "fa-solid fa-lightbulb"
+            },
+            "faq": {
+                "id": "faq",
+                "icon": "fa-solid fa-circle-question"
+            },
+            "contact": {
+                "id": "contact",
+                "icon": "fa-solid fa-envelope"
             }
         }
     },
@@ -48,6 +84,18 @@
             "projects": {
                 "id": "projects",
                 "icon": "fa-solid fa-folder-open"
+            },
+            "philosophy": {
+                "id": "philosophy",
+                "icon": "fa-solid fa-lightbulb"
+            },
+            "faq": {
+                "id": "faq",
+                "icon": "fa-solid fa-circle-question"
+            },
+            "contact": {
+                "id": "contact",
+                "icon": "fa-solid fa-envelope"
             }
         }
     }

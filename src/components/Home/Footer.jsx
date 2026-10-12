@@ -10,7 +10,7 @@ import logo from "../../assets/images/logo 2.png";
 
 
 
-function Footer() {
+function Footer({ tagline }) {
     const location = useLocation();
     const navigationItems = nav("", [], location.pathname);
     const currentLang = getLangFromPath(location.pathname);
@@ -73,7 +73,7 @@ function Footer() {
                     </a>
 
                     <p className="site-footer__tagline">
-                        {t(currentLang, "home", "footer", "tagline")}
+                        {tagline || t(currentLang, "home", "footer", "tagline")}
                     </p>
 
                     <nav

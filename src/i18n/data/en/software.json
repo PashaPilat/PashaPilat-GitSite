@@ -1,10 +1,281 @@
 {
   "hero": {
-    "subtitle": "Software and tool development",
-    "title": "SoftWare — software projects",
-    "description": "Applications, tools and experiments in software development.",
+    "subtitle": "My own ideas. Practical solutions.",
+    "title": "Ideas that become working programs, helping me in everyday life",
+    "description": "I create software primarily for myself: to solve tasks I encounter in everyday life, automate routine work and realize my own vision of a convenient digital tool. Some ideas grow into independent products, connected by a shared vision and a desire to make working with a computer simpler, more efficient and more comfortable.",
     "btnStart": "View projects",
-    "btnProjects": "Projects"
+    "btnProjects": "Explore projects",
+    "btnApproach": "My approach to development",
+    "scroll": "SCROLL TO EXPLORE",
+    "directions": [
+      {
+        "title": "My own ecosystem",
+        "description": "Independent products connected by a shared vision."
+      },
+      {
+        "title": "Windows applications",
+        "description": "Software solutions for everyday tasks."
+      },
+      {
+        "title": "Intelligent systems",
+        "description": "AI, automation and interaction between modules."
+      },
+      {
+        "title": "Modular architecture",
+        "description": "The ability to extend products and connect additional features."
+      }
+    ]
   },
-  "placeholder": "Projects in this field will appear here soon."
+  "placeholder": "Projects in this field will appear here soon.",
+  "catalogTitle": "Projects",
+  "catalog": {
+    "max_title": "Projects"
+  },
+  "catalogDescription": "Each project solves its own tasks and develops independently. Here you can explore my current work, its capabilities and the direction it is gradually taking.",
+  "openCatalog": "Open catalog",
+  "otherProjects": "Other projects",
+  "details": "Learn more",
+  "inDevelopment": "In development",
+  "concept": "Concept",
+  "screenshot": "Screenshot",
+  "conceptNote": "A visual concept for the project, rather than a screenshot of the finished application.",
+  "screenshotNote": "Screenshot of the application in development.",
+  "breadcrumbs": "Breadcrumbs",
+  "backToCatalog": "Back to catalog",
+  "notFound": "Project not found",
+  "about": "About the project",
+  "features": "Main features",
+  "directionsNote": "Areas of development. Availability of individual features depends on the current version.",
+  "technologies": "Technologies",
+  "developmentStatus": "Development status",
+  "gallery": "Application interface",
+  "galleryNote": "Screenshots of current working interfaces. Open an image to view it at full size.",
+  "openScreenshot": "Open image",
+  "tags": "Areas",
+  "items": {
+    "jarvis-ii": {
+      "short": "An intelligent Windows assistant designed to simplify computer control, automate routine tasks and bring system tools into a single environment.",
+      "about": [
+        "Jarvis II is an intelligent Windows assistant designed as an additional way to interact with the operating system. It brings voice control, a conversational interface, system tools and independent applications into the modular PlatP ecosystem.",
+        "Jarvis II extends interaction with Windows. The assistant core and its connected modules are intended to develop independently."
+      ],
+      "features": [
+        "Voice interaction and Windows commands.",
+        "AI chat for questions, instructions and assistance.",
+        "Application launching and Windows integration.",
+        "Working with information and files.",
+        "Independent, connectable PlatP modules.",
+        "System monitoring and maintenance."
+      ],
+      "technologies": "The project targets Windows and a modular architecture. A specific technology stack is not listed in the provided project materials.",
+      "status": "The project is in development. These areas describe the concept and planned functionality; availability depends on the current implementation."
+    },
+    "media-center": {
+      "short": "A personal media center for organizing and enjoying your own collection of films, series, music and images.",
+      "about": [
+        "PlatP Media Center is an independent media center for organizing and enjoying a personal collection of films, series, videos, music, clips and images.",
+        "It collects information about local files and helps identify and organize media. It can work independently while retaining the possibility of integration with Jarvis II."
+      ],
+      "features": [
+        "A video library for films, series and other videos.",
+        "A music library for audio files and clips.",
+        "An image gallery.",
+        "Identifying content types, titles, years, seasons and episodes from filenames.",
+        "Local metadata, descriptions, subtitles and online sources.",
+        "Background scanning and queues; skipping repeated intensive processing of unchanged files where implemented.",
+        "Search, sorting, filters and playback progress."
+      ],
+      "technologies": "A desktop application that separates the interface, media processing and background tasks. Specific libraries and tools are not listed in the provided materials.",
+      "status": "The project is in development. Features and content identification continue to improve; the available functionality depends on the current version."
+    },
+    "creator-studio": {
+      "short": "A tool for analyzing YouTube content and simplifying publication preparation, planning and work with channel materials.",
+      "about": [
+        "PlatP Creator Studio is a desktop application for preparing and organizing YouTube content, from video analysis and transcription to presentation and publication planning.",
+        "It brings recurring creator tasks into a single workspace. Local tools are complemented by YouTube API integration and connectable AI providers."
+      ],
+      "features": [
+        "Analysis of source videos.",
+        "Local transcription with Whisper.",
+        "AI assistance with titles, descriptions and tags.",
+        "Playlist organization.",
+        "Thumbnail preparation.",
+        "Publication planning.",
+        "YouTube integration through its API."
+      ],
+      "technologies": "Planned stack: Electron, React, Vite, FFmpeg, local Whisper, YouTube API and an AI provider abstraction. This describes the intended approach; it does not imply that every integration is complete.",
+      "status": "The project is in development. The described capabilities are areas of development; available tools and integrations depend on the current version."
+    }
+  },
+  "catalogEyebrow": "MY PROJECTS",
+  "catalogHeading": "Programs I create",
+  "faq": {
+    "eyebrow": "PRODUCT QUESTIONS",
+    "title": "What to know about the projects",
+    "max_title": "Questions",
+    "items": [
+      {
+        "question": "What is PlatP Software?",
+        "answer": "This is the home of my own software development. It brings together products I create to solve everyday and specialized tasks."
+      },
+      {
+        "question": "Can I already use your programs?",
+        "answer": "The projects are at different stages of development. Some features already work, but having a working prototype does not mean the product is ready for public release."
+      },
+      {
+        "question": "Will the programs be available to download?",
+        "answer": "Once the necessary level of readiness is reached, I will consider public release options for individual products. Distribution will depend on the specific project."
+      },
+      {
+        "question": "Will the programs be paid?",
+        "answer": "This will be decided separately for each product. I will choose possible distribution models and feature sets as projects approach release."
+      },
+      {
+        "question": "Will there be new projects?",
+        "answer": "Yes, the catalog can grow. New ideas and areas will be added as they enter full development."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "HAVE IDEAS OR QUESTIONS?",
+    "title": "Let's discuss the future of the projects",
+    "description": "If you are interested in my work, have a collaboration proposal or would like to discuss the development of a product, I would be glad to talk.",
+    "button": "Get in touch",
+    "max_title": "Contacts",
+    "qrAlt": "QR code for contacting me on Telegram",
+    "qrLabel": "Telegram + QR",
+    "telegram": "Telegram",
+    "phone": "Phone",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "channels": [
+      { "label": "telegram", "value": "@PlatP79", "href": "https://t.me/PlatP79" },
+      { "label": "phone", "value": "+380994651601", "href": "tel:+380994651601" },
+      { "label": "email", "value": "pir.pilat.pasha@gmail.com", "href": "mailto:pir.pilat.pasha@gmail.com" },
+      { "label": "linkedin", "value": "linkedin.com/in/паша-платонов-02236a23b", "href": "https://www.linkedin.com/in/паша-платонов-02236a23b/" },
+      { "label": "github", "value": "github.com/PashaPilat", "href": "https://github.com/PashaPilat" }
+    ]
+  },
+  "philosophy": {
+    "eyebrow": "MY PHILOSOPHY",
+    "title": "Programs should work for people, rather than people working for programs",
+    "max_title": "Philosophy",
+    "contents": "In this article",
+    "intro": [
+      "I have never set out to create software simply for the sake of development itself. It starts much more simply, with everyday tasks, inconveniences and limitations that I encounter myself.",
+      "Existing programs can be functional, popular and technologically advanced, but that does not mean they can fully meet a particular person's needs. Sometimes a necessary feature is missing, sometimes a familiar workflow is unnecessarily complicated, and sometimes solving one task means using several different tools, transferring data between them manually and spending time on actions that could have been automated long ago.",
+      "I am not satisfied with a situation where, instead of solving a task, I have to adapt to a tool's limitations. Preparing catalogs, building the right file structure, keeping things organized and repeating the same actions day after day may seem insignificant individually. Together, however, they become a routine that takes time and attention away from something that really matters.",
+      "That is where my development begins. I notice a problem, consider what its solution should look like and gradually turn that idea into my own software product. Not because I must invent something new, but because existing solutions do not always meet my requirements. If the tool I need does not exist, or does not let me work the way I need to, I prefer to try to create it myself."
+    ],
+    "sections": [
+      {
+        "title": "From a personal need to a complete product",
+        "paragraphs": [
+          "First and foremost, my programs are created for me. I am their future user, so I understand which tasks they should solve, which actions need simplifying and which limitations should not get in the way.",
+          "This shapes my approach to development. I do not try to cover as many areas as possible, and I do not think that every existing program needs an alternative. If a particular task is already solved well, there is no point in creating another product just to be present in the market. But when existing tools leave significant gaps, restrict users with paid features or do not provide a sufficiently convenient solution, there is room for an idea of my own.",
+          "The initial need is only the starting point. I do not want to limit myself to a small utility that solves one narrow task if there is a prospect of building a more complete solution. I want to cover the full range of necessary features, think through their relationships and give the user a complete tool rather than another piece that has to be supplemented with several other programs.",
+          "Jarvis II is a good example of this approach. The idea of my own intelligent assistant came to me long before modern artificial intelligence tools became available in their present form. The inspiration was Jarvis from the Tony Stark films, not as something to copy, but as the idea of a personal assistant that understands a user's tasks, interacts with the system and helps manage what happens on the computer.",
+          "The first version of my project appeared about ten years ago and was an interactive system of hints. It was far from the current vision, and the project was eventually lost along with the hard drive. But the idea itself did not disappear. Over time, new technologies, possibilities and conditions made it realistic to return to it at a completely different level. That became Jarvis II, a second version of a longstanding idea, developed with today's possibilities and my current understanding of what such an assistant should be.",
+          "For me, this is a telling example: technology alone does not determine a product's value. It makes it possible to realize a vision that previously might have remained only an image of the future."
+        ]
+      },
+      {
+        "title": "Functionality should not make life harder",
+        "paragraphs": [
+          "I believe a powerful program does not have to be complicated for its user. On the contrary, the more capabilities it offers, the more carefully we need to think about how a person will interact with them.",
+          "I am drawn to a principle that can be expressed simply: “Install it, start using it and forget that you once did not know how to work with it.” A user should not have to study the system's internal workings, decipher dozens of unfamiliar settings or constantly search for instructions to perform an ordinary action. A program should help rather than create new obstacles.",
+          "For me, usability is therefore not a decorative addition to functionality, but one of a product's foundations. Clear logic, predictable behavior, intuitive navigation and an interface that does not demand unnecessary effort matter. Even small details count: the position of a button, the sequence of actions, the program's response to a command, the clarity of messages and how easy it is to understand what is happening at any given moment.",
+          "I am willing to think these details through down to the appearance of an individual button, because that is exactly what the user experience is made of. We can create a technically complex system with many capabilities, but if performing a simple task requires overcoming unnecessary obstacles, the work is not finished.",
+          "A simple interface does not mean a primitive product. Clear interaction can be supported by a complex architecture, numerous internal processes, automation and communication between modules. The developer's task is to make this complexity serve the user rather than place it on their shoulders.",
+          "I want to create friendly programs that give people the capabilities they need without forcing them to keep adapting to the tool. Functionality should expand freedom of action rather than turn working with a computer into a struggle with the interface."
+        ]
+      },
+      {
+        "title": "Artificial intelligence is a tool for implementation, not a replacement for the vision",
+        "paragraphs": [
+          "Modern artificial intelligence tools have opened up new possibilities for me in development. But I do not see creating a program as simply generating code from a single prompt. To obtain a product that really matches the idea, we first need to understand exactly what must be built, how its parts should interact and what the final result should be.",
+          "My work begins with the concept. I form an overall vision of the product, think through its architecture, define the purpose of individual modules, break functionality down into specific tasks and gradually refine the requirements. As the project develops, decisions are needed not only about large systems but also about implementation details, user scenarios and the visual presentation of features.",
+          "Artificial intelligence helps turn these decisions into code, explore implementation options, refine individual components and speed up development. But merely having such a tool does not guarantee the result will be right. A proposed solution may conflict with the architecture, create new limitations, complicate the interface or overlook existing requirements.",
+          "I therefore see development as a continuing cycle: formulate the task, define the expected result, implement a solution, test it and reconsider the approach when necessary. I direct this process, evaluate its outcome and work to ensure that the individual parts form a product that matches the original vision.",
+          "For me, it is essential not merely to obtain working code but to build a system whose meaning and behavior I understand and can develop consistently. AI expands my capabilities as an author and lets me take on more ambitious ideas, but responsibility for the direction of development and the quality of the final result remains part of my work."
+        ]
+      },
+      {
+        "title": "My own products, my own principles",
+        "paragraphs": [
+          "My projects are not united by a desire to create one program that does absolutely everything. Each has its own task, purpose and logic of development. I see no reason to artificially combine different areas just for an attractive concept of a single ecosystem.",
+          "At the same time, some products naturally complement each other. If I create an intelligent assistant that should control programs and interact with the system, it makes sense to provide for its interaction with other tools that I develop myself. This connection emerges not for formal unity, but because it helps solve real tasks and makes individual products easier to use.",
+          "A system of relationships gradually takes shape. Some programs may remain entirely independent, while others may interact with Jarvis II or with each other when needed. The architecture should let each product develop in its own direction without turning all the work into a tightly coupled structure.",
+          "I do not aim to occupy every existing niche. I am interested in specific problems for which I can see an opportunity to create a useful solution. Sometimes that means automating routine actions, sometimes organizing a personal media library, and sometimes tools that simplify working with content. The topics may differ, but the starting point stays the same: understand the need and create a tool that solves it the way I would like it to."
+        ]
+      },
+      {
+        "title": "Improvement is a continuous process",
+        "paragraphs": [
+          "One principle reflects my attitude to development well: there is no limit to improvement. I keep learning, reconsidering my own decisions and trying to improve what has already been created. I approach software products in exactly the same way.",
+          "A working version does not necessarily mean a product has reached its final state. When you start using your own program regularly, you notice things that are hard to anticipate during design. Some scenarios turn out to be inconvenient, individual features need refinement and new tasks suggest ways to improve existing capabilities.",
+          "Development therefore does not end for me when a program first starts performing its task. Practical use becomes a continuation of development: it helps uncover shortcomings, test initial assumptions and find areas for improvement. Sometimes a small interface change is enough; sometimes an entire functional block or architectural decision needs reconsidering.",
+          "I understand that endless improvement can make it harder to decide when a product is ready for release. But I want to keep striving to make it better, without treating the first working version as the final result. Changes must also have a purpose: to improve usability, reliability, functionality or other real qualities of the product, rather than appear simply for the sake of constant updates."
+        ]
+      },
+      {
+        "title": "For usefulness, not just the market",
+        "paragraphs": [
+          "I create programs primarily for my own needs. But that does not mean they must remain exclusively my tools. If one day I can share them with others and help them solve similar tasks, I will be glad to do so.",
+          "I value software in which decisions consider people's needs, rather than commercial feasibility alone. A product should not be made artificially complicated to justify additional restrictions, force users to buy several tools for one task or make basic workflows unnecessarily difficult.",
+          "I do not claim that the market and the commercial model do not matter. Development takes time, resources and the ability to maintain the result. But I believe these circumstances should not displace the product's purpose: to help people.",
+          "Perhaps my programs will be useful to other users too. Perhaps some of my approaches can show that complex functionality can coexist with a clear interface, and that a serious tool does not have to be inconvenient. I would like well-considered, high-quality solutions focused on the user to become the norm rather than a rare exception.",
+          "That is why I keep creating my own products. Not simply to increase the number of programs on the market, and not to follow every new technological trend. I want to realize ideas that make my own digital environment more convenient, remove unnecessary routine and let me work in the way I consider right.",
+          "If these solutions can help someone else, a personal idea will have gained additional value.",
+          "**Ultimately, for me a good program is one that does its work so naturally that a person can focus on their own task rather than struggling with the tool.** That is what I strive for in every project."
+        ]
+      }
+    ]
+  },
+  "navigation": {
+    "projects": "Projects",
+    "philosophy": "My philosophy",
+    "faq": "Product questions",
+    "contact": "Get in touch"
+  },
+  "footerTagline": "My own ideas. Practical solutions. Programs for everyday tasks.",
+  "contactForm": {
+    "title": "Contact about PlatP Software",
+    "name": "Your name",
+    "email": "Reply email",
+    "topic": "Message topic",
+    "project": "Related project",
+    "choose": "Choose a topic",
+    "message": "Message",
+    "placeholder": "Tell me about your question, idea or proposal…",
+    "agree": "I consent to the processing of these details to receive a reply to my message.",
+    "submit": "Send",
+    "sending": "Sending…",
+    "success": "Message sent. Thank you for your interest in the projects!",
+    "error": "The message could not be sent. Please try again or use the direct contacts below.",
+    "captcha": "Please confirm that you are not a robot.",
+    "topics": [
+      {
+        "value": "sponsor",
+        "label": "Sponsorship"
+      },
+      {
+        "value": "question",
+        "label": "Ask a question"
+      },
+      {
+        "value": "collaboration",
+        "label": "Collaboration"
+      },
+      {
+        "value": "feedback",
+        "label": "Feedback"
+      },
+      {
+        "value": "other",
+        "label": "Other"
+      }
+    ]
+  }
 }

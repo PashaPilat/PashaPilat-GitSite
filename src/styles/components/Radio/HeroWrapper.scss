@@ -1,10 +1,64 @@
 .radio-hero {
     position: relative;
-    min-height: 85svh;
+    min-height: 100svh;
     background: #10151c;
     color: #e5eaf0;
     .radio-development-background, .radio-floating-3d-objects { position: absolute; }
-    &__content { position: relative; z-index: 2; padding: 160px var(--pad, 32px) 80px; max-width: 1000px; }
-    h1 { font-size: clamp(2rem, 5vw, 4rem); }
-    p { line-height: 1.7; margin-bottom: 28px; }
+    &__content {
+        position: relative;
+        z-index: 2;
+        min-height: 100svh;
+        padding: 70px var(--pad, 32px) 80px;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    &__subtitle { display: inline-flex; align-items: center; gap: 12px; padding: 15px 24px; border: 1px solid rgba(233, 200, 120, 0.45); border-radius: 30px; background: rgba(19, 17, 12, 0.75); color: #e9c878; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { font-size: clamp(2rem, 5vw, 4rem); margin: 0 0 20px; }
+    &__description { max-width: 840px; line-height: 1.7; margin: 0 0 28px; color: rgba(229, 234, 240, 0.8); }
+    &__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        color: #e9c878;
+        font-size: 0.9rem;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+
+        .hero-bottom-text { opacity: 0.8; }
+        .hero-bottom-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(233, 200, 120, 0.45);
+        }
+        .hero-bottom-icon {
+            width: 24px;
+            height: 24px;
+            animation: bounce 2s infinite;
+            flex-shrink: 0;
+            svg {
+                display: block;
+                width: 100%;
+                height: 100%;
+                fill: currentColor;
+            }
+        }
+    }
+}
+@media (max-width: 650px) {
+    .radio-hero__content { padding-top: 120px; }
+    .radio-hero__buttons { flex-direction: column; align-items: stretch; width: 100%; }
+    .radio-hero__buttons .glow-button { width: min(100%, 360px); }
+    .radio-hero__bottom { gap: 8px; font-size: .65rem; letter-spacing: .5px; }
+    .radio-hero__bottom .hero-bottom-text { max-width: 100px; }
+    .radio-hero__bottom .hero-bottom-icon { flex-shrink: 0; }
 }

@@ -2,6 +2,7 @@ import navigation from "./navigation.json";
 import { t } from "../i18n";
 import { getLangFromPath } from "../utils/getLangFromPath";
 import getPageFromPath from "../utils/getPageFromPath";
+import { BASENAME } from "../config";
 
 const getContext = (pathname = window.location.pathname) => ({
     pathname,
@@ -9,7 +10,7 @@ const getContext = (pathname = window.location.pathname) => ({
     ...getPageFromPath(pathname),
 });
 
-const buildItem = (key, item, lang) => {
+const buildItem = (key, item, lang, namespace = "common") => {
     if (!item || typeof item !== "object") return item;
 
     const result = {
@@ -22,19 +23,19 @@ const buildItem = (key, item, lang) => {
     }
 
     if (!result.title) {
-        result.title = t(lang, "common", "nav", key);
+        result.title = namespace !== "common" ? t(lang, namespace, "navigation", key) : t(lang, "common", "nav", key);
     }
 
     return result;
 };
 
-const buildNavigation = (data, lang) => {
+const buildNavigation = (data, lang, namespace = "common") => {
     if (!data || typeof data !== "object") {
         return [];
     }
 
     return Object.entries(data).map(([key, item]) =>
-        buildItem(key, item, lang)
+        buildItem(key, item, lang, namespace)
     );
 };
 
@@ -82,7 +83,13 @@ export const nav = (
             console.warn(`[navigation] Навигация не найдена: ${type}.${page}`);
             return fallback ?? [];
         }
-        return buildNavigation(currentNavigation, lang);
+        const items = buildNavigation(currentNavigation, lang, type !== "web" ? type : "common");
+        // Nested catalogs/details keep navigation pointing at existing sections.
+        if (pathname.includes("/projects")) {
+            const home = `${BASENAME}${lang === "ru" ? "" : `/${lang}`}${type === "software" ? "/software" : "/"}`;
+            return items.map(item => type === "software" && item.key === "projects" ? item : { ...item, href: `${home}${item.href}` });
+        }
+        return items;
     }
 
     let targetPath = path;
@@ -104,12 +111,12 @@ export const nav = (
         !Array.isArray(result) &&
         !("id" in result)
     ) {
-        return buildNavigation(result, lang);
+        return buildNavigation(result, lang, type !== "web" ? type : "common");
     }
 
     const key = targetPath.split(".").pop();
 
-    const item = buildItem(key, result, lang);
+    const item = buildItem(key, result, lang, type !== "web" ? type : "common");
 
     return createItemProxy(item);
 };

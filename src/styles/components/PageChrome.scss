@@ -1,0 +1,7 @@
+.page-chrome { position: relative; }
+.page-chrome .site-footer { z-index: 20; }
+.page-chrome--software {
+    .site-footer { background: radial-gradient(ellipse at 80% 0, #17412860, transparent 60%), linear-gradient(#07190f, #020a05); }
+    .scroll-top { --st-lime: #82d9a2; --st-lime-hi: #b2f8cb; --st-cyan: #a0e8b8; --st-cyan-soft: #c3f4d3; --st-cyan-dark: #06180e; }
+    .scroll-top__btn, .scroll-top__nav-link { background: radial-gradient(circle at 40% 20%, #193b25, #06180e); }
+}

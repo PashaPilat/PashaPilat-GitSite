@@ -561,6 +561,7 @@ function GlowZones({ tier }) {
     refs.current.forEach((m, i) => {
       if (!m) return;
       const z = zones[i];
+      if (!z) return;
       (m.material).opacity =
         z.o * (0.75 + 0.25 * Math.sin((t * 6.28) / z.per + z.ph));
     });
@@ -571,7 +572,7 @@ function GlowZones({ tier }) {
         <mesh
           key={i}
           ref={(el) => {
-            if (el) refs.current[i] = el;
+            refs.current[i] = el;
           }}
           rotation-x={-Math.PI / 2}
           position={[z.x, 0.005, z.z]}
@@ -815,6 +816,7 @@ function JunctionNodes({ tier }) {
     refs.current.forEach((m, i) => {
       if (!m) return;
       const n = nodes[i];
+      if (!n) return;
       const w = Math.sin((t / n.per) * 6.2832 + n.ph);
       const flash = Math.pow(Math.max(0, w), 8);
       (m.material).opacity = 0.4 + flash * 0.6;
@@ -828,7 +830,7 @@ function JunctionNodes({ tier }) {
         <mesh
           key={i}
           ref={(el) => {
-            if (el) refs.current[i] = el;
+            refs.current[i] = el;
           }}
           rotation-x={-Math.PI / 2}
           position={[n.x, 0.1, n.z]}
