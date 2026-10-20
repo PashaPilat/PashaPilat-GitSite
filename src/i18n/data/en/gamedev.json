@@ -44,15 +44,18 @@
     "items": [
       {
         "title": "Game worlds",
-        "description": "Exploring virtual worlds, their stories and internal rules."
+        "description": "Exploring virtual worlds, their stories and internal rules.",
+        "slug": "game-worlds"
       },
       {
         "title": "Mechanics and interaction",
-        "description": "Experiments with player actions, game systems and their relationships."
+        "description": "Experiments with player actions, game systems and their relationships.",
+        "slug": "mechanics"
       },
       {
         "title": "Development tools",
-        "description": "Ideas for tools to create, test and develop game projects."
+        "description": "Ideas for tools to create, test and develop game projects.",
+        "slug": "development-tools"
       }
     ]
   },

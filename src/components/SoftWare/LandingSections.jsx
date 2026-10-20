@@ -14,8 +14,21 @@ function Paragraph({ children }) {
     return <p>{children.split("**").map((part, i) => i % 2 ? <strong key={i}>{part}</strong> : part)}</p>;
 }
 
+function pluralUnit(lang, n) {
+    const units = lang === "ru" ? ["год", "года", "лет"] : ["рік", "роки", "років"];
+    const rem10 = n % 10;
+    const rem100 = n % 100;
+    if (rem10 === 1 && rem100 !== 11) return units[0];
+    if (rem10 >= 2 && rem10 <= 4 && !(rem100 >= 11 && rem100 <= 14)) return units[1];
+    return units[2];
+}
+
 function Philosophy({ lang, page = "software" }) {
     const p = t(lang, page, "philosophy");
+    const years = new Date().getFullYear() - 2005;
+    const unit = lang === "en" ? "years" : pluralUnit(lang, years);
+    const applyYear = (text) => text.replace(/{{years}}/g, String(years)).replace(/{{unit}}/g, unit);
+    const intro = p.intro.map(applyYear);
     const frameRef = useRef(null);
     const chaptersRef = useRef([]);
     const [active, setActive] = useState(0);
@@ -85,11 +98,11 @@ function Philosophy({ lang, page = "software" }) {
                     </nav>
 
                     <article className="software-philosophy__article">
-                        <div className="software-philosophy__intro">{p.intro.map((text, i) => <Paragraph key={i}>{text}</Paragraph>)}</div>
+                        <div className="software-philosophy__intro">                        {intro.map((text, i) => <Paragraph key={i}>{text}</Paragraph>)}</div>
                         {p.sections.map((section, i) => <section id={`philosophy-${i + 1}`} className="software-philosophy__chapter" key={i} aria-labelledby={`philosophy-title-${i + 1}`} ref={el => { chaptersRef.current[i] = el; }}>
                             <p className="software-eyebrow software-eyebrow--plain" aria-hidden="true">§ {String(i + 1).padStart(2, "0")}</p>
                             <h3 id={`philosophy-title-${i + 1}`}>{section.title}</h3>
-                            {section.paragraphs.map((text, j) => <Paragraph key={j}>{text}</Paragraph>)}
+                             {section.paragraphs.map((text, j) => <Paragraph key={j}>{applyYear(text)}</Paragraph>)}
                         </section>)}
                     </article>
                 </div>

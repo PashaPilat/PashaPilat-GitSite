@@ -28,5 +28,9 @@
   },
   "backToTop": "Back to top",
   "photoAlt": "Photo of Pavlo",
-  "quickNavigation": "Quick navigation"
+  "quickNavigation": "Quick navigation",
+  "notFound": {
+    "message": "Page not found",
+    "back": "Back to home"
+  }
 }

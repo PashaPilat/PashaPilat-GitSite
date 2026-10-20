@@ -3,10 +3,16 @@
 
 /* ─── Навигация ─── */
 .hero-wrapper {
-    header {
+    header.home {
         position: fixed;
         top: 0; left: 0; right: 0;
         z-index: 3;
+        transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    header.home.is-scrolled {
+        background: #183020ad;
+        border-bottom: 1px solid #245c3a;
     }
 
     .navbar {
@@ -269,5 +275,12 @@
             .nav-links a { display: block; padding-block: 10px; }
         }
         .burger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+    }
+}
+
+body.mx-lightbox-open {
+    .hero-wrapper header.home {
+        opacity: 0;
+        pointer-events: none;
     }
 }

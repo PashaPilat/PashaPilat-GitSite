@@ -47,6 +47,7 @@ export default function FeaturedProjects() {
         if (!section || !head) return;
 
         let raf = 0;
+        let reflowRAF = 0;
         let m = getMetrics();
         let headH = 0;
         let pinDistance = 0;
@@ -103,8 +104,11 @@ export default function FeaturedProjects() {
             if (!raf) raf = requestAnimationFrame(paint);
         };
         const onReflow = () => {
-            layout();
-            schedule();
+            if (reflowRAF) cancelAnimationFrame(reflowRAF);
+            reflowRAF = requestAnimationFrame(() => {
+                layout();
+                schedule();
+            });
         };
 
         onReflow();
@@ -115,6 +119,7 @@ export default function FeaturedProjects() {
             window.removeEventListener("scroll", schedule);
             window.removeEventListener("resize", onReflow);
             if (raf) cancelAnimationFrame(raf);
+            if (reflowRAF) cancelAnimationFrame(reflowRAF);
         };
     }, [total]);
 
@@ -140,8 +145,8 @@ export default function FeaturedProjects() {
 
             <div className="fp-stage">
                 {preparedProjects.map((project, i) => (
-                    <article key={project.id} ref={(el) => { cardRefs.current[i] = el; }}
-                        className="fp-card" style={{ "--accent": project.accent }}>
+                    <Link key={project.id} ref={(el) => { cardRefs.current[i] = el; }}
+                        className="fp-card" to={`${projectsPath}/${project.id}`} style={{ "--accent": project.accent }}>
                         <div className="fp-card__media">
                             <img src={project.image} alt={project.title} loading={i === 0 ? "eager" : "lazy"}
                                 draggable={false} />
@@ -158,13 +163,9 @@ export default function FeaturedProjects() {
                                     <span key={item} className="fp-card__chip">{item}</span>
                                 ))}
                             </div>
-                            <Link className="fp-card__link" to={`${projectsPath}/${project.id}`}>
-                                <span>{t(currentLang, "home", "projectButton")}</span>
-                                <FontAwesomeIcon icon={faArrowUpRightFromSquare} size="sm" />
-                            </Link>
                         </div>
                         <span className="fp-card__shade" aria-hidden />
-                    </article>
+                    </Link>
                 ))}
                 {/* HUD: счётчик и точки прогресса */}
                 <div className="fp-hud" aria-hidden>

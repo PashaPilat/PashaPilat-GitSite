@@ -43,15 +43,18 @@
     "items": [
       {
         "title": "Practical tools",
-        "description": "Small ideas for simplifying everyday actions."
+        "description": "Small ideas for simplifying everyday actions.",
+        "slug": "practical-tools"
       },
       {
         "title": "Research and experiments",
-        "description": "Testing new approaches and exploring technology."
+        "description": "Testing new approaches and exploring technology.",
+        "slug": "experiments"
       },
       {
         "title": "Between disciplines",
-        "description": "Ideas that connect several fields and do not fit into one category."
+        "description": "Ideas that connect several fields and do not fit into one category.",
+        "slug": "crossroads"
       }
     ]
   },

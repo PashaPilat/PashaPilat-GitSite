@@ -480,6 +480,19 @@
     }
   }
 
+  @media (max-width: 768px) {
+    &__text {
+      p {
+        font-size: 17px;
+        line-height: 1.74;
+      }
+    }
+
+    &__text &__lead {
+      font-size: 19px;
+    }
+  }
+
   @media (max-width: 700px) {
     &__skew-inner {
       margin-top: -90px;

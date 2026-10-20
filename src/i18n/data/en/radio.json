@@ -43,15 +43,18 @@
     "items": [
       {
         "title": "Electronic devices",
-        "description": "Ideas for devices and circuits that address practical tasks."
+        "description": "Ideas for devices and circuits that address practical tasks.",
+        "slug": "electronics"
       },
       {
         "title": "Communication and signals",
-        "description": "Exploring information transmission, signals and device interaction."
+        "description": "Exploring information transmission, signals and device interaction.",
+        "slug": "signals"
       },
       {
         "title": "Software control",
-        "description": "Experiments in device control and combining hardware with software."
+        "description": "Experiments in device control and combining hardware with software.",
+        "slug": "control-systems"
       }
     ]
   },

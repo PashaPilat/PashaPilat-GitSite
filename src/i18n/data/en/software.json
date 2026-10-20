@@ -43,6 +43,18 @@
   "breadcrumbs": "Breadcrumbs",
   "backToCatalog": "Back to catalog",
   "notFound": "Project not found",
+  "tabOverview": "Overview",
+  "tabRoadmap": "Progress & Roadmap",
+  "overall": "Overall progress",
+  "done": "Done",
+  "progress": "In progress",
+  "planned": "Planned",
+  "contents": "Contents",
+  "toRoadmap": "View roadmap",
+  "toOverview": "Back to overview",
+  "roadmapEyebrow": "DEVELOPMENT PROGRESS",
+  "roadmapTitle": "Roadmap",
+  "roadmapNote": "Steps reflect the current plan. The order and set of steps may change as development progresses.",
   "about": "About the project",
   "features": "Main features",
   "directionsNote": "Areas of development. Availability of individual features depends on the current version.",
@@ -51,6 +63,7 @@
   "gallery": "Application interface",
   "galleryNote": "Screenshots of current working interfaces. Open an image to view it at full size.",
   "openScreenshot": "Open image",
+  "openGallery": "Open gallery",
   "tags": "Areas",
   "items": {
     "jarvis-ii": {
@@ -176,7 +189,7 @@
           "This shapes my approach to development. I do not try to cover as many areas as possible, and I do not think that every existing program needs an alternative. If a particular task is already solved well, there is no point in creating another product just to be present in the market. But when existing tools leave significant gaps, restrict users with paid features or do not provide a sufficiently convenient solution, there is room for an idea of my own.",
           "The initial need is only the starting point. I do not want to limit myself to a small utility that solves one narrow task if there is a prospect of building a more complete solution. I want to cover the full range of necessary features, think through their relationships and give the user a complete tool rather than another piece that has to be supplemented with several other programs.",
           "Jarvis II is a good example of this approach. The idea of my own intelligent assistant came to me long before modern artificial intelligence tools became available in their present form. The inspiration was Jarvis from the Tony Stark films, not as something to copy, but as the idea of a personal assistant that understands a user's tasks, interacts with the system and helps manage what happens on the computer.",
-          "The first version of my project appeared about ten years ago and was an interactive system of hints. It was far from the current vision, and the project was eventually lost along with the hard drive. But the idea itself did not disappear. Over time, new technologies, possibilities and conditions made it realistic to return to it at a completely different level. That became Jarvis II, a second version of a longstanding idea, developed with today's possibilities and my current understanding of what such an assistant should be.",
+          "The first version of my project appeared about {{years}} years ago and was an interactive system of hints. It was far from the current vision, and the project was eventually lost along with the hard drive. But the idea itself did not disappear. Over time, new technologies, possibilities and conditions made it realistic to return to it at a completely different level. That became Jarvis II, a second version of a longstanding idea, developed with today's possibilities and my current understanding of what such an assistant should be.",
           "For me, this is a telling example: technology alone does not determine a product's value. It makes it possible to realize a vision that previously might have remained only an image of the future."
         ]
       },

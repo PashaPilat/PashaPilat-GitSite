@@ -83,7 +83,8 @@ module.exports = (env, argv) => {
             },
             historyApiFallback: true,
             port: 3000,
-            open: true
+            open: true,
+            hot: true
         },
 
         resolve: {

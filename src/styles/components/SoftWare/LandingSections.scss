@@ -77,6 +77,12 @@
         background: #39ff88;
         box-shadow: 0 0 8px rgba(18, 168, 74, 0.9);
     }
+
+    &--active {
+        background: #39ff88;
+        border: 1px solid #39ff88;
+        box-shadow: 0 0 8px rgba(18, 168, 74, 0.9);
+    }
 }
 
 .software-divider {
@@ -341,6 +347,18 @@
         color: #87b89a;
     }
 
+    &__screenshots {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-left: 12px;
+
+        @media (max-width: 650px) {
+            gap: 2px;
+            margin-left: 8px;
+        }
+    }
+
     &__ghost {
         position: absolute;
         top: 40px;
@@ -426,6 +444,37 @@
         padding: 5px 9px;
         border: 1px solid rgba(57, 255, 136, 0.35);
         background: rgba(2, 8, 4, 0.78);
+    }
+
+    &__nav {
+        position: absolute;
+        top: 50%;
+        z-index: 4;
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border: 1px solid #245c3a;
+        border-radius: 50%;
+        background: rgba(2, 8, 4, 0.85);
+        color: #8fbfa2;
+        font: 700 18px "JetBrains Mono", monospace;
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s, background 0.2s;
+        pointer-events: auto;
+
+        &:hover { border-color: #39ff88; color: #39ff88; background: rgba(6, 20, 12, 0.92); }
+        &--prev { left: 10px; transform: translateY(-50%); }
+        &--next { right: 10px; transform: translateY(-50%); }
+
+        @media (max-width: 650px) {
+            width: 28px;
+            height: 28px;
+            font-size: 14px;
+
+            &--prev { left: 6px; }
+            &--next { right: 6px; }
+        }
     }
 
     &__body {
@@ -1235,6 +1284,14 @@
 
     .software-philosophy__toc { position: static; }
     .software-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .software-card__nav {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        &--prev { left: 8px; }
+        &--next { right: 8px; }
+    }
 }
 
 @media (max-width: 650px) {
@@ -1245,6 +1302,21 @@
 
     .software-grid {
         grid-template-columns: 1fr;
+    }
+
+    .software-card__termbar {
+        font-size: 9px;
+        gap: 5px;
+        padding: 9px 12px;
+    }
+
+    .software-card__screenshots {
+        gap: 2px;
+        margin-left: 6px;
+    }
+
+    .software-card__dot--active {
+        box-shadow: 0 0 4px rgba(57, 255, 136, 0.8);
     }
 
     .software-philosophy,

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { t } from "../../i18n";
 import Corners from "./Corners";
@@ -10,28 +10,45 @@ import "../../styles/components/SoftWare/LandingSections.scss";
 
 export function ProjectCard({ project, lang, index = 0 }) {
     const text = t(lang, "software", "items", project.slug);
-    return <article className="software-card software-reveal" style={{ "--d": `${index * 110}ms` }}>
+    const to = softwarePath(lang, `/${project.slug}`);
+    const gallery = (project.gallery?.length ? project.gallery : [project.preview]);
+    const [current, setCurrent] = useState(0);
+    const maxDots = 10;
+    const dotCount = Math.min(gallery.length, maxDots);
+    const prev = (e) => { e.preventDefault(); e.stopPropagation(); setCurrent((c) => (c - 1 + gallery.length) % gallery.length); };
+    const next = (e) => { e.preventDefault(); e.stopPropagation(); setCurrent((c) => (c + 1) % gallery.length); };
+
+    return <Link className="software-card software-reveal" to={to} style={{ "--d": `${index * 110}ms` }} aria-label={project.name}>
         <span className="software-card__ghost" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
         <Corners />
-        <div className="software-card__termbar" aria-hidden="true">
-            <i className="software-card__dot" />
-            <i className="software-card__dot" />
-            <i className="software-card__dot software-card__dot--g" />
+        <div className="software-card__termbar" aria-hidden="true">            
+            {gallery.length > 1 && (
+                <span className="software-card__screenshots" aria-hidden="true">
+                    {Array.from({ length: dotCount }).map((_, i) => (
+                        <i key={i} className={`software-card__dot${i === current ? " software-card__dot--g" : ""}`} />
+                    ))}
+                </span>
+            )}
             <span className="software-card__file">platp/{project.slug}</span>
         </div>
-        <Link className="software-card__image" to={softwarePath(lang, `/projects/${project.slug}`)} aria-label={project.name}>
-            <img src={project.preview} alt={`${project.name} — ${t(lang, "software", project.concept ? "concept" : "screenshot")}`} loading="lazy" width="1600" height="900" />
+        <div className="software-card__image" aria-hidden="true">
+            <img src={gallery[current]} alt={`${project.name} — ${t(lang, "software", project.concept ? "concept" : "screenshot")}`} loading="lazy" width="1600" height="900" />
             <span className="software-card__scan" aria-hidden="true" />
             {project.concept && <span className="software-card__caption">{t(lang, "software", "concept")}</span>}
-        </Link>
+            {gallery.length > 1 && (
+                <>
+                    <button type="button" className="software-card__nav software-card__nav--prev" onClick={prev} aria-label="Предыдущий скриншот">‹</button>
+                    <button type="button" className="software-card__nav software-card__nav--next" onClick={next} aria-label="Следующий скриншот">›</button>
+                </>
+            )}
+        </div>
         <div className="software-card__body">
             <span className="software-status"><i aria-hidden="true" />{t(lang, "software", "inDevelopment")}</span>
             <h3>{project.name}</h3>
             <p>{text.short}</p>
             <ul className="software-tags" aria-label={t(lang, "software", "tags")}>{project.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-            <Link className="software-link" to={softwarePath(lang, `/projects/${project.slug}`)} aria-label={`${t(lang, "software", "details")} — ${project.name}`}>{t(lang, "software", "details")} <span aria-hidden="true">↗</span></Link>
         </div>
-    </article>;
+    </Link>;
 }
 
 export default function ProjectCatalog({ lang, embedded = false, exclude, titleAs: Heading = "h2" }) {

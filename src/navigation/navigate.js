@@ -3,6 +3,7 @@ import { t } from "../i18n";
 import { getLangFromPath } from "../utils/getLangFromPath";
 import getPageFromPath from "../utils/getPageFromPath";
 import { BASENAME } from "../config";
+import { modes, modePath } from "./modes.mjs";
 
 const getContext = (pathname = window.location.pathname) => ({
     pathname,
@@ -84,10 +85,11 @@ export const nav = (
             return fallback ?? [];
         }
         const items = buildNavigation(currentNavigation, lang, type !== "web" ? type : "common");
-        // Nested catalogs/details keep navigation pointing at existing sections.
-        if (pathname.includes("/projects")) {
-            const home = `${BASENAME}${lang === "ru" ? "" : `/${lang}`}${type === "software" ? "/software" : "/"}`;
-            return items.map(item => type === "software" && item.key === "projects" ? item : { ...item, href: `${home}${item.href}` });
+        const modeIdx = modes.findIndex(m => m.id === type);
+        const home = `${BASENAME}${modePath(modeIdx, lang)}`;
+        const isBasePage = pathname === home || pathname === `${home}/`;
+        if (!isBasePage) {
+            return items.map(item => ({ ...item, href: `${home}${item.href}` }));
         }
         return items;
     }

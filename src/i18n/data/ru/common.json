@@ -28,5 +28,9 @@
   },
   "backToTop": "Наверх",
   "photoAlt": "Фото Павла",
-  "quickNavigation": "Быстрая навигация"
+  "quickNavigation": "Быстрая навигация",
+  "notFound": {
+    "message": "Страница не найдена",
+    "back": "На главную"
+  }
 }

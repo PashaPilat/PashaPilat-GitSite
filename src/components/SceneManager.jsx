@@ -25,21 +25,31 @@ export default function SceneManager() {
             //     hero.classList.remove("hero-pinned");
             // }
         };
+        let raf = 0;
         const measure = () => {
             if (disposed || !placeholder.current) return;
             heroHeight = hero.offsetHeight;
             placeholderElement.style.height = `${heroHeight}px`;
             onScroll();
         };
-        const observer = new ResizeObserver(measure);
+        const debouncedMeasure = () => {
+            if (typeof requestAnimationFrame !== "undefined") {
+                if (raf) cancelAnimationFrame(raf);
+                raf = requestAnimationFrame(measure);
+            } else {
+                measure();
+            }
+        };
+        const observer = new ResizeObserver(debouncedMeasure);
         observer.observe(hero);
         measure();
-        window.addEventListener("resize", measure);
+        window.addEventListener("resize", debouncedMeasure);
         window.addEventListener("scroll", onScroll);
         return () => {
             disposed = true;
+            if (raf) cancelAnimationFrame(raf);
             observer.disconnect();
-            window.removeEventListener("resize", measure);
+            window.removeEventListener("resize", debouncedMeasure);
             window.removeEventListener("scroll", onScroll);
             hero.classList.remove("hero-pinned");
         };

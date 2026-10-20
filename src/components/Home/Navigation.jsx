@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { nav } from "../../navigation/navigate";
 
@@ -9,9 +9,24 @@ import logo from "../../assets/images/logo 2.png";
 
 function Navigation() {
     const location = useLocation();
-    
+    const headerRef = useRef(null);
     const [menuState, setMenuState] = useState("close");
     const navigationItems = nav("", [], location.pathname);
+
+    useEffect(() => {
+        const header = headerRef.current;
+        if (!header) return;
+        const onScroll = () => {
+            if (window.scrollY > 8) {
+                header.classList.add("is-scrolled");
+            } else {
+                header.classList.remove("is-scrolled");
+            }
+        };
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
     // варианты: 
     // "close", nav-controls закрыт и не виден,logo виден, logo-burger не виден
     // "opening", имеет несколько статусов shows и open, nav-controls в этот момент начало анимаций открытия, тоесть  nav-controls уже дисплей блок, logo исчезает за 1с,logo-burger не виден
@@ -31,7 +46,7 @@ function Navigation() {
         setTimeout(() => setMenuState("close"), 1300 + 1500); // меню уезжает вверх
     };
     return (
-        <header className="home">
+        <header className="home" ref={headerRef}>
             <nav className="navbar">
                 <div className={`logo ${menuState}`}>
                     <img src={logo} alt="Logo" className="logo-img" />
